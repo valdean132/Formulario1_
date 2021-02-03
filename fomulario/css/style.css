@@ -27,7 +27,10 @@ span{
 .banner img{
     width: 90%;
     border-radius: 10px;
-    border: 2px solid #444;
+    margin-top: 30px;
+    box-shadow: 0px 0px 18px 4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 18px 4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 18px 4px rgba(0,0,0,0.75);
 }
 header{
     text-align: center;
@@ -110,6 +113,7 @@ section.formulario .form form .box-form label{
     margin-left: 5px;
     color: #444;
     font-weight: bold;
+    cursor: pointer;
 }
 section.formulario .form form .box-form input:focus,
 section.formulario .form form .box-form textarea:focus{
@@ -143,6 +147,7 @@ section.formulario .form form .box-form .box-form-resp input{
     height: auto;
     margin-top: 10px;
     margin-left: 15px;
+    cursor: pointer;
 }
 section.formulario .form form .box-form .box-form-ged input{
     margin-top: 15px;
@@ -152,6 +157,7 @@ section.formulario .form form .box-form .box-selecao input{
     width: auto;
     height: auto;
     margin-top: 10px;
+    cursor: pointer;
 }
 section.formulario .form form .box-form .box-selecao label{
     font-weight: 400;
