@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+html, body{
+    height: 100%;
+    background-color: rgb(245, 245, 245);
+}
+.center{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 2%;
+}
+span{
+    color: rgb(255, 30, 30);
+    display: inline-block;
+}
+
+
+
+.banner {
+    text-align: center;
+}
+.banner img{
+    width: 90%;
+    border-radius: 10px;
+    border: 2px solid #444;
+}
+header{
+    text-align: center;
+}
+header .contain{
+    display: inline-block;
+    text-align: left;
+    width: 90%;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 15px 15px 30px;
+    background-color: white;
+}
+header .contain h1{
+    font-size: 30px;
+    font-weight: 300;
+    margin: 15px 0 25px;
+    color: #444;
+}
+header .contain p{
+    font-size: 16px;
+    color: #555;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+header .contain span{
+    margin-top: 20px;
+}
+
+section.formulario{
+    text-align: center;
+}
+section.formulario .form{
+    display: inline-block;
+    text-align: left;
+    width: 90%;
+    /* border: 1px solid #444;
+    border-radius: 10px;
+    padding: 15px 15px 30px;
+    background-color: white; */
+}
+section.formulario .form form .box-form{
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 15px 15px 30px;
+    background-color: white;
+    margin-top: 20px;
+    padding: 30px;
+}
+section.formulario .form form .box-form:nth-of-type(1){
+    margin-top: 0;
+}
+section.formulario .form form .box-form h3{
+    font-size: 18px;
+    color: #223;
+    font-weight: 300;
+}
+section.formulario .form form .box-form input{
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    height: 20px;
+    margin-top: 30px;
+    font-size: 15px;
+    padding-bottom: 5px;
+    transition: 1s;
+    width: 60%;
+}
+section.formulario .form form .box-form textarea{
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    resize: none;
+    margin-top: 30px;
+    font-size: 15px;
+    transition: .5s;
+    width: 100%;
+}
+section.formulario .form form .box-form label{
+    font-size: 15px;
+    margin-left: 5px;
+    color: #444;
+    font-weight: bold;
+}
+section.formulario .form form .box-form input:focus,
+section.formulario .form form .box-form textarea:focus{
+    outline: none;
+    border-bottom: 2px solid #1673B5;
+}
+
+section.formulario .form form .box-form h4{
+    font-size: 16px;
+    color: #333;
+    font-weight: 300;
+    margin-top: 20px;
+}
+.box-form-casa_number{
+    display: flex;
+    width: 100%;
+}
+.box-form-casa_number .box-form-endereco{
+    width: 50%;
+}
+section.formulario .form form .box-form .box-form-endereco input{
+    margin-top: 15px;
+}
+.box-form-casa_number .box-form-endereco input{
+    width: 100%;
+}
+
+section.formulario .form form .box-form .box-form-resp input{
+    /* display: flex; */
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+section.formulario .form form .box-form .box-form-ged input{
+    margin-top: 15px;
+}
+
+section.formulario .form form .box-form .box-selecao input{
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+}
+section.formulario .form form .box-form .box-selecao label{
+    font-weight: 400;
+}
+section.formulario .form form .box-form .box-selecao div #outros{
+    width: 60%;
+}
+
+section.formulario .form form .box-form h3.dwddd{
+    color: #777;
+}
+section.formulario .form form .box-form h3.dwddd a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #0F467B;
+}
+section.formulario .form form .box-form h3.dwddd a:hover{
+    text-decoration: underline;
+}
+
+input[type=submit]{
+    border: 0;
+    margin: 20px 0;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(245, 245, 245);
+    max-width: 300px;
+    background-color: #36B24B;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s;
+}
+input[type=submit]:hover{
+    background-color: #00A651;
+}
+
+@media screen and (max-width: 768px){
+    .box-form-casa_number{
+        display: flex;
+        flex-direction: column;
+    }
+    .box-form-casa_number .box-form-endereco{
+        width: 100%;
+    }
+}
