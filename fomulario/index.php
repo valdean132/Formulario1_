@@ -11,6 +11,10 @@
 </head>
 <body>
     <div class="banner">
+        <?php
+            echo "<h2>$concluido</h2>";
+        
+        ?>
         <div class="center">
             <img src="./img/banner.png" alt="Banner">
         </div><!-- Center -->
@@ -34,15 +38,15 @@
     <section class="formulario">
         <div class="center">
             <div class="form">
-                <form action="">
+                <form method="POST">
                     <div class="box-form">
                         <h3>Seu Nome Completo: <span>*</span></h3>
-                        <input type="text" name="nome" placeholder="Digite aqui" maxlength="255" required>
+                        <input type="text" name="nome" placeholder="Digite aqui" maxlength="255" autofocus required>
                     </div><!-- Box-Form -->
 
                     <div class="box-form">
                         <h3>Seu E-mail: <span>*</span></h3>
-                        <input type="email" name="nome" placeholder="Digite aqui" maxlength="255" required>
+                        <input type="email" name="email" placeholder="Digite aqui" maxlength="255" required>
                     </div><!-- Box-Form -->
 
                     <div class="box-form">
@@ -55,36 +59,34 @@
                         <div class="box-form-casa_number">
                             <div class="box-form-endereco">
                                 <h4>Qual o nome de sua Rua: <span>*</span></h4>
-                                <input type="text" name="endereco" placeholder="Digite aqui" maxlength="255" required>
+                                <input type="text" name="rua" placeholder="Digite aqui" maxlength="255" required>
                             </div><!-- Box-Form-endereco -->
 
                             <div class="box-form-endereco">
                                 <h4>Qual o número de sua Casa: <span>*</span></h4>
-                                <input type="text" name="endereco" placeholder="Digite aqui" maxlength="255" required>
+                                <input type="text" name="numCasa" placeholder="Digite aqui" maxlength="255" required>
                             </div><!-- Box-Form-endereco -->
                         </div>
                         <div class="box-form-endereco">
                             <h4>Qual o nome de seu Bairro: <span>*</span></h4>
-                            <input type="text" name="endereco" placeholder="Digite aqui" maxlength="255" required>
+                            <input type="text" name="bairro" placeholder="Digite aqui" maxlength="255" required>
                         </div><!-- Box-Form-endereco -->
                     </div><!-- Box-Form -->
 
                     <div class="box-form">
                         <h3>Você participa de algum ged? <span>*</span></h3>
                         <div class="box-form-resp">
-                            <input id="s" type="radio" name="resp" value="1" checked>
+                            <input id="s" type="radio" name="resp_ged" value="1" checked>
                             <label for="s">Sim</label>
-                            <input id="n" type="radio" name="resp" value="2">
+                            <input id="n" type="radio" name="resp_ged" value="2">
                             <label for="n">Não</label>
                         </div>
                         <div class="box-form-ged">
                             <h4>Se sim, qual o nome?</h4>
-                            <input type="text" name="nome-ged" placeholder="Digite aqui" maxlength="255">
-                        </div><!-- Box-Form-ged -->
-
-                        <div class="box-form-ged">
+                            <input type="text" name="nome_ged" placeholder="Digite aqui" maxlength="255">
+                    
                             <h4>Quem é seu Supervisor?</h4>
-                            <input type="text" name="nome-supervisor" placeholder="Digite aqui" maxlength="255">
+                            <input type="text" name="nome_supervisor" placeholder="Digite aqui" maxlength="255">
                         </div><!-- Box-Form-ged -->
                     </div><!-- Box-Form -->
 
@@ -93,32 +95,32 @@
                         <p>Você pode marcar mais de uma opção.</p>
                         <div class="box-selecao">
                             <div>
-                                <input type="checkbox" name="opcao" value="1" id="op1">
+                                <input type="checkbox" name="opcao[]" value="1" id="op1">
                                 <label for="op1">Apoio Espiritual (Pedido de oração, palavra do pastor, leitura da palavra de Deus)</label>
                             </div>
 
                             <div>
-                                <input type="checkbox" name="opcao" value="1" id="op2">
+                                <input type="checkbox" name="opcao[]" value="1" id="op2">
                                 <label for="op2">Apoio Psicológico (Estou de luto, depressão, ansiedade)</label>
                             </div>
 
                             <div>
-                                <input type="checkbox" name="opcao" value="1" id="op3">
+                                <input type="checkbox" name="opcao[]" value="1" id="op3">
                                 <label for="op3">Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)</label>
                             </div>
 
                             <div>
-                                <input type="checkbox" name="opcao" value="1" id="op4">
+                                <input type="checkbox" name="opcao[]" value="1" id="op4">
                                 <label for="op4">Atendimento de Fisioterapia</label>
                             </div>
 
                             <div>
-                                <input type="checkbox" name="opcao" value="1" id="op5">
+                                <input type="checkbox" name="opcao[]" value="1" id="op5">
                                 <label for="op5">Atendimento de enfermagem (suspeita de Covid, dúvidas e suporte)</label>
                             </div>
 
                             <div>
-                                <input type="checkbox" name="opcao" value="1" id="op6">
+                                <input type="checkbox" name="opcao[]" value="1" id="op6">
                                 <label for="op6">Outro:</label>
                                 <input id="outros" type="text" name="outros" placeholder="Digite aqui" maxlength="255">
                             </div>
@@ -127,7 +129,7 @@
 
                     <div class="box-form">
                         <h3>Caso queira, pode descrever abaixo com mais detalhes suas necessidades:</h3>
-                        <textarea name="necessidade" placeholder="Digite aqui" id="autoTxtArea" maxlength="255" ></textarea>
+                        <textarea name="necessidade" placeholder="Digite aqui" rows="1" id="autoTxtArea" onkeydown="autoResize()" maxlength="255" ></textarea>
                     </div><!-- Box-Form -->
 
                     <div class="box-form">
@@ -140,15 +142,13 @@
         </div><!-- Center -->
     </section><!-- Section - formulario -->
 
-    <script>
-        var txtAreas = document.querySelectorAll('#autoTxtArea');
-            for(x=0;x<txtAreas.length;x++){
-                txtAreas[x].addEventListener('input', function(){
-                        if(this.scrollHeight > this.offsetHeight){
-                            this.rows += 1;
-                        }
-                });
+    <script>        
+        function autoResize(){
+            objTextArea = document.getElementById('autoTxtArea');
+            if (objTextArea.scrollHeight > objTextArea.offsetHeight){
+                objTextArea.rows += 1;
             }
+        }
     </script>
 </body>
 </html>
