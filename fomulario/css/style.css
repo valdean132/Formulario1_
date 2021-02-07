@@ -19,7 +19,11 @@ span{
     display: inline-block;
 }
 
-
+.verificacao{
+    margin-top: 20px;
+    font-size: 20px;
+    color: #e72f0f;
+}
 .confirmado{
     margin-top: 20px;
     font-size: 20px;
