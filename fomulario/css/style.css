@@ -20,7 +20,11 @@ span{
 }
 
 
-
+.confirmado{
+    margin-top: 20px;
+    font-size: 20px;
+    color: #00A651;
+}
 .banner {
     text-align: center;
 }
@@ -201,6 +205,17 @@ input[type=submit]{
 }
 input[type=submit]:hover{
     background-color: #00A651;
+}
+
+.confDados{
+    margin: 30px 0 10px;
+}
+.confDados input{
+    cursor: pointer;
+}
+.confDados label{
+    color: #e72f0f;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px){
