@@ -1,8 +1,4 @@
-<?php include('class/envForm.php');
-
-
-
-?>
+<?php include('class/envForm.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Valdean Palmeira de Souza">
     <meta name="description" content="Essa página de formulario serve para que as pessoas necessitadas de alguma forma possa buscar ajuda e esse foi o meio que achamos para possamos ajudar essas pessoas.">
-    <title>Acolhimento IBN Nova Canaã</title>
+    <title>Acolhimento IBN Nova Canaã || Formulário</title>
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <div class="banner">
-    <?php   echo "$confirmado"; ?>
+    <?php   echo $confirmado; ?>
         <div class="center">
             <img src="./img/banner.png" alt="Banner">
         </div><!-- Center -->

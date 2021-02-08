@@ -1,0 +1,214 @@
+.center{
+    max-width: 1180px;
+}
+html, body{
+    overflow: hidden;
+}
+
+/* Header */
+
+header{
+    width: 100%;
+    height: 100px;
+    background-color: #00A651;
+}
+header .center{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0;
+}
+
+header .logo a img{
+    width: 150px;
+    height: 90px;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+}
+
+.user h2{
+    color: #F5F5F5;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    /* cursor: auto; */
+}
+
+.img_logo{
+    margin-left: 10px;
+    width: 35px;
+    cursor: pointer;
+}
+
+/* ** */
+
+
+/* Section Banner */
+
+section.banner{
+    width: 100%;
+    margin-top: 60px;
+}
+section.banner .center{
+    text-align: center;
+}
+section.banner .text-banner{
+    width: 90%;
+    max-width: 650px;
+    display: inline-block;
+    color: #888888;
+    text-align: center;
+}
+section.banner .text-banner h3{
+    font-size: 25px;
+    font-weight: normal;
+    font-style: normal;
+}
+section.banner .text-banner h3:nth-of-type(2){
+    margin-top: 30px;
+}
+section.banner .text-banner h3 a{
+    color: #24B6F7;
+    text-decoration: none;
+    transition: .2s;
+}
+section.banner .text-banner h3 a:hover{
+    text-decoration: underline;
+}
+
+/* ** */
+
+/* Section Button-List */
+
+section.button-list{
+    width: 100%;
+    margin-top: 80px;
+}
+section.button-list .center{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+section.button-list .btn-list{
+    width: 80%;
+    max-width: 380px;
+}
+
+
+.btn-wraper-center{
+    position: relative;
+}
+
+.btn-wraper-center .cont{
+    position: absolute;
+    right: -11px;
+    top: -11px;
+    z-index: 999;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: #24B6F7;
+    border-radius: 50%;
+    border: 2px solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-wraper-center .cont p{
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    color: #444;
+}
+
+.btn1{
+    background-color: #EE4444;
+}
+.btn2{
+    background-color: #00CC83;
+}
+.btn1:hover{
+    background-color: #d33131;
+}
+.btn2:hover{
+    background-color: #00ad71;
+}
+
+.btn-wraper-center .btn-wraper{
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    filter: drop-shadow(0 3px 2px rgba(0, 0, 0, .5));
+    transition: .5s;
+}
+.btn-wraper-center .btn-wraper h4{
+    color: #EEEEEE;
+    font-size: 20px;
+    margin-right: 15px;
+    font-weight: normal;
+    font-style: normal;
+}
+.seta1{
+    background-image: url('../img/seta-para-baixo1.svg');
+}
+.seta2{
+    background-image: url('../img/seta-para-baixo2.svg');
+}
+.btn-wraper-center .btn-wraper .seta-para-baixo{
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: .2s;
+}
+.btn-wraper-center .btn-wraper:hover .seta-para-baixo{
+    transform: rotate(-180deg);
+}
+
+.btn-list .list-nomes{
+    width: 100%;
+    /* height: auto; */
+    /* max-height: 150px; */
+    background-color: #d5d5d5;
+    transition: .5s;
+    border-radius: 0 0 10px 10px;
+    overflow: auto;
+}
+.btn-list .list-nomes .name-date{
+    width: 95%;
+    /* display: flex; */
+    display: none;
+    justify-content: center;
+    margin: 10px auto;
+    padding: 0 2% 2px;
+    border-bottom: 1px solid #53E0DB;
+    color: #777777;
+    cursor: pointer;
+    font-size: 0px;
+    transition: .5s;
+}
+.btn-list .list-nomes .name-date h4{
+    font-size: 17px;
+    font-weight: normal;
+    font-style: normal;
+    margin-right: 10px;
+}
+.btn-list .list-nomes .name-date p{
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: bottom;
+}
+
+
+/* ** */
