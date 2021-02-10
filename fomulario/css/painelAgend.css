@@ -171,23 +171,23 @@ section.button-list .btn-list{
     background-size: 100% 100%;
     transition: .2s;
 }
-.btn-wraper-center .btn-wraper:hover .seta-para-baixo{
+/* .btn-wraper-center .btn-wraper:hover .seta-para-baixo{
     transform: rotate(-180deg);
-}
+} */
 
-.btn-list .list-nomes{
+.list-nomes{
     width: 100%;
-    /* height: auto; */
-    /* max-height: 150px; */
+    display: none;
+    height: auto;
+    max-height: 150px;
     background-color: #d5d5d5;
-    transition: .5s;
+    /* transition: .5s; */
     border-radius: 0 0 10px 10px;
     overflow: auto;
 }
-.btn-list .list-nomes .name-date{
+.name-date{
     width: 95%;
-    /* display: flex; */
-    display: none;
+    display: flex;
     justify-content: center;
     margin: 10px auto;
     padding: 0 2% 2px;
@@ -197,13 +197,13 @@ section.button-list .btn-list{
     font-size: 0px;
     transition: .5s;
 }
-.btn-list .list-nomes .name-date h4{
+.name-date h4{
     font-size: 17px;
     font-weight: normal;
     font-style: normal;
     margin-right: 10px;
 }
-.btn-list .list-nomes .name-date p{
+.name-date p{
     font-size: 13px;
     font-weight: normal;
     font-style: normal;
