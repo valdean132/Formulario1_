@@ -1,4 +1,4 @@
-<?php include('class/envForm.php'); ?>
+<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,14 +8,14 @@
     <meta name="description" content="Essa página de formulario serve para que as pessoas necessitadas de alguma forma possa buscar ajuda e esse foi o meio que achamos para possamos ajudar essas pessoas.">
     <title>Acolhimento IBN Nova Canaã || Formulário</title>
 
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/index.css">
 </head>
 <body>
     <div class="banner">
-    <?php   echo $confirmado; ?>
+    <!-- <?php echo $confirmado; ?> -->
         <div class="center">
-            <img src="./img/banner.png" alt="Banner">
+            <img src="<?php echo INCLUDE_PATH; ?>img/banner.png" alt="Banner">
         </div><!-- Center -->
     </div>
     <header>

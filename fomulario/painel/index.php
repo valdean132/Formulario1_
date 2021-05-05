@@ -1,3 +1,4 @@
+<?php include('../config.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,8 +8,8 @@
     <meta name="description" content="Essa página de formulario serve para que as pessoas necessitadas de alguma forma possa buscar ajuda e esse foi o meio que achamos para possamos ajudar essas pessoas.">
     <title>Acolhimento IBN Nova Canaã || Painel de controle de agendamento</title>
 
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/painelAgend.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/painelAgend.css">
 </head>
 <body>
     <header>
@@ -175,7 +176,7 @@
 
 
     <!-- JavaScript - JQuery -->
-    <script src="../js/jquery-3.5.1.min.js"></script>
-    <script src="../js/animacoes.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/jquery-3.5.1.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/animacoes.js"></script>
 </body>
 </html>
