@@ -16,7 +16,7 @@
                 <div class="user-img">
                     <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user2.svg" alt="User">
                 </div><!-- Img-User -->
-                <form>
+                <form method="post">
                     <div class="flex-login user-name">
                         <div class="user-img11">
                             <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user2.svg" alt="User">
@@ -28,7 +28,7 @@
 
                     <div class="flex-login user-password">
                         <div class="user-img11">
-                            <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user2.svg" alt="User">
+                            <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/cadeado-fechado.svg" alt="User">
                         </div><!-- Img-User -->
                         <div class="input">
                             <input type="password" name="password" placeholder="PASSWORD" autocomplete="off">
@@ -37,12 +37,26 @@
 
                     <div class="flex-login logar-button">
                         <div class="input">
-                            <input type="button" name="acao" value="LOGIN">
+                            <input type="submit" name="acao" value="LOGIN">
                         </div><!-- Input -->
-                    </div><!-- UserPassword -->
+                    </div><!-- UserSubmit -->
+
+                    <div class="user-lembrete">
+                        <div class="input">
+                            <input type="checkbox" name="lembrarUser" id="lembrarUser">
+                            <label for="lembrarUser"></label>
+                            <span>Lempre meu Login</span>
+                        </div><!-- Input -->
+                        <div class="senha-esquecida">
+                            <a href="#">Esqueceu a senha?</a>
+                        </div>
+                    </div><!-- Lembrete User -->
                 </form><!-- Form-Login -->
             </div><!-- Div-Form -->
+            <div class="suport">
+                <p>Algum erro ou dificuldade?! Entre em contato com o <a href="">Suport</a></p>
+            </div>
         </div><!-- Center -->
-    </main>
+    </main><!-- Conteiner Principal -->
 </body>
 </html>

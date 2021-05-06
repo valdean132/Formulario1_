@@ -54,6 +54,7 @@ form .flex-login{
     margin-top: 15px;
     padding: 2px;
     border-radius: 10px;
+    box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, .2);
 }
 
 .user-img11{
@@ -85,11 +86,87 @@ form .flex-login{
 }
 
 form .logar-button{
-    background-color: green;
+    background-color: rgb(14, 170, 14);
+    transition: background .2s linear;
+}
+form .logar-button:hover{
+    background-color: rgb(28, 153, 28);
+}
+form .logar-button .input{
+    width: 100%;
 }
 form .logar-button input{
+    width: 100%;
     cursor: pointer;
     font-size: 18px;
     color: white;
     font-weight: 300;
+    text-align: center;
+    /* background-color: white; */
+}
+
+.user-lembrete{
+    width: 100%;
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.user-lembrete .input{
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+.user-lembrete .input input{
+   display: none;
+}
+.user-lembrete .input label{
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;    
+    background-color: transparent;
+    border: 2px solid #fff;
+    cursor: pointer;
+
+    position: relative;
+}
+.user-lembrete .input label::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 15px;
+    border-right: 0px solid #0f0;
+    border-bottom: 0px solid #0f0;
+    transform: translate(-50%,-50%) rotate(35deg);
+    transition: border-bottom-width .5s step-end, border-right-width 1s step-end;
+}
+.user-lembrete:active .input label::after{
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+}
+.user-lembrete .input span{
+    margin-left: 8px;
+    font-size: 16px;
+    color: #ddd;
+}
+.user-lembrete .senha-esquecida{
+    width: 50%;
+    text-align: right;
+}
+.user-lembrete .senha-esquecida a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, .4);
+    font-style: italic;
+    font-size: 16px;
+}
+
+
+.suport{
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
 }

@@ -1,6 +1,6 @@
 <?php
     date_default_timezone_set('America/Manaus');
-
+    $confirmado = '';
     
     if(isset($_POST['acao'])){
         $momento_registro = date('Y-m-d H:i:s');
