@@ -62,30 +62,29 @@
         $necessidade = $_POST['necessidade'];
         $situacao_agendamento = 'Não';
 
-        $sql = $pdo->prepare("INSERT INTO `res_form`  VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        $sql = MySql::conectar()->prepare("INSERT INTO `res_form`  VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
         $sql->execute(array(
-            $momento_registro, 
-            $nome, 
-            $email, 
-            $telefone, 
-            $endereco, 
-            $resp_ged, 
-            $nome_ged, 
-            $nome_supervisor, 
-            $tipo_ajuda_opcao1, 
-            $tipo_ajuda_opcao2, 
-            $tipo_ajuda_opcao3, 
-            $tipo_ajuda_opcao4, 
-            $tipo_ajuda_opcao5, 
-            $tipo_ajuda_opcao6, 
-            $necessidade, 
-            $data_agendamento, 
-            $nome_profissional, 
-            $situacao_agendamento, 
+            $momento_registro,
+            $nome,
+            $email,
+            $telefone,
+            $endereco,
+            $resp_ged,
+            $nome_ged,
+            $nome_supervisor,
+            $tipo_ajuda_opcao1,
+            $tipo_ajuda_opcao2,
+            $tipo_ajuda_opcao3,
+            $tipo_ajuda_opcao4,
+            $tipo_ajuda_opcao5,
+            $tipo_ajuda_opcao6,
+            $necessidade,
+            $data_agendamento,
+            $nome_profissional,
+            $situacao_agendamento,
             $resp_agendamento
         ));
-
 
         $confirmado = "<h2 class='confirmado'>Seu formulário foi enviado com sucesso!!! <br/>Iremos analizar sua situação e entraremos em contato o mais rápido possível. Aguarde!</h2>";
 

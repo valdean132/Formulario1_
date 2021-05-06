@@ -1,4 +1,5 @@
 <?php include('config.php'); ?>
+<?php include('class/envForm.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +14,7 @@
 </head>
 <body>
     <div class="banner">
-    <!-- <?php echo $confirmado; ?> -->
+    <?php echo $confirmado; ?>
         <div class="center">
             <img src="<?php echo INCLUDE_PATH; ?>img/banner.png" alt="Banner">
         </div><!-- Center -->

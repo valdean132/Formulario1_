@@ -6,7 +6,7 @@
         // if($class == 'Email'){
         //     include('classes/phpmailer/src/PHPMailer.php');
         // }
-        include('classes/'.$class.'.php');
+        include('class/'.$class.'.php');
     };
 
     spl_autoload_register($autoload);
@@ -17,6 +17,6 @@
     // Conexão com o banco de dados
     define('HOST', 'localhost');
     define('USER', 'root');
-    define('PASSWORD','a');
+    define('PASSWORD','');
     define('DATABASER', 'atendimento_igreja'); 
 ?>

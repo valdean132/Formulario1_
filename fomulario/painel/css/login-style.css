@@ -1,0 +1,95 @@
+html, body{
+    background-color: blueviolet;
+}
+
+.form-login{
+    position: absolute;
+    width: 30%;
+    padding: 30px 1%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom: 2px solid #aaa;
+
+}
+.user-img{
+    position: relative;
+    width: 14%;
+    padding: 15%;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.user-img::before, .user-img::after{
+    content: '';
+    border-top: 2px solid #aaa;
+    width: 120%;
+    position: absolute;
+    top: 50%;
+}
+.user-img::after{
+    left: 100%;
+}
+.user-img::before{
+    right: 100%;
+}
+.user-img img{
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+form{
+    width: 100%;
+    margin-top: 30px;
+}
+form .flex-login{
+    display: flex;
+    background-color: white;
+    width: 100%;
+    margin-top: 15px;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.user-img11{
+    background-color: blueviolet;
+    width: 50px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 0 0 8px;
+}   
+
+.user-img11 img{
+    width: 60%;
+    height: 50%;
+}
+
+.input{
+    width: calc(100% - 50px);
+    height: 40px;
+}
+.input input{
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    background-color: transparent;
+
+    font-size: 16px;
+}
+
+form .logar-button{
+    background-color: green;
+}
+form .logar-button input{
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    font-weight: 300;
+}
