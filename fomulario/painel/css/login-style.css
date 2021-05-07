@@ -117,33 +117,34 @@ form .logar-button input{
     width: 50%;
     align-items: center;
 }
-.user-lembrete .input input{
+.user-lembrete .input input[type=checkbox]{
    display: none;
 }
 .user-lembrete .input label{
     display: block;
     width: 25px;
     height: 25px;
-    border-radius: 6px;    
+    border-radius: 6px;
     background-color: transparent;
     border: 2px solid #fff;
     cursor: pointer;
 
     position: relative;
 }
-.user-lembrete .input label::after{
-    content: '';
+.after-lembrete{
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 5px;
-    height: 15px;
+    width: 8px;
+    height: 20px;
     border-right: 0px solid #0f0;
     border-bottom: 0px solid #0f0;
     transform: translate(-50%,-50%) rotate(35deg);
-    transition: border-bottom-width .5s step-end, border-right-width 1s step-end;
+    transition: border-bottom-width .2s linear, border-right-width .5s linear;
 }
-.user-lembrete:active .input label::after{
+.user-lembrete input[type=checkbox]:checked + label > .after-lembrete{
+    /* display: block; */
     border-right-width: 3px;
     border-bottom-width: 3px;
 }
@@ -162,11 +163,39 @@ form .logar-button input{
     font-style: italic;
     font-size: 16px;
 }
-
+.user-lembrete .senha-esquecida a:hover{
+    text-decoration: underline;
+}
 
 .suport{
     position: absolute;
     bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
+}
+.suport p{
+    font: 16px;
+    color: rgba(255, 255, 255, .4);
+}
+.suport a{
+    text-decoration: none;
+    color: rgba(0, 204, 255, 0.637);
+}
+.suport a:hover{
+    text-decoration: underline;
+}
+.error-box{
+    width: 0%;
+    transition: .2s linear;
+}
+.error-box.activeErrorBox{
+    margin-top: 20px;
+    width: 100%;
+    height: 30px;
+    padding: 6px 2%;
+    text-align: center;
+    background-color: #f75353;
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
 }

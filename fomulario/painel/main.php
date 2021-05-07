@@ -1,5 +1,7 @@
 <?php 
-    
+    if(isset($_GET['loggout'])){
+        Painel::loggout();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,6 +28,10 @@
                 <div class="img_logo">
                     <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user.svg" alt="User_Img">
                 </div>
+
+                <div class="loggout">
+                    <a href="<?php echo INCLUDE_PATH_PANEL ?>?loggout">sair</a>
+                </div><!-- Loggout -->
             </div><!-- User -->
         </div><!-- Center -->
     </header><!-- Header -->

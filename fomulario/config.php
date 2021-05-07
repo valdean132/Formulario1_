@@ -19,4 +19,15 @@
     define('USER', 'root');
     define('PASSWORD','');
     define('DATABASER', 'atendimento_igreja'); 
+
+    // Função do usuario
+    function pegaCargo($cargo){
+        $arr = [
+            '0' => 'Normal',
+            '1' => 'Sub Administrador',
+            '2' => 'Administrador'
+        ];
+
+        return $arr[$cargo];
+    } 
 ?>

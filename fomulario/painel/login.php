@@ -10,19 +10,52 @@
     <title>Login</title>
 </head>
 <body>
+
+    <?php
+        $errorBox = '';
+        $activeErroBox = '';
+        if(isset($_POST['acao'])){
+            $user = $_POST['user'];
+            $password = $_POST['password'];
+
+            $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE user = ? AND password = ?");
+            $sql->execute(array($user, $password));
+
+            if($sql->rowCount() == 1){
+                $info = $sql->fetch();
+
+                // Login Efetuado com sucesso
+                $_SESSION['login'] = true;
+                $_SESSION['user'] = $user;
+                $_SESSION['password'] = $password;
+                $_SESSION['cargo'] = $info['cargo'];
+                $_SESSION['nome'] = $info['nome'];
+                $_SESSION['img'] = $info['img'];
+                header('Location: '.INCLUDE_PATH_PANEL);
+                die();
+            }else{
+                // Login e/ou senha incorretos
+                $activeErroBox = 'activeErrorBox';
+                $errorBox = 'Usuário ou Senha Incorretos';
+            }
+        }
+    ?>
     <main>
         <div class="center">
             <div class="form-login">
                 <div class="user-img">
                     <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user2.svg" alt="User">
                 </div><!-- Img-User -->
+
+                <div class="error-box <?php echo($activeErroBox);?>" style="<?php echo($opacityErroBox); ?>"><?php echo($errorBox); ?></div>
+                
                 <form method="post">
                     <div class="flex-login user-name">
                         <div class="user-img11">
                             <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user2.svg" alt="User">
                         </div><!-- Img-User -->
                         <div class="input">
-                            <input type="text" name="login" placeholder="USERNAME" autocomplete="off">
+                            <input type="text" name="user" placeholder="USERNAME" autocomplete="off">
                         </div><!-- Input -->
                     </div><!-- UserName -->
 
@@ -44,7 +77,9 @@
                     <div class="user-lembrete">
                         <div class="input">
                             <input type="checkbox" name="lembrarUser" id="lembrarUser">
-                            <label for="lembrarUser"></label>
+                            <label for="lembrarUser">
+                                <div class="after-lembrete"></div>
+                            </label>
                             <span>Lempre meu Login</span>
                         </div><!-- Input -->
                         <div class="senha-esquecida">
