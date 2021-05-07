@@ -24,13 +24,21 @@
                 </a>
             </div><!-- Logo -->
             <div class="user">
-                <h2>Bem Vindo(a), Funano de Tal.</h2>
-                <div class="img_logo">
-                    <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user.svg" alt="User_Img">
-                </div>
+                <div class="user-wecome">
+                    <h2><?php echo $_SESSION['nome'];?>, <?php echo pegaCargo($_SESSION['cargo']); ?>.</h2>
 
+                    <div class="img_logo">
+                        <?php if($_SESSION['img'] == ''){ ?>
+                            <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user.svg" alt="User_Img">
+                        <?php }else{ ?>
+                            <div class="imagem-usuario">
+                                <img src="<?php echo INCLUDE_PATH_PANEL ?>uploads/<?php echo $_SESSION['img']; ?>" alt="User_Img" title="<?php echo $_SESSION['nome'];?>">
+                            </div>
+                        <?php } ?>    
+                    </div>
+                </div><!-- user-wecome -->
                 <div class="loggout">
-                    <a href="<?php echo INCLUDE_PATH_PANEL ?>?loggout">sair</a>
+                    <a href="<?php echo INCLUDE_PATH_PANEL ?>?loggout"></a>
                 </div><!-- Loggout -->
             </div><!-- User -->
         </div><!-- Center -->

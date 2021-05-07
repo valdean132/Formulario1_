@@ -14,7 +14,6 @@
             }
 
             return self::$pdo;
-            
         }
     }
 
