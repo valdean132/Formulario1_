@@ -198,4 +198,8 @@ form .logar-button input{
     color: white;
     border-radius: 8px;
     font-size: 15px;
+    vertical-align: center;
+}
+.error-box.activeErrorBox.vazio{
+    height: 45px;
 }
