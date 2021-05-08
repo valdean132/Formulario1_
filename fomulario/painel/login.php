@@ -75,7 +75,7 @@
 
                     <div class="flex-login logar-button">
                         <div class="input">
-                            <input type="submit" name="acao" value="LOGIN">
+                            <input type="submit" name="acao" value="LOGIN" id="buttonEnviar">
                         </div><!-- Input -->
                     </div><!-- UserSubmit -->
 
