@@ -1,6 +1,4 @@
-
 $(function(){
-
     // var form = $('form');
     var lembrarUser = $('#lembrarUser');
 
@@ -32,4 +30,4 @@ $(function(){
     });
 
   
-})
+});

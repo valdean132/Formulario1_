@@ -17,10 +17,17 @@
         if(isset($_POST['acao'])){
             $user = $_POST['user'];
             $password = $_POST['password'];
-            $vazio = $user === '' || $password === '';
-            if($vazio){
+            $userVazio = $user === '';
+            $passwordVazio = $password === '';
+            if($userVazio && !$passwordVazio){
+                $activeErroBox = 'activeErrorBox';
+                $errorBox = 'O campo <strong>USERNAME</strong> deve está preenchido';   
+            }else if($passwordVazio && !$userVazio){
+                $activeErroBox = 'activeErrorBox';
+                $errorBox = 'O campo <strong>PASSWORD</strong> deve está preenchido';   
+            }else if($userVazio && $passwordVazio){
                 $activeErroBox = 'activeErrorBox vazio';
-                $errorBox = 'Os campos USERNAME e PASSWORD devem ser preenchidos';
+                $errorBox = 'Os campos <strong>USERNAME</strong> e <strong>PASSWORD</strong> devem ser preenchidos';    
             }else{
                 $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE user = ? AND password = ?");
                 $sql->execute(array($user, $password));
@@ -101,6 +108,6 @@
 
     <!-- JavaScript -- Jquery -->
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery-3.5.1.min.js"></script>
-    <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/entradaLogin.js"></script>
+    <!-- <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/entradaLogin.js"></script> -->
 </body>
 </html>
