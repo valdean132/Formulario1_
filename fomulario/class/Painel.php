@@ -7,6 +7,7 @@
         }
 
         public static function loggout(){
+            setcookie('lembrar', 'true', time()-1,'/');
             session_destroy();
 
             header('Location: '.INCLUDE_PATH_PANEL);

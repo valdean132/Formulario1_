@@ -1,3 +1,26 @@
+<?php
+    if(isset($_COOKIE['lembrar'])){
+        $user = $_COOKIE['user'];
+        $password = $_COOKIE['password'];
+        $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE user = ? AND password = ?");
+        $sql->execute(array($user, $password));
+
+        if($sql->rowCount() == 1){
+            $info = $sql->fetch();
+
+            // Login Efetuado com sucesso
+            $_SESSION['login'] = true;
+            $_SESSION['user'] = $user;
+            $_SESSION['password'] = $password;
+            $_SESSION['cargo'] = $info['cargo'];
+            $_SESSION['nome'] = $info['nome'];
+            $_SESSION['img'] = $info['img'];
+            header('Location: '.INCLUDE_PATH_PANEL);
+            die();
+        }
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,6 +30,7 @@
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/login-style.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/pace-theme-center-atom.css">
     <title>Login</title>
 </head>
 <body>
@@ -35,15 +59,26 @@
                 if($sql->rowCount() == 1){
                     $info = $sql->fetch();
 
-                    // Login Efetuado com sucesso
-                    $_SESSION['login'] = true;
-                    $_SESSION['user'] = $user;
-                    $_SESSION['password'] = $password;
-                    $_SESSION['cargo'] = $info['cargo'];
-                    $_SESSION['nome'] = $info['nome'];
-                    $_SESSION['img'] = $info['img'];
-                    header('Location: '.INCLUDE_PATH_PANEL);
-                    die();
+                    if($password === $info['password']){
+                        // Login Efetuado com sucesso
+                        $_SESSION['login'] = true;
+                        $_SESSION['user'] = $user;
+                        $_SESSION['password'] = $password;
+                        $_SESSION['cargo'] = $info['cargo'];
+                        $_SESSION['nome'] = $info['nome'];
+                        $_SESSION['img'] = $info['img'];
+                        if(isset($_POST['lembrar'])){
+                            setcookie('lembrar', true, time()+(60*60*24), '/');
+                            setcookie('user',$user,time()+(60*60*24), '/');
+                            setcookie('password',$password,time()+(60*60*24), '/');
+                        }
+                        header('Location: '.INCLUDE_PATH_PANEL);
+                        die();
+                    }else{
+                        // Login e/ou senha incorretos
+                        $activeErroBox = 'activeErrorBox';
+                        $errorBox = 'Usuário ou Senha Incorretos';
+                    }
                 }else{
                     // Login e/ou senha incorretos
                     $activeErroBox = 'activeErrorBox';
@@ -88,11 +123,11 @@
 
                     <div class="user-lembrete">
                         <div class="input">
-                            <input type="checkbox" name="lembrarUser" id="lembrarUser">
+                            <input type="checkbox" name="lembrar" id="lembrarUser">
                             <label for="lembrarUser">
                                 <div class="after-lembrete"></div>
                             </label>
-                            <span>Lempre meu Login</span>
+                            <span>Lembre-me</span>
                         </div><!-- Input -->
                         <div class="senha-esquecida">
                             <a href="#">Esqueceu a senha?</a>
@@ -108,6 +143,6 @@
 
     <!-- JavaScript -- Jquery -->
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery-3.5.1.min.js"></script>
-    <!-- <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/entradaLogin.js"></script> -->
+    <script src="<?php echo INCLUDE_PATH; ?>js/pace.min.js"></script>
 </body>
 </html>

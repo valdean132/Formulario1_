@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/index.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/pace-theme-minimal.css">
 </head>
 <body>
     <div class="banner">
@@ -51,7 +52,7 @@
 
                     <div class="box-form">
                         <h3>Seu Telefone Celular: <span>*</span></h3>
-                        <input type="text" name="telefone" placeholder="Digite aqui" minlength="11" maxlength="11" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input>
+                        <input type="text" name="telefone" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input>
                     </div><!-- Box-Form -->
 
                     <div class="box-form">
@@ -133,7 +134,7 @@
                     </div><!-- Box-Form -->
 
                     <div class="box-form">
-                        <h3 class="dwddd">Caso precise de algum tipo de ajuda ou tenha alguma dúvida, entre em contato <a href="https://api.whatsapp.com/send?l=pr_BR&phone=+5592981440771" target="_blank">92 98144-0771</a></h3>
+                        <h3 class="dwddd">Caso precise de algum tipo de ajuda ou tenha alguma dúvida, entre em contato <a href="https://api.whatsapp.com/send?l=pr_BR&phone=+5592981440771" target="_blank">(92) 9 8144-0771.</a></h3>
                     </div><!-- Box-Form -->
                     <div class="confDados">
                         <input type="checkbox" id="confDados" required>
@@ -152,6 +153,10 @@
                 objTextArea.rows += 1;
             }
         }
-    </script>
+    </script><!-- Height-TextAria-Auto -->
+    <script src="<?php echo INCLUDE_PATH; ?>js/jquery-3.5.1.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/jquery.mask.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/main.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/pace.min.js"></script>
 </body>
 </html>

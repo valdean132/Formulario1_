@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/painelAgend.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/pace-theme-center-atom.css">
 </head>
 <body>
     <header>
@@ -99,5 +100,6 @@
     <!-- JavaScript - JQuery -->
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery-3.5.1.min.js"></script>
     <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/animacoes.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/pace.min.js"></script>
 </body>
 </html>
