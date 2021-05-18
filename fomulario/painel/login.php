@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/login-style.css">
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/pace-theme-center-atom.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/pace-theme-minimal.css">
     <title>Login</title>
 </head>
 <body>
