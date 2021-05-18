@@ -33,9 +33,10 @@ html, body{
 .user-img::before{
     right: 100%;
 }
-.user-img img{
+.user-img i{
     width: 60%;
     height: 60%;
+    fill: #aaa;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,9 +68,17 @@ form .flex-login{
     border-radius: 8px 0 0 8px;
 }   
 
-.user-img11 img{
-    width: 60%;
-    height: 50%;
+.user-img11 i{
+    width: 50%;
+    height: 40%;
+    margin-bottom: 10px;
+    fill: #aaa;
+}
+.user-img11 i.cadeado{
+    width: 70%;
+    height: 60%;
+    margin-bottom: 0px;
+    margin-left: 10px;
 }
 
 .input{

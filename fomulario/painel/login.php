@@ -30,7 +30,6 @@
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/login-style.css">
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/pace-theme-minimal.css">
     <title>Login</title>
 </head>
 <body>
@@ -91,7 +90,7 @@
         <div class="center">
             <div class="form-login">
                 <div class="user-img">
-                    <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user2.svg" alt="User">
+                    <i alt="User_Img" title="Avatar"><?php echo Icon::$user1; ?></i>
                 </div><!-- Img-User -->
 
                 <div class="error-box <?php echo($activeErroBox);?>" style="<?php echo($opacityErroBox); ?>"><?php echo($errorBox); ?></div>
@@ -99,7 +98,7 @@
                 <form method="post" id="form">
                     <div class="flex-login user-name">
                         <div class="user-img11">
-                            <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user2.svg" alt="User">
+                            <i alt="User_Img"><?php echo Icon::$user1; ?></i>
                         </div><!-- Img-User -->
                         <div class="input">
                             <input type="text" id="user" name="user" placeholder="USERNAME" autocomplete="off">
@@ -108,7 +107,7 @@
 
                     <div class="flex-login user-password">
                         <div class="user-img11">
-                            <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/cadeado-fechado.svg" alt="User">
+                            <i alt="User_Img" class="cadeado"><?php echo Icon::$cadeadoFechado; ?></i>
                         </div><!-- Img-User -->
                         <div class="input">
                             <input type="password" id="password" name="password" placeholder="PASSWORD" autocomplete="off">

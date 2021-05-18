@@ -14,7 +14,6 @@
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/painelAgend.css">
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/pace-theme-minimal.css">
 </head>
 <body>
     <header>
@@ -28,19 +27,40 @@
                 <div class="user-wecome">
                     <h2><?php echo $_SESSION['nome'];?>, <?php echo pegaCargo($_SESSION['cargo']); ?>.</h2>
 
-                    <div class="img_logo">
-                        <?php if($_SESSION['img'] == ''){ ?>
-                            <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/user.svg" alt="User_Img">
-                        <?php }else{ ?>
-                            <div class="imagem-usuario">
-                                <img src="<?php echo INCLUDE_PATH_PANEL ?>uploads/<?php echo $_SESSION['img']; ?>" alt="User_Img" title="<?php echo $_SESSION['nome'];?>">
-                            </div>
-                        <?php } ?>    
-                    </div>
+                    <div class="menu-wraper">
+                        <div class="img_logo">
+                            <?php if($_SESSION['img'] == ''){ ?>
+                                <div class="imagem-user">
+                                    <i alt="User_Img" title="Avatar"><?php echo Icon::$user1; ?></i>
+                                </div>
+                            <?php }else{ ?>
+                                <div class="imagem-usuario">
+                                    <img src="<?php echo INCLUDE_PATH_PANEL ?>uploads/<?php echo $_SESSION['img']; ?>" alt="User_Img" title="<?php echo $_SESSION['nome'];?>">
+                                </div>
+                            <?php } ?>    
+                        </div>
+
+                        <nav class="menu-single">
+                            <ul>
+                                <li>
+                                    <a href=""><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
+                                </li>
+                                <li>
+                                    <a href=""><i><?php echo Icon::$cadastrar; ?></i>Cadastrar Usuário</a>
+                                </li>
+                                <li>
+                                    <a href=""><i><?php echo Icon::$relatorio; ?></i>Relatório</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo INCLUDE_PATH_PANEL ?>?loggout"><i><?php echo Icon::$loggout; ?></i>Sair</a>
+                                </li>
+                            </ul>
+                        </nav><!-- Menu Sigle -->
+                        
+                    </div><!-- Menu Wraper -->
                 </div><!-- user-wecome -->
-                <div class="loggout">
-                    <a href="<?php echo INCLUDE_PATH_PANEL ?>?loggout"></a>
-                </div><!-- Loggout -->
+
+                
             </div><!-- User -->
         </div><!-- Center -->
     </header><!-- Header -->

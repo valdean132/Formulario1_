@@ -11,7 +11,6 @@
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/index.css">
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/pace-theme-minimal.css">
 </head>
 <body>
     <div class="banner">
