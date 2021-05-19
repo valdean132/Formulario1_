@@ -84,22 +84,9 @@ nav.menu-single{
     height: auto;
     background-color: #00ad71;
     left: -145%;
-    top: 64px;
+    top: 63px;
     border-radius: 8px;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, .5);
-    /* opacity: 1;
-    transition: .5s linear; */
-}
-nav.menu-single::after{
-    content: '';
-    border: 15px solid #00ad71;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .5));
 }
 nav.menu-single ul{
     list-style: none;
@@ -234,13 +221,18 @@ section.button-list .btn-list{
 .btn-wraper-center .btn-wraper{
     width: 100%;
     height: 60px;
-    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     filter: drop-shadow(0 3px 2px rgba(0, 0, 0, .5));
-    transition: .5s;
+    transition: .5s linear;
+}
+.btn-wraper.border-radius1{
+    border-radius: 10px;
+}
+.btn-wraper.border-radius2{
+    border-radius: 10px 10px 0 0;
 }
 .btn-wraper-center .btn-wraper h4{
     color: #EEEEEE;
@@ -250,22 +242,22 @@ section.button-list .btn-list{
     font-style: normal;
 }
 .seta1{
-    background-image: url('../img/seta-para-baixo1.svg');
+    background-image: url('../../img/seta-para-baixo1.svg');
 }
 .seta2{
-    background-image: url('../img/seta-para-baixo2.svg');
+    background-image: url('../../img/seta-para-baixo2.svg');
 }
-.btn-wraper-center .btn-wraper .seta-para-baixo{
+.btn-wraper-center .btn-wraper .seta{
     width: 30px;
     height: 30px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    transition: .2s;
+    transition: .2s linear;
 }
-/* .btn-wraper-center .btn-wraper:hover .seta-para-baixo{
+.seta-para-cima{
     transform: rotate(-180deg);
-} */
+}
 
 .list-nomes{
     width: 100%;

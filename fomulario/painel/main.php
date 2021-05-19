@@ -41,6 +41,7 @@
                         </div>
 
                         <nav class="menu-single">
+                            <div class="after"></div>
                             <ul>
                                 <li>
                                     <a href=""><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
@@ -76,14 +77,14 @@
     </section><!-- Section - Banner -->
     <section class="button-list">
         <div class="center">
-            <div class="btn-list por_agendar">
-                <div class="btn-wraper-center">
+            <div class="btn-list">
+                <div class="btn-wraper-center por_agendar">
                     <div class="cont">
                         <p>5</p>
                     </div>
-                    <div class="btn1 btn-wraper">
+                    <div class="btn1 btn-wraper border-radius1">
                         <h4>Por agendar</h4>
-                        <div class="seta-para-baixo seta1"></div>
+                        <div class="seta-para-baixo seta1 seta"></div>
                     </div><!-- BTN - Wraper -->
                 </div><!-- Btn-Wraper-Center -->
 
@@ -95,14 +96,14 @@
                 </div><!-- list-nomes -->
             </div><!-- Btn-List -->
 
-            <div class="btn-list agendado">
-                <div class="btn-wraper-center">
+            <div class="btn-list">
+                <div class="btn-wraper-center agendado">
                     <div class="cont">
                         <p>5</p>
                     </div>
-                    <div class="btn2 btn-wraper">
+                    <div class="btn2 btn-wraper border-radius1">
                         <h4>Agendadas</h4>
-                        <div class="seta-para-baixo seta2"></div>
+                        <div class="seta-para-baixo seta2 seta"></div>
                     </div><!-- BTN - Wraper -->
                 </div><!-- Btn-Wraper-Center -->
 
