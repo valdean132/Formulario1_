@@ -13,14 +13,15 @@
     <title>Acolhimento IBN Nova Canaã || Painel de controle de agendamento</title>
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/painelAgend.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/main.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/home.css">
 </head>
 <body>
     <header>
         <div class="center">
             <div class="logo">
                 <a href="">
-                    <img src="https://static.wixstatic.com/media/a16b82_701423dcfd20453ca190ffb55b8e91a8~mv2.png/v1/crop/x_0,y_201,w_1090,h_674/fill/w_152,h_94,al_c,q_85,usm_0.66_1.00_0.01/a16b82_701423dcfd20453ca190ffb55b8e91a8~mv2.webp" alt="Logo">
+                    <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/logo.svg" alt="Logo">
                 </a>
             </div><!-- Logo -->
             <div class="user">
@@ -44,7 +45,7 @@
                             <div class="after"></div>
                             <ul>
                                 <li>
-                                    <a href=""><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
+                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario"><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
                                 </li>
                                 <li>
                                     <a href=""><i><?php echo Icon::$cadastrar; ?></i>Cadastrar Usuário</a>
@@ -53,7 +54,7 @@
                                     <a href=""><i><?php echo Icon::$relatorio; ?></i>Relatório</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo INCLUDE_PATH_PANEL ?>?loggout"><i><?php echo Icon::$loggout; ?></i>Sair</a>
+                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>?loggout"><i><?php echo Icon::$loggout; ?></i>Sair</a>
                                 </li>
                             </ul>
                         </nav><!-- Menu Sigle -->
@@ -65,57 +66,10 @@
             </div><!-- User -->
         </div><!-- Center -->
     </header><!-- Header -->
-    <section class="banner">
-        <div class="center">
-            <div class="text-banner">
-                <h3>
-                    Essa é uma área para fazer o agendamento das pessoas que se cadastraram no Projeto de Acolhimento IBN Nova Canaã, Por favor preste atenção nos campos de cadastro...
-                </h3>
-                <h3>Dúvidas clique <a href="">Aqui!</a></h3>
-            </div><!-- Text-Banner -->
-        </div><!-- Center -->
-    </section><!-- Section - Banner -->
-    <section class="button-list">
-        <div class="center">
-            <div class="btn-list">
-                <div class="btn-wraper-center por_agendar">
-                    <div class="cont">
-                        <p>5</p>
-                    </div>
-                    <div class="btn1 btn-wraper border-radius1">
-                        <h4>Por agendar</h4>
-                        <div class="seta-para-baixo seta1 seta"></div>
-                    </div><!-- BTN - Wraper -->
-                </div><!-- Btn-Wraper-Center -->
-
-                <div class="list-nomes anm1">
-                    <div class="name-date">
-                        <h4>Valdean Palmeira de Souza</h4>
-                        <p>07/02/2020 4:53:52</p>
-                    </div>
-                </div><!-- list-nomes -->
-            </div><!-- Btn-List -->
-
-            <div class="btn-list">
-                <div class="btn-wraper-center agendado">
-                    <div class="cont">
-                        <p>5</p>
-                    </div>
-                    <div class="btn2 btn-wraper border-radius1">
-                        <h4>Agendadas</h4>
-                        <div class="seta-para-baixo seta2 seta"></div>
-                    </div><!-- BTN - Wraper -->
-                </div><!-- Btn-Wraper-Center -->
-
-                <div class="list-nomes anm2">
-                    <div class="name-date">
-                        <h4>Valdean Palmeira de Souza</h4>
-                        <p>07/02/2020 4:53:52</p>
-                    </div>
-                </div><!-- list-nomes -->
-            </div><!-- Btn-List -->
-        </div><!-- Center -->
-    </section><!-- Section - Button-List -->
+    <div class="container-central">
+        <?php echo Painel::loadPage(); ?>
+    </div><!-- Container Central -->
+    
 
 
     <!-- JavaScript - JQuery -->
