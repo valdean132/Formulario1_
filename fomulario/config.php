@@ -29,5 +29,29 @@
         ];
 
         return $arr[$cargo];
-    } 
+    }
+
+    // Menu Selecionado
+    function selectMenu($menu){
+        $url = explode('/', @$_GET['url'])[0];
+
+        if($url == $menu){
+            echo 'class = "menu-active"';
+        }
+    }
+
+    // Display none
+    function display(){
+        $url = explode('/', @$_GET['url'])[0];
+
+        $editar = 'editar-usuario';
+        $cadastrar = 'cadastrar-usuario';
+        $relarotio = 'relatorio';
+
+        $menu = $editar || $cadastrar || $relarotio;
+
+        if($url != $menu){
+            echo 'style="display: none;"';
+        }
+    }
 ?>

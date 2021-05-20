@@ -84,11 +84,11 @@ section.button-list .btn-list{
 .btn2{
     background-color: #00CC83;
 }
-.btn1:hover{
-    background-color: #d33131;
+.btn1:hover, .btn1.hover1{
+    background-color: #aa2828;
 }
-.btn2:hover{
-    background-color: #00ad71;
+.btn2:hover, .btn2.hover2{
+    background-color: #019461;
 }
 
 .btn-wraper-center .btn-wraper{

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/home.css">
 </head>
 <body>
+    <base base="<?php echo INCLUDE_PATH_PANEL; ?>">
     <header>
         <div class="center">
             <div class="logo">
@@ -44,14 +45,14 @@
                         <nav class="menu-single">
                             <div class="after"></div>
                             <ul>
-                                <li>
-                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario"><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
+                                <li <?php selectMenu('editar-usuario'); ?>>
+                                    <a realtime="editar-usuario" href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario"><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
                                 </li>
-                                <li>
-                                    <a href=""><i><?php echo Icon::$cadastrar; ?></i>Cadastrar Usuário</a>
+                                <li <?php selectMenu('cadastrar-usuario'); ?>>
+                                    <a realtime="cadastrar-usuario" href=""><i><?php echo Icon::$cadastrar; ?></i>Cadastrar Usuário</a>
                                 </li>
-                                <li>
-                                    <a href=""><i><?php echo Icon::$relatorio; ?></i>Relatório</a>
+                                <li <?php selectMenu('relatorio'); ?>>
+                                    <a realtime="relatorio" href=""><i><?php echo Icon::$relatorio; ?></i>Relatório</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo INCLUDE_PATH_PANEL; ?>?loggout"><i><?php echo Icon::$loggout; ?></i>Sair</a>
@@ -70,10 +71,14 @@
         <?php echo Painel::loadPage(); ?>
     </div><!-- Container Central -->
     
+    <div class="homeInicial" <?php display() ?>>
+        <a href="<?php echo INCLUDE_PATH_PANEL; ?>"><i><?php echo Icon::$homePage; ?></i></a>
+    </div>
 
 
     <!-- JavaScript - JQuery -->
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery-3.5.1.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/constants.js"></script>
     <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/animacoes.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>js/pace.min.js"></script>
 </body>

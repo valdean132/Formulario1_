@@ -93,7 +93,6 @@ nav.menu-single ul{
     /* padding: 0 0 5px; */
 }
 nav.menu-single li{
-    padding: 10px 5%;
     width: 100%;
     border-bottom: 1px solid #ccc;
     transition: .5s linear;
@@ -109,12 +108,19 @@ nav.menu-single li:hover{
     background-color: #00915e;
     /* border-radius: 8px; */
 }
+nav.menu-single li.menu-active, 
+nav.menu-single li.menu-active:hover{
+    background-color: #00695c;
+}
+
 nav.menu-single a{
+    padding: 10px 5%;
     text-decoration: none;
     display: flex;
     color: #f5f5f5;
     font-weight: normal;
     font-size: 14px;
+    width: 100%;
 }
 nav.menu-single a i{
     width: 15px;

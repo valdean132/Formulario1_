@@ -12,11 +12,13 @@ $(function(){
 		porAgendar.click(()=>{
 			$('.anm1').slideToggle(500);
 			if(btnWraper1.hasClass('border-radius1')){
+				btnWraper1.addClass('hover1');
 				btnWraper1.removeClass('border-radius1');
 				btnWraper1.addClass('border-radius2');
 			}else{
 				btnWraper1.removeClass('border-radius2');
 				btnWraper1.addClass('border-radius1');
+				btnWraper1.removeClass('hover1');
 			}
 
 			if(seta1.hasClass('seta-para-baixo')){
@@ -30,11 +32,13 @@ $(function(){
 		agendado.click(()=>{
 			$('.anm2').slideToggle(500);
 			if(btnWraper2.hasClass('border-radius1')){
+				btnWraper2.addClass('hover2');
 				btnWraper2.removeClass('border-radius1');
 				btnWraper2.addClass('border-radius2');
 			}else{
 				btnWraper2.removeClass('border-radius2');
 				btnWraper2.addClass('border-radius1');
+				btnWraper2.removeClass('hover2');
 			}
 
 			if(seta2.hasClass('seta-para-baixo')){
@@ -62,6 +66,26 @@ $(function(){
 		});
 	}
 
+	
+	// Carregamentos Animados
+	function carregamentoDimanico(){
+		$('[realtime]').click(()=>{
+			var container = $('.container-central')
+			var pagina = $(this).attr('realtime');
+
+			container.hide();
+
+			var url = include_path_painel+'pages/'+pagina+'.php';
+
+			container.load(url);
+
+			container.fadeIn(1000);
+
+			return false;
+		});
+	}
+
+	// carregamentoDimanico();
 	agendamentos();
     Menu();
 });
