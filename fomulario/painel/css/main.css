@@ -139,17 +139,15 @@ nav.menu-single a i{
     position: absolute;
     bottom: 50px;
     right: 50px;
+}
+.homeInicial-center{
+    animation: bottom 1s;    
     width: 50px;
-    height: 50px;
+    height: 50px; 
     background-color: #00ad71;
     border-radius: 50%;
     transition: .5s all;
 }
-
-/* .homeInicial a{
-    width: 90%;
-    height: 90%;
-} */
 
 .homeInicial a i{
     position: absolute;

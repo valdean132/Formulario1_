@@ -74,7 +74,9 @@
     </div><!-- Container Central -->
     
     <div class="homeInicial" <?php display() ?>>
-        <a href="<?php echo INCLUDE_PATH_PANEL; ?>"><i><?php echo Icon::$homePage; ?></i></a>
+        <div class="homeInicial-center">
+            <a href="<?php echo INCLUDE_PATH_PANEL; ?>"><i><?php echo Icon::$homePage; ?></i></a>
+        </div>
     </div>
 
 
