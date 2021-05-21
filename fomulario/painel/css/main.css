@@ -139,6 +139,7 @@ nav.menu-single a i{
     position: absolute;
     bottom: 50px;
     right: 50px;
+    transition: .5s all;
 }
 .homeInicial-center{
     animation: bottom 1s;    
@@ -159,14 +160,16 @@ nav.menu-single a i{
     transform: translate(-50%, -50%);
     transition: .5s all;
 }
-.homeInicial:hover{
+.homeInicial-center:hover{
     width: 60px;
     height: 60px;
-    bottom: 45px;
-    right: 45px;
+    
     background-color: #00695c;
 }
-
+.homeInicial:hover{
+    bottom: 45px;
+    right: 45px;
+}
 .homeInicial:hover a i{
     fill: #333;
 }
