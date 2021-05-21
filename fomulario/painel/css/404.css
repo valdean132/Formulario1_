@@ -1,0 +1,66 @@
+
+.error_404{
+    height: 500px;
+    /* border: 1px solid black; */
+}
+.error_404 .center{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-error{
+    /* border: 1px solid #000; */
+    height: 50%;
+    width: 100%;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .5),
+                0 -2px 5px 0 rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    padding: 0 2%;
+    animation: top 1s;
+}
+
+.text-error{
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: left 1s;
+
+}
+.text-error h2{
+    margin-left: 20px;
+    color: #444;
+    font-size: 2em;
+}
+#error404 svg{
+    height: 50px;
+    width: 50px;
+    fill: rgb(255, 36, 0);
+}
+.link-inicial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    animation: right 1s;
+}
+.link-inicial p{
+    font-size: 20px;
+    color: #444;
+    font-weight: 600;
+}
+.link-inicial a{
+    color: #069;
+    text-decoration: none;
+}
+.link-inicial a:hover{
+    text-decoration: underline;
+}

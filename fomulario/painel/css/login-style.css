@@ -1,16 +1,19 @@
 html, body{
     background-color: blueviolet;
+    overflow: hidden;
 }
-
 .form-login{
     position: absolute;
     width: 30%;
-    padding: 30px 1%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.form-login-center{
+    width: 100%;
+    padding: 30px 1%;
+    animation: top 1s;
     border-bottom: 2px solid #aaa;
-
 }
 .user-img{
     position: relative;
@@ -57,7 +60,12 @@ form .flex-login{
     border-radius: 10px;
     box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, .2);
 }
-
+.user-name{
+    animation: left 1s;
+}
+.user-password{
+    animation: right 1s;
+}
 .user-img11{
     background-color: blueviolet;
     width: 50px;
@@ -97,6 +105,7 @@ form .flex-login{
 form .logar-button{
     background-color: rgb(14, 170, 14);
     transition: background .2s linear;
+    animation: left 1s;
 }
 form .logar-button:hover{
     background-color: rgb(28, 153, 28);
@@ -119,6 +128,7 @@ form .logar-button input{
     display: flex;
     margin-top: 40px;
     align-items: center;
+    animation: right 1s;
 }
 
 .user-lembrete .input{
@@ -185,6 +195,7 @@ form .logar-button input{
 .suport p{
     font: 16px;
     color: rgba(255, 255, 255, .4);
+    animation: bottom 1s;
 }
 .suport a{
     text-decoration: none;
@@ -196,6 +207,7 @@ form .logar-button input{
 .error-box{
     width: 0%;
     transition: .2s linear;
+    animation: left 1s;
 }
 .error-box.activeErrorBox{
     margin-top: 20px;

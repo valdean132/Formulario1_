@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/home.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/404.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/animate.css">
 </head>
 <body>
     <base base="<?php echo INCLUDE_PATH_PANEL; ?>">

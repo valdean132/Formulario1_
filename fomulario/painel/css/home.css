@@ -13,6 +13,7 @@ section.banner .text-banner{
     display: inline-block;
     color: #888888;
     text-align: center;
+    animation: top 1s;
 }
 section.banner .text-banner h3{
     font-size: 25px;
@@ -49,7 +50,12 @@ section.button-list .btn-list{
     width: 80%;
     max-width: 380px;
 }
-
+section.button-list .btn-list:nth-child(1){
+    animation: left 1s;
+}
+section.button-list .btn-list:nth-child(2){
+    animation: right 1s;
+}
 
 .btn-wraper-center{
     position: relative;

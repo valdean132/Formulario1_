@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/login-style.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/animate.css">
     <title>Login</title>
 </head>
 <body>
@@ -89,50 +90,52 @@
     <main>
         <div class="center">
             <div class="form-login">
-                <div class="user-img">
-                    <i alt="User_Img" title="Avatar"><?php echo Icon::$user1; ?></i>
-                </div><!-- Img-User -->
+                <div class="form-login-center">
+                    <div class="user-img">
+                        <i alt="User_Img" title="Avatar"><?php echo Icon::$user1; ?></i>
+                    </div><!-- Img-User -->
 
-                <div class="error-box <?php echo($activeErroBox);?>" style="<?php echo($opacityErroBox); ?>"><?php echo($errorBox); ?></div>
-                
-                <form method="post" id="form">
-                    <div class="flex-login user-name">
-                        <div class="user-img11">
-                            <i alt="User_Img"><?php echo Icon::$user1; ?></i>
-                        </div><!-- Img-User -->
-                        <div class="input">
-                            <input type="text" id="user" name="user" placeholder="USERNAME" autocomplete="off">
-                        </div><!-- Input -->
-                    </div><!-- UserName -->
+                    <div class="error-box <?php echo($activeErroBox);?>" style="<?php echo($opacityErroBox); ?>"><?php echo($errorBox); ?></div>
+                    
+                    <form method="post" id="form">
+                        <div class="flex-login user-name">
+                            <div class="user-img11">
+                                <i alt="User_Img"><?php echo Icon::$user1; ?></i>
+                            </div><!-- Img-User -->
+                            <div class="input">
+                                <input type="text" id="user" name="user" placeholder="USERNAME" autocomplete="off">
+                            </div><!-- Input -->
+                        </div><!-- UserName -->
 
-                    <div class="flex-login user-password">
-                        <div class="user-img11">
-                            <i alt="User_Img" class="cadeado"><?php echo Icon::$cadeadoFechado; ?></i>
-                        </div><!-- Img-User -->
-                        <div class="input">
-                            <input type="password" id="password" name="password" placeholder="PASSWORD" autocomplete="off">
-                        </div><!-- Input -->
-                    </div><!-- UserPassword -->
+                        <div class="flex-login user-password">
+                            <div class="user-img11">
+                                <i alt="User_Img" class="cadeado"><?php echo Icon::$cadeadoFechado; ?></i>
+                            </div><!-- Img-User -->
+                            <div class="input">
+                                <input type="password" id="password" name="password" placeholder="PASSWORD" autocomplete="off">
+                            </div><!-- Input -->
+                        </div><!-- UserPassword -->
 
-                    <div class="flex-login logar-button">
-                        <div class="input">
-                            <input type="submit" name="acao" value="LOGIN" id="buttonEnviar">
-                        </div><!-- Input -->
-                    </div><!-- UserSubmit -->
+                        <div class="flex-login logar-button">
+                            <div class="input">
+                                <input type="submit" name="acao" value="LOGIN" id="buttonEnviar">
+                            </div><!-- Input -->
+                        </div><!-- UserSubmit -->
 
-                    <div class="user-lembrete">
-                        <div class="input">
-                            <input type="checkbox" name="lembrar" id="lembrarUser">
-                            <label for="lembrarUser">
-                                <div class="after-lembrete"></div>
-                            </label>
-                            <span>Lembre-me</span>
-                        </div><!-- Input -->
-                        <div class="senha-esquecida">
-                            <a href="#">Esqueceu a senha?</a>
-                        </div>
-                    </div><!-- Lembrete User -->
-                </form><!-- Form-Login -->
+                        <div class="user-lembrete">
+                            <div class="input">
+                                <input type="checkbox" name="lembrar" id="lembrarUser">
+                                <label for="lembrarUser">
+                                    <div class="after-lembrete"></div>
+                                </label>
+                                <span>Lembre-me</span>
+                            </div><!-- Input -->
+                            <div class="senha-esquecida">
+                                <a href="#">Esqueceu a senha?</a>
+                            </div>
+                        </div><!-- Lembrete User -->
+                    </form><!-- Form-Login -->
+                </div><!-- Form-login-center -->
             </div><!-- Div-Form -->
             <div class="suport">
                 <p>Algum erro ou dificuldade?! Entre em contato com o <a href="">Suport</a></p>

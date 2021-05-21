@@ -18,7 +18,9 @@ header .center{
     align-items: center;
     padding-left: 0;
 }
-
+header .logo{
+    animation: left 1s;
+}
 header .logo a img{
     width: 150px;
     height: 90px;
@@ -26,12 +28,14 @@ header .logo a img{
 
 .user{
     width: auto;
+    animation: right 1s;
 }
 .user-wecome{
     display: flex;
     align-items: center;
     width: 100%;
 }
+
 .user-wecome h2{
     color: #F5F5F5;
     font-style: normal;
