@@ -38,6 +38,9 @@
     <?php
         $errorBox = '';
         $activeErroBox = '';
+        $valueUser = '';
+        $valuePassword = '';
+        $classAnimate = 'animate-form';
         if(isset($_POST['acao'])){
             $user = $_POST['user'];
             $password = $_POST['password'];
@@ -45,13 +48,25 @@
             $passwordVazio = $password === '';
             if($userVazio && !$passwordVazio){
                 $activeErroBox = 'activeErrorBox';
-                $errorBox = 'O campo <strong>USERNAME</strong> deve está preenchido';   
+                $errorBox = 'O campo <strong>USERNAME</strong> deve está preenchido';
+
+                $valueUser = $user;
+                $valuePassword = $password;
+                $classAnimate = '';   
             }else if($passwordVazio && !$userVazio){
                 $activeErroBox = 'activeErrorBox';
-                $errorBox = 'O campo <strong>PASSWORD</strong> deve está preenchido';   
+                $errorBox = 'O campo <strong>PASSWORD</strong> deve está preenchido'; 
+
+                $valueUser = $user;
+                $valuePassword = $password;
+                $classAnimate = '';  
             }else if($userVazio && $passwordVazio){
                 $activeErroBox = 'activeErrorBox vazio';
-                $errorBox = 'Os campos <strong>USERNAME</strong> e <strong>PASSWORD</strong> devem ser preenchidos';    
+                $errorBox = 'Os campos <strong>USERNAME</strong> e <strong>PASSWORD</strong> devem ser preenchidos'; 
+
+                $valueUser = $user;
+                $valuePassword = $password;
+                $classAnimate = '';   
             }else{
                 $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE user = ? AND password = ?");
                 $sql->execute(array($user, $password));
@@ -78,11 +93,19 @@
                         // Login e/ou senha incorretos
                         $activeErroBox = 'activeErrorBox';
                         $errorBox = 'Usuário ou Senha Incorretos';
+
+                        $valueUser = $user;
+                        $valuePassword = $password;
+                        $classAnimate = '';
                     }
                 }else{
                     // Login e/ou senha incorretos
                     $activeErroBox = 'activeErrorBox';
                     $errorBox = 'Usuário ou Senha Incorretos';
+
+                    $valueUser = $user;
+                    $valuePassword = $password;
+                    $classAnimate = '';
                 }
             }
         }
@@ -90,7 +113,7 @@
     <main>
         <div class="center">
             <div class="form-login">
-                <div class="form-login-center">
+                <div class="form-login-center <?php echo $classAnimate; ?>">
                     <div class="user-img">
                         <i alt="User_Img" title="Avatar"><?php echo Icon::$user1; ?></i>
                     </div><!-- Img-User -->
@@ -103,7 +126,7 @@
                                 <i alt="User_Img"><?php echo Icon::$user1; ?></i>
                             </div><!-- Img-User -->
                             <div class="input">
-                                <input type="text" id="user" name="user" placeholder="USERNAME" autocomplete="off">
+                                <input type="text" id="user" name="user" value="<?php echo $valueUser; ?>" placeholder="USERNAME" autocomplete="off">
                             </div><!-- Input -->
                         </div><!-- UserName -->
 
@@ -112,7 +135,7 @@
                                 <i alt="User_Img" class="cadeado"><?php echo Icon::$cadeadoFechado; ?></i>
                             </div><!-- Img-User -->
                             <div class="input">
-                                <input type="password" id="password" name="password" placeholder="PASSWORD" autocomplete="off">
+                                <input type="password" id="password" name="password" value="<?php echo $valuePassword; ?>" placeholder="PASSWORD" autocomplete="off">
                             </div><!-- Input -->
                         </div><!-- UserPassword -->
 
@@ -137,7 +160,7 @@
                     </form><!-- Form-Login -->
                 </div><!-- Form-login-center -->
             </div><!-- Div-Form -->
-            <div class="suport">
+            <div class="suport <?php echo $classAnimate; ?>">
                 <p>Algum erro ou dificuldade?! Entre em contato com o <a href="">Suport</a></p>
             </div>
         </div><!-- Center -->

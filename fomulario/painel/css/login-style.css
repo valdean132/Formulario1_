@@ -12,8 +12,10 @@ html, body{
 .form-login-center{
     width: 100%;
     padding: 30px 1%;
-    animation: top 1s;
     border-bottom: 2px solid #aaa;
+}
+.animate-form.form-login-center{
+    animation: top 1s;
 }
 .user-img{
     position: relative;
@@ -60,10 +62,10 @@ form .flex-login{
     border-radius: 10px;
     box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, .2);
 }
-.user-name{
+.animate-form .user-name{
     animation: left 1s;
 }
-.user-password{
+.animate-form .user-password{
     animation: right 1s;
 }
 .user-img11{
@@ -105,6 +107,8 @@ form .flex-login{
 form .logar-button{
     background-color: rgb(14, 170, 14);
     transition: background .2s linear;
+}
+.animate-form .logar-button{
     animation: left 1s;
 }
 form .logar-button:hover{
@@ -128,9 +132,10 @@ form .logar-button input{
     display: flex;
     margin-top: 40px;
     align-items: center;
+}
+.animate-form .user-lembrete{
     animation: right 1s;
 }
-
 .user-lembrete .input{
     display: flex;
     width: 50%;
@@ -195,6 +200,8 @@ form .logar-button input{
 .suport p{
     font: 16px;
     color: rgba(255, 255, 255, .4);
+}
+.animate-form.suport p{
     animation: bottom 1s;
 }
 .suport a{
