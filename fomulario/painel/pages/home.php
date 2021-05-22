@@ -1,4 +1,5 @@
-<section class="banner">
+<div class="section-fixed">
+    <section class="banner">
         <div class="center">
             <div class="text-banner">
                 <h3>
@@ -49,3 +50,4 @@
             </div><!-- Btn-List -->
         </div><!-- Center -->
     </section><!-- Section - Button-List -->
+</div>

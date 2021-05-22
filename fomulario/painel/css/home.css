@@ -1,5 +1,7 @@
 /* Section Banner */
-
+.section-fixed{
+    width: 100%;
+}
 section.banner{
     width: 100%;
     margin-top: 60px;
