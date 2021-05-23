@@ -30,6 +30,15 @@
                 include('pages/home.php');
             }
         }
+
+        // Verificando se foi Enviado Com sucesso
+        public static function alert($type, $men, $span){
+            if($type == 'sucesso'){
+                echo '<div class="box-alert '.$type.'"><i>'.Icon::$checked.'</i><p>'.$men.'</p><span>'.$span.'</span></div>';
+            }else if($type == 'error'){
+                echo '<div class="box-alert '.$type.'"><i>'.Icon::$closeError.'</i><p>'.$men.'</p><span>'.$span.'</span></div>';
+            }
+        }
         
     }
 

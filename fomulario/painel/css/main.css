@@ -1,7 +1,7 @@
 .center{
     max-width: 1180px;
 }
-html, body{
+body{
     overflow: hidden;
 }
 .section-fixed{
@@ -10,9 +10,18 @@ html, body{
     bottom: 0;
 }
 /* Geral */
-
+.center .container-central{
+    width: 100%;
+    /* max-height: 500px; */
+    /* overflow: auto; */
+    margin: 5px 0;
+    box-shadow: 0 0 8px 3px #777;
+    border-radius: 10px;
+}
 .title{
     /* border: 1px solid black; */
+    /* position: fixed; */
+    width: 100%;
     padding: 10px;
     border-radius: 10px 10px 0 0;
     background-color: #444;
@@ -51,7 +60,7 @@ header .center{
     align-items: center;
     padding-left: 0;
 }
-header .logo{
+.animate-header .logo{
     animation: left 1s;
 }
 header .logo a img{
@@ -61,6 +70,8 @@ header .logo a img{
 
 .user{
     width: auto;
+}
+.animate-header .user{
     animation: right 1s;
 }
 .user-wecome{
@@ -175,15 +186,16 @@ nav.menu-single a i{
     right: 50px;
     transition: bottom .5s, right .5s;
 }
-.homeInicial-center{
-    animation: bottom 1s;    
+.homeInicial-center{  
     width: 50px;
     height: 50px; 
     background-color: #00ad71;
     border-radius: 50%;
-    transition: .5s;
+    transition: width .5s, height .5s;
 }
-
+.animate-inicial .homeInicial-center{
+    animation: bottom 1s;
+}
 .homeInicial a i{
     position: absolute;
     fill: #f5f5f5;
@@ -192,7 +204,7 @@ nav.menu-single a i{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: .5s all;
+    transition: fill .5s;
 }
 .homeInicial-center:hover{
     width: 60px;
@@ -205,6 +217,48 @@ nav.menu-single a i{
 }
 .homeInicial:hover a i{
     fill: #333;
+}
+
+/* ** */
+
+/* Box Alert */
+
+.box-alert{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    padding: 10px 2%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    animation: left 1s;
+}
+
+.box-alert p{
+    font-size: 18px;
+    font-weight: 500;
+}
+.box-alert span{
+    color: #ddd;
+    font-weight: normal;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.box-alert i{
+    margin: 0 10px 0;
+    fill: white;
+    width: 25px;
+    height: 25px;
+}
+
+.sucesso{
+    background-color: #41a044;
+}
+.error{
+    background-color: #f75353;
 }
 
 /* ** */

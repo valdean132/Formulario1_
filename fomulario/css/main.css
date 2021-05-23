@@ -19,7 +19,14 @@ html, body{
     margin: 0 auto;
     padding: 10px 2%;
 }
-
+::-webkit-scrollbar {
+  background-color: #d2d2d2;
+  /* color: #aba499; */
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #a7a7a7;
+}
 /* This is a compiled file, you should be editing the file in the templates directory */
 .pace {
     -webkit-pointer-events: none;

@@ -1,23 +1,30 @@
+
 .editar-Perfil{
     width: 100%;
-}
-.center .container-central{
-    width: 100%;
-    margin: 20px 0;
-    box-shadow: 0 0 8px 3px #777;
-    border-radius: 10px;
+    overflow: auto;
 }
 .form-center{
-    /* border: 1px solid black; */
-    padding: 10px;
+    max-height: 500px;
+    overflow: auto;
+    padding: 20px;
     border-radius: 0 0 10px 10px;
     display: flex;
     justify-content: center;
 }
+.form-center::-webkit-scrollbar{
+    width: 5px;
+    background-color: transparent !important;
+}
+.form-center::-webkit-scrollbar-thumb{
+    /* width: 3px; */
+    border-radius: 5px;
+}
 .form-center form{
-    margin: 0 20px;
+    /* margin: 10px; */
+    height: 100%;
     width: 80%;
 }
+
 .form-group{
     width: 100%;
     display: flex;
@@ -42,7 +49,7 @@
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    transition: border .5s linear;
+    transition: border .5s;
 }
 .form-group input:focus{
     border: 1px solid #069690;
@@ -68,7 +75,6 @@
 .form-group input[type=submit]:hover{
     background-color: #016964;
 }
-
 .animate-form{
     animation: top 1s;
 }

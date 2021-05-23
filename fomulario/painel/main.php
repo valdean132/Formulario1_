@@ -2,6 +2,12 @@
     if(isset($_GET['loggout'])){
         Painel::loggout();
     }
+    $classAnimateHeader = 'animate-header';
+    $classAnimateInicial = 'animate-inicial';
+    if(isset($_POST['acao'])){
+        $classAnimateHeader = '';
+        $classAnimateInicial = '';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,7 +28,7 @@
 </head>
 <body>
     <base base="<?php echo INCLUDE_PATH_PANEL; ?>">
-    <header>
+    <header class="<?php echo $classAnimateHeader; ?>">
         <div class="center">
             <div class="logo">
                 <a href="">
@@ -75,7 +81,7 @@
         <?php echo Painel::loadPage(); ?>
     </div><!-- Container Central -->
     
-    <div class="homeInicial" <?php display() ?>>
+    <div class="homeInicial <?php echo $classAnimateInicial; ?>" <?php display() ?>>
         <div class="homeInicial-center">
             <a href="<?php echo INCLUDE_PATH_PANEL; ?>"><i><?php echo Icon::$homePage; ?></i></a>
         </div>
