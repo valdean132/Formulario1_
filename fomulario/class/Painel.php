@@ -40,6 +40,39 @@
             }
         }
         
+        // Validação de Imagens
+        public static function imgValid($imagem){
+            if($imagem['type'] == 'image/jpeg' ||
+                $imagem['type'] == 'image/jpg' ||
+                $imagem['type'] == 'image/png'){
+                
+                $tamanho = intval($imagem['size']/1024);
+                if($tamanho < 300){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }
+
+        // Deletar Documentos de Imagens
+        public static function deleteFile($file){
+            @unlink(BASE_DIR_PANEL.'/uploads/'.$file);
+        }
+
+        // Salvando Documentos de Imagens
+        public static function uploadFile($file){
+            $formatoArquivo = explode('.',$file['name']);
+            $imagemNome = uniqid().'.'.$formatoArquivo[count($formatoArquivo) - 1];
+
+            if(move_uploaded_file($file['tmp_name'], BASE_DIR_PANEL.'/uploads/'.$imagemNome)){
+                return $imagemNome;
+            }else{
+                return false;
+            }
+        }
     }
 
 ?>

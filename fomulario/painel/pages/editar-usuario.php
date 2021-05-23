@@ -16,7 +16,45 @@
                 <form method="POST" enctype="multipart/form-data">
                     <?php
                         if(isset($_POST['acao'])){
-                            Painel::alert('error', 'Error Ao Conectar Com O servidos', 'Tente Novamente');
+                            // Pegando Dados dos Inputs
+                            $usuario = new EnvioDeFormulario();
+                            $nome = $_POST['nome'];
+                            $user = $_POST['user'];
+                            $password = $_POST['password'];
+                            $imagem = $_FILES['imagem'];
+                            $imagem_atual = $_POST['imagem_atual'];
+
+                            if($imagem['name'] != ''){
+                                // Imagem Existe e é válida
+                                if(Painel::imgValid($imagem)){
+                                    $imagem = Painel::uploadFile($imagem);
+                                    if($usuario->updateUser($nome, $user, $password, $imagem)){
+                                        Painel::deleteFile($imagem_atual);
+                                        Painel::alert('sucesso', 'Atualização Realizada com Sucesso!', 'Atualize a Página');
+    
+                                        $_SESSION['nome'] = $nome;
+                                        $_SESSION['user'] = $user;
+                                        $_SESSION['img'] = $imagem;
+                                        $_SESSION['password'] = $password;
+                                    }else{
+                                        Painel::alert('error', 'Ocorreu um erro ao Atualizar...', '');
+                                    }
+                                }else{
+                                    Painel::alert('error', 'Formato de Imagem Invalido...','Selecione uma imagem JPG, JPEG ou PNG');
+                                }
+                            }else{
+                                $imagem = $imagem_atual;
+                                if($usuario->updateUser($nome, $user, $password, $imagem)){
+                                    Painel::alert('sucesso', 'Atualização Realizada com Sucesso!', 'Atualize a Página');
+
+                                    $_SESSION['nome'] = $nome;
+                                    $_SESSION['user'] = $user;
+                                    $_SESSION['img'] = $imagem;
+                                    $_SESSION['password'] = $password;
+                                }else{
+                                    Painel::alert('error', 'Ocorreu um erro ao Atualizar...', '');
+                                }
+                            }
                         }
                     ?>
                     <div class="form-group-wrapper">

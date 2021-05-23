@@ -12,8 +12,11 @@
     spl_autoload_register($autoload);
 
 
+    // Definindo Diretorios
     define('INCLUDE_PATH', 'http://localhost/Formulario1_/fomulario/');
     define('INCLUDE_PATH_PANEL', INCLUDE_PATH.'painel/');
+    define('BASE_DIR_PANEL', __DIR__.'/painel');
+
     // Conexão com o banco de dados
     define('HOST', 'localhost');
     define('USER', 'root');
