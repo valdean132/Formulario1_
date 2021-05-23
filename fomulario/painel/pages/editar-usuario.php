@@ -3,7 +3,7 @@
     if(isset($_POST['acao'])){
         $classAnimate = '';
     }
-    
+    verificaPermicaoPagina(0);
 ?>
 
 <section class="editar-Perfil section-fixed">

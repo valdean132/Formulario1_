@@ -73,6 +73,20 @@
                 return false;
             }
         }
+
+        // Variaveis de Cargo
+        public static $cargos = [
+            '0' => 'Normal',
+            '1' => 'Sub Administrador',
+            '2' => 'Administrador'
+        ];
+
+        // Variaveis de Menu
+        public static $menus = [
+            '0' => 'editar-usuario',
+            '1' => 'cadastrar-usuario',
+            '2' => 'relatorio'
+        ];
     }
 
 ?>

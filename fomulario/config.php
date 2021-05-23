@@ -24,37 +24,72 @@
     define('DATABASER', 'atendimento_igreja'); 
 
     // Função do usuario
-    function pegaCargo($cargo){
-        $arr = [
-            '0' => 'Normal',
-            '1' => 'Sub Administrador',
-            '2' => 'Administrador'
-        ];
+    function pegaCargo($indice){
+        return Painel::$cargos[$indice];
+    }
 
-        return $arr[$cargo];
+    // Url Geral
+    function urlGeral(){
+        return explode('/', @$_GET['url'])[0];
     }
 
     // Menu Selecionado
     function selectMenu($menu){
-        $url = explode('/', @$_GET['url'])[0];
+        $url = urlGeral();
 
         if($url == $menu){
             echo 'class = "menu-active"';
         }
     }
 
+    // Menus
+    function menus($indece){
+        return Painel::$menus[$indece];
+    }
+
     // Display none
     function display(){
-        $url = explode('/', @$_GET['url'])[0];
+        $url = urlGeral();
 
-        $editar = 'editar-usuario';
-        $cadastrar = 'cadastrar-usuario';
-        $relarotio = 'relatorio';
-
-        $menu = $editar || $cadastrar || $relarotio;
+        $menu = menus(0) || menus(1) || menus(2);
 
         if($url != $menu){
             echo 'style="display: none;"';
+        }
+    }
+
+    // Title
+    function titlePage(){
+        $url = urlGeral();
+
+        if(menus(0) == $url){
+            echo 'Editar Usuário';
+        }else if(menus(1) == $url){
+            echo 'Cadastrar Usuário';
+        }else if(menus(2) == $url){
+            echo 'Relatório';
+        }else if($url == ''){
+            echo 'Agendamentos';
+        }else{
+            echo 'Error 404';
+        }
+    }
+
+    // Permiação de Usuário Menu
+    function verificaPermicaoMenu($permissao){
+        if($_SESSION['cargo'] >= $permissao){
+            return;
+        }else{
+            echo 'style="display: none;"';
+        }
+    }
+    // Permição de Usuário Página
+    function verificaPermicaoPagina($permissao){
+        if($_SESSION['cargo'] >= $permissao){
+            return;
+        }else{
+            include('pages/permissao_negada.php');
+            die();
         }
     }
 ?>

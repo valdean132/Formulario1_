@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Valdean Palmeira de Souza">
     <meta name="description" content="Essa página de formulario serve para que as pessoas necessitadas de alguma forma possa buscar ajuda e esse foi o meio que achamos para possamos ajudar essas pessoas.">
-    <title>Acolhimento IBN Nova Canaã || Painel de controle de agendamento</title>
+    <title>Acolhimento IBNNC || <?php titlePage(); ?></title>
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/main.css">
@@ -55,14 +55,14 @@
                         <nav class="menu-single">
                             <div class="after"></div>
                             <ul>
-                                <li <?php selectMenu('editar-usuario'); ?>>
-                                    <a realtime="editar-usuario" href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario"><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
+                                <li <?php verificaPermicaoMenu(0); selectMenu('editar-usuario'); ?>>
+                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario"><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
                                 </li>
-                                <li <?php selectMenu('cadastrar-usuario'); ?>>
-                                    <a realtime="cadastrar-usuario" href=""><i><?php echo Icon::$cadastrar; ?></i>Cadastrar Usuário</a>
+                                <li <?php verificaPermicaoMenu(2); selectMenu('cadastrar-usuario'); ?>>
+                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>cadastrar-usuario"><i><?php echo Icon::$cadastrar; ?></i>Cadastrar Usuário</a>
                                 </li>
-                                <li <?php selectMenu('relatorio'); ?>>
-                                    <a realtime="relatorio" href=""><i><?php echo Icon::$relatorio; ?></i>Relatório</a>
+                                <li <?php verificaPermicaoMenu(2); selectMenu('relatorio'); ?>>
+                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>relatorio"><i><?php echo Icon::$relatorio; ?></i>Relatório</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo INCLUDE_PATH_PANEL; ?>?loggout"><i><?php echo Icon::$loggout; ?></i>Sair</a>
