@@ -1,0 +1,13 @@
+
+.relatorio{
+    width: 100%;
+    overflow: auto;
+}
+.div-wrapper{
+    max-height: 500px;
+    overflow: auto;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: center;
+}

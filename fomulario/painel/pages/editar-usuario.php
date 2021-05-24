@@ -11,7 +11,7 @@
         <div class="container-central <?php echo $classAnimate; ?>">
             <div class="title">
                 <h2><i><?php echo Icon::$editarPerfil; ?></i> Editar Usuário</h2>
-            </div><!-- Totle -->
+            </div><!-- Title -->
             <div class="form-center">
                 <form method="POST" enctype="multipart/form-data">
                     <?php
