@@ -59,23 +59,23 @@
                     ?>
                     <div class="form-group-wrapper">
                         <div class="form-group">
-                            <label for="">Nome:</label>
-                            <input type="text" name="nome" required value="<?php echo $_SESSION['nome'];?>">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" required value="<?php echo $_SESSION['nome'];?>">
                         </div><!-- Form-Group-Nome -->
 
                         <div class="form-group">
-                            <label for="">Login:</label>
-                            <input type="text" name="user" required value="<?php echo $_SESSION['user'];?>">
+                            <label for="login">Login:</label>
+                            <input type="text" id="login" name="user" required value="<?php echo $_SESSION['user'];?>">
                         </div><!-- Form-Group-User -->
 
                         <div class="form-group">
-                            <label for="">Senha:</label>
-                            <input type="text" name="password" required value="<?php echo $_SESSION['password'];?>">
+                            <label for="senha">Senha:</label>
+                            <input type="text" id="senha" name="password" required value="<?php echo $_SESSION['password'];?>">
                         </div><!-- Form-Group-Senha -->
 
                         <div class="form-group">
-                            <label for="">Imagem:</label>
-                            <input type="file" name="imagem">
+                            <label for="imagem">Imagem:</label>
+                            <input type="file" id="imagem" name="imagem">
                             <input type="hidden" name="imagem_atual" value="<?php echo $_SESSION['img'];?>">
                         </div><!-- Form-Group-Imagem -->
 

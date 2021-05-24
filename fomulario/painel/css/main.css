@@ -231,7 +231,7 @@ nav.menu-single a i{
     border-radius: 8px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .5);
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     color: white;
     animation: left 1s;
@@ -245,7 +245,7 @@ nav.menu-single a i{
     color: #ddd;
     font-weight: normal;
     font-size: 16px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .box-alert i{
     margin: 0 10px 0;

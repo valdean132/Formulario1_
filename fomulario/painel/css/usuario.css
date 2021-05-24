@@ -1,5 +1,5 @@
 
-.editar-Perfil{
+.usuario{
     width: 100%;
     overflow: auto;
 }
@@ -40,22 +40,26 @@
 .form-group label{
     font-size: 18px;
     color: #444;
+    cursor: pointer;
 }
-.form-group input{
+.form-group input, .form-group select{
     width: 100%;
     color: #444;
     margin-top: 10px;
+    font-size: 16px;
     height: 40px;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
     transition: border .5s;
 }
-.form-group input:focus{
+.form-group input:focus, .form-group select:focus{
     border: 1px solid #069690;
 }
 .form-group input[type=file],
-.form-group input[type=submit]{
+.form-group input[type=submit],
+.form-group select, 
+.form-group select option{
     cursor: pointer;
 }
 .form-group:last-child{
