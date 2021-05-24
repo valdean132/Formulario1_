@@ -63,15 +63,15 @@
         $url = urlGeral();
 
         if(menus(0) == $url){
-            echo 'Editar Usuário';
+            echo 'Acolhimento IBNNC || Editar Usuário';
         }else if(menus(1) == $url){
-            echo 'Cadastrar Usuário';
+            echo 'Acolhimento IBNNC || Cadastrar Usuário';
         }else if(menus(2) == $url){
-            echo 'Relatório';
+            echo 'Acolhimento IBNNC || Relatório';
         }else if($url == ''){
-            echo 'Agendamentos';
+            echo 'Acolhimento IBNNC || Agendamentos';
         }else{
-            echo 'Error 404';
+            echo 'Página não Encontrada';
         }
     }
 
