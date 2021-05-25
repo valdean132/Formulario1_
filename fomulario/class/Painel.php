@@ -88,6 +88,14 @@
             '2' => 'relatorio'
         ];
 
+        // Puxar Usuários Cadastrados
+        public static function registeredUsers(){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios`");
+            $sql->execute();
+
+            return $sql->fetchAll();
+        }
+
     }
 
 ?>

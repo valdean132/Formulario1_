@@ -1,5 +1,9 @@
 html, body{
-    background-color: blueviolet;
+    background: #50c886;
+    background: -webkit-linear-gradient(45deg, #4158d0, #50c886);
+    background: -o-linear-gradient(45deg, #4158d0, #50c886);
+    background: -moz-linear-gradient(45deg, #4158d0, #50c886);
+    background: linear-gradient(45deg, #4158d0, #50c886);
     overflow: hidden;
 }
 .form-login{
@@ -69,7 +73,12 @@ form .flex-login{
     animation: right 1s;
 }
 .user-img11{
-    background-color: blueviolet;
+    background: #50c886;
+    background: -webkit-linear-gradient(45deg, #4158d0, #50c886);
+    background: -o-linear-gradient(45deg, #4158d0, #50c886);
+    background: -moz-linear-gradient(45deg, #4158d0, #50c886);
+    background: linear-gradient(45deg, #4158d0, #50c886);
+
     width: 50px;
     height: 40px;
     display: flex;
@@ -82,7 +91,7 @@ form .flex-login{
     width: 50%;
     height: 40%;
     margin-bottom: 10px;
-    fill: #aaa;
+    fill: white;
 }
 .user-img11 i.cadeado{
     width: 70%;
@@ -105,14 +114,15 @@ form .flex-login{
 }
 
 form .logar-button{
-    background-color: rgb(14, 170, 14);
-    transition: background .2s linear;
+    background: #418bd0;
+
+    transition: .2s linear;
 }
 .animate-form .logar-button{
     animation: left 1s;
 }
 form .logar-button:hover{
-    background-color: rgb(28, 153, 28);
+    background: #50c8b4;
 }
 form .logar-button .input{
     width: 100%;
@@ -213,8 +223,8 @@ form .logar-button input{
 }
 .error-box{
     width: 0%;
-    transition: .2s linear;
-    animation: left 1s;
+    /* transition: .2s linear; */
+    animation: shake 1s;
 }
 .error-box.activeErrorBox{
     margin-top: 20px;

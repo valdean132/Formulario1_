@@ -237,7 +237,6 @@ nav.menu-single a i{
     align-items: center;
     justify-content: center;
     color: white;
-    animation: left 1s;
 }
 
 .box-alert p{
@@ -259,9 +258,11 @@ nav.menu-single a i{
 
 .sucesso{
     background-color: #41a044;
+    animation: shakeTop 1s;
 }
 .error{
     background-color: #f75353;
+    animation: shake 1s;
 }
 
 /* ** */

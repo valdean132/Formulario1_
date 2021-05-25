@@ -8,6 +8,15 @@
     overflow: auto;
     padding: 20px;
     border-radius: 0 0 10px 10px;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+.div-wrapper::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+    background-color: transparent !important;
+}
+.div-wrapper::-webkit-scrollbar-thumb{
+    /* width: 3px; */
+    border-radius: 5px;
 }

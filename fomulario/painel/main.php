@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/404.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/usuario.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/relatorio.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_PANEL; ?>css/table.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/animate.css">
 
 </head>

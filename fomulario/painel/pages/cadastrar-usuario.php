@@ -115,6 +115,7 @@
                                             Painel::alert('sucesso', 'Usuário "'.$nome.'" foi cadastrado SUCESSO!!!', '');
                                         }else{
                                             Painel::alert('error', 'Ocorreu um erro ao Cadastrar o Usuario "'.$nome.'"...','Por favor tente novamente.');
+                                            Painel::deleteFile($imagem);
                                             $nomeForm = $nome;
                                             $userForm = $user;
                                             $passwordForm = $password;
