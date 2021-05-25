@@ -20,3 +20,31 @@
     /* width: 3px; */
     border-radius: 5px;
 }
+
+
+.opcoes-wrapper{
+    /* width: 100%;
+    height: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.opcoes-wrapper i svg{
+    width: 25px;
+    height: 25px;
+    fill: #eb4034;
+    transition: fill .2s;
+}
+.opcoes-wrapper .remove-single{
+    margin-left: 20px;
+}
+.opcoes-wrapper .editar-single i svg{
+    fill: #4158d0;
+}
+.opcoes-wrapper .remove-single i svg{
+    fill: #eb4034;
+}
+.opcoes-wrapper .editar-single:hover i svg,
+.opcoes-wrapper .remove-single:hover i svg{
+    fill: #ebd034;
+}

@@ -36,7 +36,7 @@
                             <th class="column4">Cargo</th>
                             <th class="column5">Opções</th>
                         </tr>
-                    </thead>
+                    </thead><!-- Cabeçalho da Tabela -->
                     <tbody>
                         <?php foreach($registeredUsers as $key => $value){ ?>
                             <tr>
@@ -44,11 +44,28 @@
                                 <td class="column2"><?php echo $value['nome']; ?></td>
                                 <td class="column3"><?php echo $value['user']; ?></td>
                                 <td class="column4"><?php echo pegaCargo($value['cargo']); ?></td>
-                                <td class="column5">Administrador</td>
+                                <td class="column5">
+                                    <div class="opcoes-wrapper">
+                                        <?php if($value['user'] == $_SESSION['user']){?>
+                                            <a title="Editar" href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario" class="editar-single">
+                                                <i><?php echo Icon::$pencil; ?></i>
+                                            </a><!-- Editar Single -->
+                                        <?php } ?>
+
+                                        <?php if($value['cargo'] < $_SESSION['cargo']){ ?>
+                                            <div class="editar-single" title="Editar">
+                                                <i><?php echo Icon::$pencil; ?></i>
+                                            </div><!-- Editar Single -->
+                                            <div class="remove-single" title="Remover">
+                                                <i><?php echo Icon::$remove; ?></i>
+                                            </div><!-- Remover Single -->
+                                        <?php } ?>
+                                    </div><!-- Opção Wrapper -->
+                                </td>
                             </tr>
                         <?php }?>
-                    </tbody>
-                </table>
+                    </tbody><!-- Corpo da Tabela -->
+                </table><!-- Tabela -->
             </div><!-- Div Wrapper -->
         </div><!-- Conteiner Central -->
     </div><!-- Center -->

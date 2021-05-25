@@ -106,7 +106,9 @@ tbody tr:hover {
   background-color: #4158d0;
   cursor: pointer;
 }
-
+tbody tr:hover .opcoes-wrapper i svg{
+  fill: #fff;
+}
 thead tr th, tbody tr td{
   width: auto;
   padding: 0 20px;
@@ -118,7 +120,7 @@ thead tr th:first-of-type, tbody tr td:first-of-type{
 
 thead tr th:last-of-type, tbody tr td:last-of-type{
   padding-right: 20px;
-  /* text-align: center; */
+  text-align: center;
 }
 /* tbody tr:nth-child(2n + 1) td{
   animation: left 1s;
@@ -196,6 +198,15 @@ tbody tr:nth-child(2n + 2) td{
     content: "Total";
   }
 
+  thead tr th:last-of-type, tbody tr td:last-of-type{
+    /* padding-right: 20px; */
+    text-align: left;
+  }
+  .opcoes-wrapper{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
   .column4,
   .column5,
   .column6 {
