@@ -95,13 +95,13 @@ $(function(){
 
 				$('.mostrar').hide(200);
 				
-				$('.ocutar').show(200);
+				$('.ocultar').show(200);
 			}else{
 				password.attr('type', 'password');
 
 				$('.mostrar').show(200);
 				
-				$('.ocutar').hide(200);
+				$('.ocultar').hide(200);
 			}
 		});
 	}
