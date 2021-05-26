@@ -63,6 +63,16 @@
                                     </div><!-- Opção Wrapper -->
                                 </td>
                             </tr>
+
+                            <div class="popup">
+                                <div class="deletar">
+                                    <h2>Deseja realmente deletar esse usuário?</h2>
+                                    <div class="buttom">
+                                        <input type="button" value="Sim" name="deletar">
+                                        <a href="">não</a>
+                                    </div><!-- Button -->
+                                </div><!-- Deletar -->
+                            </div><!-- popup -->
                         <?php }?>
                     </tbody><!-- Corpo da Tabela -->
                 </table><!-- Tabela -->

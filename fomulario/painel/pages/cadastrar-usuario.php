@@ -170,7 +170,7 @@
                                 <option value="" selected>Selecione Um Cargo</option>
                                 <?php
                                     foreach(Painel::$cargos as $key => $value){
-                                        echo '<option value="'.$key.'">'.$value.'</option>';
+                                        if($key < 3) echo '<option value="'.$key.'">'.$value.'</option>';
                                     }
                                 ?>
                             </select>
