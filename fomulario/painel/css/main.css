@@ -4,6 +4,37 @@
 body{
     overflow: hidden;
 }
+.disabled{
+    cursor: not-allowed;
+    /* background-color: rgb(192, 71, 71); */
+}
+.password{
+    position: relative;
+}
+.password input{
+    position: absolute;
+    /* transition: .5s; */
+}
+.showPassword{
+    position: absolute;
+    right: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.showPassword i{
+    fill: #888;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: fill .5s;
+}
+.ocultar{
+    display: none;
+}
+.showPassword i:hover{
+  fill: #4158d0;
+}
 .section-fixed{
     height: calc(100% - 100px);
     position: fixed;

@@ -53,8 +53,17 @@
     border: 1px solid #ccc;
     transition: border .5s;
 }
+.password input{
+    position: static;
+}
+.showPassword{
+    top: 5px;
+}
 .form-group input:focus, .form-group select:focus{
     border: 1px solid #069690;
+}
+.form-group input[type=file]{
+    background-color: #fff;
 }
 .form-group input[type=file],
 .form-group input[type=submit],

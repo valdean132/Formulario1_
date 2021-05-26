@@ -27,33 +27,42 @@
                             if($imagem['name'] != ''){
                                 // Imagem Existe e é válida
                                 if(Painel::imgValid($imagem)){
-                                    $imagem = Painel::uploadFile($imagem);
-                                    if($usuario->updateUser($nome, $user, $password, $imagem)){
-                                        Painel::deleteFile($imagem_atual);
-                                        Painel::alert('sucesso', 'Atualização Realizada com Sucesso!', 'Atualize a Página');
-    
-                                        $_SESSION['nome'] = $nome;
-                                        $_SESSION['user'] = $user;
-                                        $_SESSION['img'] = $imagem;
-                                        $_SESSION['password'] = $password;
-                                    }else{
-                                        Painel::alert('error', 'Ocorreu um erro ao Atualizar...', '');
+                                    if($usuario->userExists($user) != $_SESSION['user']){
+                                        Painel::alert('error', 'Login "'.$user.'" já existe no Banco de Dados!','Escolha Outro nome para Login ou mantenha o mesmo');
+                                    }else if($usuario->userExists($user) == $_SESSION['user'] || !$usuario->userExists($user)){
+                                        $imagem = Painel::uploadFile($imagem);
+                                        if($usuario->updateUser($nome, $password, $imagem)){
+                                            Painel::deleteFile($imagem_atual);
+                                            Painel::alert('sucesso', 'Atualização Realizada com Sucesso!', 'Atualize a Página');
+        
+                                            $_SESSION['nome'] = $nome;
+                                            $_SESSION['img'] = $imagem;
+                                            $_SESSION['user'] = $user;
+                                            $_SESSION['password'] = $password;
+                                        }else{
+                                            Painel::alert('error', 'Ocorreu um erro ao Atualizar...', '');
+                                        }
                                     }
                                 }else{
                                     Painel::alert('error', 'Formato de Imagem Invalido...','Selecione uma imagem JPG, JPEG ou PNG');
                                 }
                             }else{
-                                $imagem = $imagem_atual;
-                                if($usuario->updateUser($nome, $user, $password, $imagem)){
-                                    Painel::alert('sucesso', 'Atualização Realizada com Sucesso!', 'Atualize a Página');
-
-                                    $_SESSION['nome'] = $nome;
-                                    $_SESSION['user'] = $user;
-                                    $_SESSION['img'] = $imagem;
-                                    $_SESSION['password'] = $password;
-                                }else{
-                                    Painel::alert('error', 'Ocorreu um erro ao Atualizar...', '');
+                                if($usuario->userExists($user) != $_SESSION['user']){
+                                    Painel::alert('error', 'Login "'.$user.'" já existe no Banco de Dados!','Escolha Outro nome para Login ou mantenha o mesmo');
+                                }else if($usuario->userExists($user) == $_SESSION['user'] || !$usuario->userExists($user)){
+                                    $imagem = $imagem_atual;
+                                    if($usuario->updateUser($nome, $password, $imagem)){
+                                        Painel::alert('sucesso', 'Atualização Realizada com Sucesso!', 'Atualize a Página');
+    
+                                        $_SESSION['nome'] = $nome;
+                                        $_SESSION['img'] = $imagem;
+                                        $_SESSION['user'] = $user;
+                                        $_SESSION['password'] = $password;
+                                    }else{
+                                        Painel::alert('error', 'Ocorreu um erro ao Atualizar...', '');
+                                    }
                                 }
+                                
                             }
                         }
                     ?>
@@ -69,8 +78,14 @@
                         </div><!-- Form-Group-User -->
 
                         <div class="form-group">
-                            <label for="senha">Senha:</label>
-                            <input type="text" id="senha" name="password" required value="<?php echo $_SESSION['password'];?>">
+                            <label for="password">Senha:</label>
+                            <div class="password">
+                                <input type="password" id="password" name="password" required value="<?php echo $_SESSION['password'];?>">
+                                <div class="showPassword">
+                                    <i class="mostrar"><?php echo Icon::$mostrar; ?></i>
+                                    <i class="ocultar"><?php echo Icon::$ocultar; ?></i>
+                                </div><!-- Show Password -->
+                            </div><!-- Show Password -->
                         </div><!-- Form-Group-Senha -->
 
                         <div class="form-group">

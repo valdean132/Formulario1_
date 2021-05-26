@@ -78,7 +78,8 @@
         public static $cargos = [
             '0' => 'Normal',
             '1' => 'Sub Administrador',
-            '2' => 'Administrador'
+            '2' => 'Administrador',
+            '3' => 'Administrador Geral'
         ];
 
         // Variaveis de Menu

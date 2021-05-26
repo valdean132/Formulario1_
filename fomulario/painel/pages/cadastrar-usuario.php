@@ -154,8 +154,14 @@
                         </div><!-- Form-Group-User -->
 
                         <div class="form-group">
-                            <label for="senha">Senha:</label>
-                            <input type="text" id="senha" name="password" value="<?php echo $passwordForm; ?>">
+                            <label for="password">Senha:</label>
+                            <div class="password">
+                                <input type="password" id="password" name="password" required value="<?php echo $passwordForm ?>">
+                                <div class="showPassword">
+                                    <i class="mostrar"><?php echo Icon::$mostrar; ?></i>
+                                    <i class="ocultar"><?php echo Icon::$ocultar; ?></i>
+                                </div><!-- Show Password -->
+                            </div><!-- Show Password -->
                         </div><!-- Form-Group-Senha -->
 
                         <div class="form-group">

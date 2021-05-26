@@ -85,7 +85,29 @@ $(function(){
 		});
 	}
 
+	// Mostrar e Ocutar Senha
+	function showPassword(){
+		$('.showPassword i').on('click', function(){
+			var password = $('#password');
+			var passwordType = password.attr('type');
+			if(passwordType == 'password'){
+				password.attr('type', 'text');
+
+				$('.mostrar').hide(200);
+				
+				$('.ocutar').show(200);
+			}else{
+				password.attr('type', 'password');
+
+				$('.mostrar').show(200);
+				
+				$('.ocutar').hide(200);
+			}
+		});
+	}
+
 	// carregamentoDimanico();
+	showPassword();
 	agendamentos();
     Menu();
 });
