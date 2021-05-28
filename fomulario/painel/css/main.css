@@ -266,14 +266,14 @@ nav.menu-single a i{
 .homeInicial-center:hover{
     width: 60px;
     height: 60px;
-    background-color: #00695c;
+    background-color: #ebd034;
 }
 .homeInicial:hover{
     bottom: 45px;
     right: 45px;
 }
 .homeInicial:hover a i{
-    fill: #333;
+    fill: #4158d0;
 }
 
 /* ** */

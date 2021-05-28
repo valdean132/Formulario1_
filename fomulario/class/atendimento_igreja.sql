@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Maio-2021 às 22:19
+-- Tempo de geração: 28-Maio-2021 às 04:52
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -32,7 +32,7 @@ CREATE TABLE `res_form` (
   `momento_registro` datetime NOT NULL,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `telefone` varchar(12) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
   `endereco` varchar(255) NOT NULL,
   `resp_ged` varchar(4) NOT NULL,
   `nome_ged` varchar(100) NOT NULL,
@@ -55,10 +55,10 @@ CREATE TABLE `res_form` (
 --
 
 INSERT INTO `res_form` (`id`, `momento_registro`, `nome`, `email`, `telefone`, `endereco`, `resp_ged`, `nome_ged`, `nome_supervisor`, `tipo_ajuda_opcao1`, `tipo_ajuda_opcao2`, `tipo_ajuda_opcao3`, `tipo_ajuda_opcao4`, `tipo_ajuda_opcao5`, `tipo_ajuda_opcao6`, `necessidade`, `data_agendamento`, `nome_profissional`, `situacao_agendamento`, `respon_agendamento`) VALUES
-(1, '2021-05-05 13:33:00', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', '46, 46 - 46', 'Sim', 'nome', 'nome', '', '', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'aaaaaa', '', '', 'Não', ''),
-(2, '2021-05-05 13:36:25', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', '46, 46 - 46', 'Sim', 'nome', 'nome', '', '', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'aaaaaa', '', '', 'Não', ''),
-(3, '2021-05-05 13:37:50', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', 'aa, aa - aaa', 'Não', '', '', '', 'Apoio Psicológico (Estou de luto, depressão, ansiedade)', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', 'aaaaa', 'aaaaa', '', '', 'Não', ''),
-(4, '2021-05-06 16:29:15', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', 'Beco Benayon, 162 - Compensa 2', 'Sim', 'Getsamane', 'Postor Marcos', 'Apoio Espiritual (Pedido de oração, palavra do pastor, leitura da palavra de Deus)', 'Apoio Psicológico (Estou de luto, depressão, ansiedade)', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'Sem nada a declarar', '', '', 'Não', '');
+(2, '2021-05-05 13:33:00', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', '46, 46 - 46', 'Sim', 'nome', 'nome', '', '', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'aaaaaa', '', '', 'Não', ''),
+(3, '2021-05-05 13:36:25', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', '46, 46 - 46', 'Sim', 'nome', 'nome', '', '', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'aaaaaa', '', '', 'Não', ''),
+(4, '2021-05-05 13:37:50', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', 'aa, aa - aaa', 'Não', '', '', '', 'Apoio Psicológico (Estou de luto, depressão, ansiedade)', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', 'aaaaa', 'aaaaa', '', '', 'Não', ''),
+(5, '2021-05-06 16:29:15', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', 'Beco Benayon, 162 - Compensa 2', 'Sim', 'Getsamane', 'Postor Marcos', 'Apoio Espiritual (Pedido de oração, palavra do pastor, leitura da palavra de Deus)', 'Apoio Psicológico (Estou de luto, depressão, ansiedade)', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'Sem nada a declarar', '', '', 'Não', '');
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,8 @@ CREATE TABLE `tb_admin.usuarios` (
 --
 
 INSERT INTO `tb_admin.usuarios` (`id`, `user`, `password`, `cargo`, `nome`, `img`) VALUES
-(1, 'valdeanSouza', '1598753', 2, 'Valdean Souza', '');
+(25, 'valdean', '1598753', 3, 'Valdean Souza', '60b02ffb5478f.jpeg'),
+(35, 'luh', '123456', 2, 'Luciane P. Barreto', '60b03054949f2.jpg');
 
 --
 -- Índices para tabelas despejadas
@@ -106,13 +107,13 @@ ALTER TABLE `tb_admin.usuarios`
 -- AUTO_INCREMENT de tabela `res_form`
 --
 ALTER TABLE `res_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tb_admin.usuarios`
 --
 ALTER TABLE `tb_admin.usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
