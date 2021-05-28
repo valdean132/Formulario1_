@@ -22,7 +22,7 @@
                             // Pegando Dados dos Inputs
                             $usuario = new EnvioDeFormulario();
                             $nome = $_POST['nome'];
-                            $user = $_POST['user'];
+                            $user = strtolower($_POST['user']);
                             $password = $_POST['password'];
                             $cargoUser = $_POST['cargo'];
                             $imagem = $_FILES['imagem'];

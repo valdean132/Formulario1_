@@ -1,14 +1,14 @@
 <?php
     $classAnimate = 'animate-form';
-    if(isset($_POST['acao'])){
+    if(isset($_POST['acao']) || isset($_POST['deletar'])){
         $classAnimate = '';
     }
 
     $registeredUsers = Painel::registeredUsers();
+    $totalUser = Painel::totalUsers();
 
     verificaPermicaoPagina(2);
 ?>
-
 <section class="relatorio section-fixed">
     <div class="center">
         <div class="container-central <?php echo $classAnimate; ?>">
@@ -27,6 +27,24 @@
                 <h2><i><?php echo Icon::$userGroup; ?></i> Usuários Cadastrados</h2>
             </div><!-- Title -->
             <div class="div-wrapper">
+                <?php 
+                    if(isset($_POST['deletar'])){
+                        $usuario = new EnvioDeFormulario();
+                        $user = $_POST['userDelete'];
+                        $nome = $_POST['nomeDelete'];
+                        $img = $_POST['imgDelete'];
+                        // echo $user;
+                        // echo $nome;
+
+
+                        if($usuario->deleteUser($user)){
+                            Painel::deleteFile($img);
+                            Painel::alert('sucesso', 'Usuário "'.$nome.'" foi removido SUCESSO!!!', 'Atualize a página');
+                        }else{
+                            Painel::alert('error', 'Ocorreu um erro ou deletar o usuário "'.$nome.'"','Por favor, tente novamente');
+                        }
+                    }    
+                    ?>
                 <table>
                     <thead>
                         <tr class="table100-head">
@@ -56,23 +74,13 @@
                                             <div class="editar-single" title="Editar">
                                                 <i><?php echo Icon::$pencil; ?></i>
                                             </div><!-- Editar Single -->
-                                            <div class="remove-single" title="Remover">
+                                            <div class="remove-single btn-remove<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Remover">
                                                 <i><?php echo Icon::$remove; ?></i>
                                             </div><!-- Remover Single -->
                                         <?php } ?>
                                     </div><!-- Opção Wrapper -->
                                 </td>
                             </tr>
-
-                            <div class="popup">
-                                <div class="deletar">
-                                    <h2>Deseja realmente deletar esse usuário?</h2>
-                                    <div class="buttom">
-                                        <input type="button" value="Sim" name="deletar">
-                                        <a href="">não</a>
-                                    </div><!-- Button -->
-                                </div><!-- Deletar -->
-                            </div><!-- popup -->
                         <?php }?>
                     </tbody><!-- Corpo da Tabela -->
                 </table><!-- Tabela -->
@@ -80,3 +88,23 @@
         </div><!-- Conteiner Central -->
     </div><!-- Center -->
 </section><!-- Editar Perfil -->
+
+
+<div class="popup">
+    <?php foreach($registeredUsers as $key => $value){ ?>
+        <div class="ocultar deletar-center delete-conf<?php echo $key+1; ?>" realtime="<?php echo $key+1; ?>">
+            <h2>Deseja realmente deletar <strong><?php echo $value['nome'] ?></strong>?</h2>
+            <div class="buttom">
+                <form method="POST">
+                    
+                    <input type="submit" value="Sim" name="deletar">
+                    <input type="hidden" name="userDelete" value="<?php echo $value['user']; ?>">
+                    <input type="hidden" name="nomeDelete" value="<?php echo $value['nome']; ?>">
+                    <input type="hidden" name="imgDelete" value="<?php echo $value['img']; ?>">
+                </form>
+                <a href="" class="sairModal">não</a>
+            </div><!-- Button -->
+        </div><!-- Deletar -->
+    <?php }?>
+    <div class="contador" realtime="<?php echo $totalUser; ?>"></div>
+</div><!-- popup -->

@@ -35,6 +35,16 @@
                 return false;
             }
         }
+
+        // Deletar Usuário
+        public function deleteUser($user){
+            $sql = MySql::conectar()->prepare("DELETE FROM `tb_admin.usuarios` WHERE user = ?");
+            if($sql->execute(array($user))){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
 ?>

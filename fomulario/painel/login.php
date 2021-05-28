@@ -43,7 +43,7 @@
         $valuePassword = '';
         $classAnimate = 'animate-form';
         if(isset($_POST['acao'])){
-            $user = $_POST['user'];
+            $user = strtolower($_POST['user']);
             $password = $_POST['password'];
             $userVazio = $user === '';
             $passwordVazio = $password === '';

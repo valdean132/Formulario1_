@@ -1,6 +1,6 @@
 $(function(){
 
-	// Botões de Agendamentos
+	/* Botões de Agendamentos */
 	function agendamentos(){
 		const porAgendar = $('.por_agendar');
 		const agendado = $('.agendado');
@@ -56,7 +56,7 @@ $(function(){
 		});
 	}
 
-	// Menu
+	/* Menu */
 	function Menu(){
 		const logoImg = $('.img_logo');
 		const menuSigle = $('.menu-single');
@@ -67,7 +67,7 @@ $(function(){
 	}
 
 	
-	// Carregamentos Animados
+	/* Carregamentos Animados */
 	function carregamentoDimanico(){
 		$('[realtime]').click(()=>{
 			var container = $('.container-central')
@@ -85,7 +85,7 @@ $(function(){
 		});
 	}
 
-	// Mostrar e Ocutar Senha
+	/* Mostrar e Ocutar Senha */
 	function showPassword(){
 		$('.showPassword i').on('click', function(){
 			var password = $('#password');
@@ -106,7 +106,66 @@ $(function(){
 		});
 	}
 
+	/* Deletar Usuário */
+	// function deleteUser()
+
+	/* Deletar Usuário */
+	function deletar(){
+		const contador = $('.contador').attr('realtime');
+		var cont = 1;
+		
+		while(cont <= contador){
+			var btnDeletar = $('.btn-remove'+cont);
+				btnDeletar.click(function(){
+					var btnDelete = $(this).attr('realtime')
+					var deleteConf = $('.delete-conf'+btnDelete);
+					const popup = $('.popup');
+					popup.css('display', 'flex');
+					setTimeout(() =>{
+						popup.css('opacity', 1);
+						deleteConf.addClass('animate-popup');
+					}, 500);
+					
+				});
+			
+			cont++;
+		}
+	}
+
+	/* Fechar popup */
+	function fecharPopup(){
+		var popup = $('.popup');
+
+		popup.click(e =>{
+			const ocultar = $('.ocultar');
+
+			if(e.target.className == 'popup' || e.target.className == 'sairModal'){
+				popup.css('opacity', 0);
+				setTimeout(() =>{
+					popup.css('display', 'none');
+					ocultar.removeClass('animate-popup');
+				}, 500);
+				return false;
+			}
+
+		});
+	}
+
+	/* Janela Popup */
+	function popup(){
+
+		// Modal Deletar
+		deletar();
+
+		// Fechar Popup
+		fecharPopup();
+
+		
+	}
+
+	/* Chamando Funções */
 	// carregamentoDimanico();
+	popup();
 	showPassword();
 	agendamentos();
     Menu();

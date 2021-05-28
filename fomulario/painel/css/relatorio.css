@@ -51,16 +51,12 @@
 
 
 /* Deletar */
-.deletar{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.deletar-center{
+    display: none;
     background-color: #f5f5f5;
     width: 40%;
     height: 30%;
     padding: 2%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -69,18 +65,23 @@
     box-shadow: -1px -1px 2px 0 #4158d0,
                 1px 1px 2px 0 #4158d0; 
 }
-.deletar h2{
+.deletar-center.animate-popup{
+    display: flex;
+    animation: bottom .5s;
+}
+.deletar-center h2{
     color: #777;
     font-weight: normal;
     font-size: 25px;
+    text-align: center;
 }
-.deletar .buttom{
+.deletar-center .buttom{
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.deletar .buttom input, .deletar .buttom a{
+.deletar-center .buttom input, .deletar-center .buttom a{
     cursor: pointer;
     display: flex;
     width: 150px;
@@ -96,16 +97,16 @@
     filter: drop-shadow(0 1px 3px #000);
     transition: background .2s;
 }
-.deletar .buttom input{
+.deletar-center .buttom input{
     margin-right: 20px;
     background-color: #eb4034;
 }
-.deletar .buttom a{
+.deletar-center .buttom a{
     background-color: #4158d0;
 }
-.deletar .buttom a:hover{
+.deletar-center .buttom a:hover{
     background-color: #374baf;
 }
-.deletar .buttom input:hover{
+.deletar-center .buttom input:hover{
     background-color: #c2372d;
 }

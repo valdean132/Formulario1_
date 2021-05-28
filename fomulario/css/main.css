@@ -44,7 +44,7 @@ html, body{
   .pace .pace-progress {
     background: #22dfc6;
     position: fixed;
-    z-index: 100000;
+    z-index: 500000;
     top: 0;
     right: 100%;
     width: 100%;
