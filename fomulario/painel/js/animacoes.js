@@ -88,38 +88,33 @@ $(function(){
 	/* Mostrar e Ocutar Senha */
 	function showPassword(){
 		$('.showPassword i').on('click', function(){
-			var password = $('#password');
+			var password = $('.passwordSenha');
 			var passwordType = password.attr('type');
 			if(passwordType == 'password'){
 				password.attr('type', 'text');
 
-				$('.mostrar').hide(200);
+				$('.mostrarPassword').hide(200);
 				
-				$('.ocultar').show(200);
+				$('.ocultarPassword').show(200);
 			}else{
 				password.attr('type', 'password');
 
-				$('.mostrar').show(200);
+				$('.mostrarPassword').show(200);
 				
-				$('.ocultar').hide(200);
+				$('.ocultarPassword').hide(200);
 			}
 		});
 	}
 
 	/* Deletar Usuário */
-	// function deleteUser()
-
-	/* Deletar Usuário */
-	function deletar(){
-		const contador = $('.contador').attr('realtime');
-		var cont = 1;
+	function deletar(contador, cont, popup){
 		
 		while(cont <= contador){
 			var btnDeletar = $('.btn-remove'+cont);
 				btnDeletar.click(function(){
 					var btnDelete = $(this).attr('realtime')
 					var deleteConf = $('.delete-conf'+btnDelete);
-					const popup = $('.popup');
+					
 					popup.css('display', 'flex');
 					setTimeout(() =>{
 						popup.css('opacity', 1);
@@ -131,10 +126,29 @@ $(function(){
 			cont++;
 		}
 	}
+	/* Editar Usuário */
+	function editar(contador, cont, popup){
+		
+		while(cont <= contador){
+			var btnEditar = $('.btn-editar'+cont);
+				btnEditar.click(function(){
+					var btnEditar = $(this).attr('realtime')
+					var editarConf = $('.editar-conf'+btnEditar);
+					
+					popup.css('display', 'flex');
+					setTimeout(() =>{
+						popup.css('opacity', 1);
+						editarConf.addClass('animate-popup');
+					}, 500);
+					
+				});
+			
+			cont++;
+		}
+	}
 
 	/* Fechar popup */
-	function fecharPopup(){
-		var popup = $('.popup');
+	function fecharPopup(popup){
 
 		popup.click(e =>{
 			const ocultar = $('.ocultar');
@@ -147,18 +161,25 @@ $(function(){
 				}, 500);
 				return false;
 			}
-
 		});
 	}
 
 	/* Janela Popup */
 	function popup(){
 
+		// Variaveis Constantes
+		const contador = $('.contador').attr('realtime');
+		var cont = 1;
+		const popup = $('.popup');
+
 		// Modal Deletar
-		deletar();
+		deletar(contador, cont, popup);
+		
+		// Modal Editar
+		editar(contador, cont, popup);
 
 		// Fechar Popup
-		fecharPopup();
+		fecharPopup(popup);
 
 		
 	}

@@ -4,8 +4,10 @@
 body{
     overflow: hidden;
 }
-.disabled{
+input[disabled]{
     cursor: not-allowed;
+    background-color: #777;
+    color: #f5f5f5 !important;
 }
 
 /* Password */
@@ -30,7 +32,7 @@ body{
     cursor: pointer;
     transition: fill .5s;
 }
-.ocultar{
+.ocultarPassword{
     display: none;
 }
 .showPassword i:hover{
@@ -58,7 +60,7 @@ body{
     backdrop-filter: blur(2px); /* Chrome and Opera */
     background-color: rgba(0, 0, 0, 0.1);
     /* animation: none 1s; */
-    opacity: 0;
+    /* opacity: 0; */
     transition: opacity .5s;
 }
 /* ** */

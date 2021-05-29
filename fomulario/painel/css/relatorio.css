@@ -51,6 +51,7 @@
 
 
 /* Deletar */
+
 .deletar-center{
     display: none;
     background-color: #f5f5f5;
@@ -110,3 +111,55 @@
 .deletar-center .buttom input:hover{
     background-color: #c2372d;
 }
+
+/* ** */
+
+/* Editar Usuário */
+
+.editar-center{
+    display: none;
+    position: relative;
+    background-color: #f5f5f5;
+    width: 85%;
+    height: 75%;
+    padding: 2%;
+    border-radius: 10px;
+    /* border: 2px solid #4158d0; */
+    box-shadow: -1px -1px 2px 0 #4158d0,
+                1px 1px 2px 0 #4158d0; 
+}
+.editar-center.animate-popup{
+    display: block;
+    animation: bottom .5s;
+}
+.editar-center h2{
+    color: #777;
+    font-weight: normal;
+    font-size: 25px;
+    /* text-align: center; */
+}
+.editar-center a{
+    position: absolute;
+    top: -13px;
+    right: -13px;
+    background-color: #4158d0;
+    display: flex;
+    width: 35px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f5f5f5;
+    font-size: 25px;
+    border-radius: 50%;
+    border: 2px solid #2a292ba4;
+    transition: background .2s;
+}
+.editar-center a:hover{
+    background-color: #374baf;
+}
+.editar-center .buttom{
+    padding: 0 2%;
+}
+/* ** */

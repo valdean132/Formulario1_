@@ -1,6 +1,6 @@
 <?php
     $classAnimate = 'animate-form';
-    if(isset($_POST['acao']) || isset($_POST['deletar'])){
+    if(isset($_POST['acao']) || isset($_POST['deletar']) || isset($_POST['editar'])){
         $classAnimate = '';
     }
 
@@ -71,7 +71,7 @@
                                         <?php } ?>
 
                                         <?php if($value['cargo'] < $_SESSION['cargo']){ ?>
-                                            <div class="editar-single" title="Editar">
+                                            <div class="editar-single btn-editar<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Editar">
                                                 <i><?php echo Icon::$pencil; ?></i>
                                             </div><!-- Editar Single -->
                                             <div class="remove-single btn-remove<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Remover">
@@ -96,7 +96,6 @@
             <h2>Deseja realmente deletar <strong><?php echo $value['nome'] ?></strong>?</h2>
             <div class="buttom">
                 <form method="POST">
-                    
                     <input type="submit" value="Sim" name="deletar">
                     <input type="hidden" name="userDelete" value="<?php echo $value['user']; ?>">
                     <input type="hidden" name="nomeDelete" value="<?php echo $value['nome']; ?>">
@@ -105,6 +104,62 @@
                 <a href="" class="sairModal">não</a>
             </div><!-- Button -->
         </div><!-- Deletar -->
+
+        <div class="ocultar editar-center editar-conf<?php echo $key+1; ?>" realtime="<?php echo $key+1; ?>">
+            <a href="" class="sairModal">x</a>
+            <h2>Editar Usuário <strong><?php echo $value['nome'] ?></strong>!</h2>
+            <div class="buttom">
+                <form method="POST">
+                    <div class="form-group-wrapper">
+                        <div class="form-group">
+                            <label for="nome<?php echo $key+1; ?>">Nome:</label>
+                            <input type="text" name="" disabled value="<?php echo $value['nome'];?>">
+                            <input type="hidden" id="nome<?php echo $key+1; ?>" name="nomeEditar" required value="<?php echo $value['nome'];?>">
+                        </div><!-- Form-Group-Nome -->
+    
+                        <div class="form-group">
+                            <label for="login<?php echo $key+1; ?>">Login:</label>
+                            <input type="text" id="login<?php echo $key+1; ?>" name="userEditar" required value="<?php echo $value['user'];?>">
+                        </div><!-- Form-Group-User -->
+    
+                        <div class="form-group">
+                            <label for="password<?php echo $key+1; ?>">Senha:</label>
+                            <div class="password">
+                                <input type="password" class="passwordSenha" id="password<?php echo $key+1; ?>" name="password" required value="<?php echo $value['password'];?>">
+                                <div class="showPassword">
+                                    <i class="mostrarPassword"><?php echo Icon::$mostrar; ?></i>
+                                    <i class="ocultarPassword"><?php echo Icon::$ocultar; ?></i>
+                                </div><!-- Show Password -->
+                            </div><!-- Show Password -->
+                        </div><!-- Form-Group-Senha -->
+    
+                        <?php if($_SESSION['cargo'] == 3){ ?>
+                            <div class="form-group">
+                                <label for="cargo<?php echo $key+1; ?>">Cargo:</label>
+                                <select name="cargo" id="cargo<?php echo $key+1; ?>">
+                                    <?php
+                                        foreach(Painel::$cargos as $key => $values){
+                                            if($key < 3){
+                                                if($key == $value['cargo']){
+                                                    echo '<option selected value="'.$key.'">'.$values.'</option>';
+                                                }else{
+                                                    echo '<option value="'.$key.'">'.$values.'</option>';
+                                                }
+                                            } 
+                                        }
+                                    ?>
+                                </select>
+                            </div><!-- Form-Group-Cargo -->
+                        <?php } ?>
+    
+                        <div class="form-group">
+                            <input type="submit" name="editar" value="Atualizar!">
+                        </div><!-- Form-Group -->
+                    </div><!-- form-group-wrapper -->
+                </form>
+            </div><!-- Button -->
+        </div><!-- Editar -->
     <?php }?>
+
     <div class="contador" realtime="<?php echo $totalUser; ?>"></div>
 </div><!-- popup -->

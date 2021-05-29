@@ -136,10 +136,10 @@
                                 <i alt="User_Img" class="cadeado"><?php echo Icon::$cadeadoFechado; ?></i>
                             </div><!-- Img-User -->
                             <div class="input password">
-                                <input type="password" id="password" name="password" value="<?php echo $valuePassword; ?>" placeholder="PASSWORD" autocomplete="off">
+                                <input type="password" class="passwordSenha" id="password" name="password" value="<?php echo $valuePassword; ?>" placeholder="PASSWORD" autocomplete="off">
                                 <div class="showPassword">
-                                    <i class="mostrar"><?php echo Icon::$mostrar; ?></i>
-                                    <i class="ocultar"><?php echo Icon::$ocultar; ?></i>
+                                    <i class="mostrarPassword"><?php echo Icon::$mostrar; ?></i>
+                                    <i class="ocultarPassword"><?php echo Icon::$ocultar; ?></i>
                                 </div><!-- Show Password -->
                             </div><!-- Input -->
                         </div><!-- UserPassword -->

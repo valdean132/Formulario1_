@@ -156,10 +156,10 @@
                         <div class="form-group">
                             <label for="password">Senha:</label>
                             <div class="password">
-                                <input type="password" id="password" name="password" required value="<?php echo $passwordForm ?>">
+                                <input type="password" class="passwordSenha" id="password" name="password" required value="<?php echo $passwordForm ?>">
                                 <div class="showPassword">
-                                    <i class="mostrar"><?php echo Icon::$mostrar; ?></i>
-                                    <i class="ocultar"><?php echo Icon::$ocultar; ?></i>
+                                    <i class="mostrarPassword"><?php echo Icon::$mostrar; ?></i>
+                                    <i class="ocultarPassword"><?php echo Icon::$ocultar; ?></i>
                                 </div><!-- Show Password -->
                             </div><!-- Show Password -->
                         </div><!-- Form-Group-Senha -->
