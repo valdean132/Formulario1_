@@ -47,9 +47,9 @@
         }
 
         // Fazendo Atualização de Usuário
-        public function updateUserAdmin($user, $password, $cargo){
-            $sql = MySql::conectar()->prepare("UPDATE `tb_admin.usuarios` SET nome = ?, password = ? , img = ? WHERE user = ?");
-            if($sql->execute(array($user, $password, $cargo))){
+        public function updateUserAdmin($user, $password, $cargo, $userAtual){
+            $sql = MySql::conectar()->prepare("UPDATE `tb_admin.usuarios` SET user = ?, password = ? , cargo = ? WHERE user = ?");
+            if($sql->execute(array($user, $password, $cargo, $userAtual))){
                 return true;
             }else{
                 return false;

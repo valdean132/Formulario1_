@@ -28,8 +28,8 @@
             </div><!-- Title -->
             <div class="div-wrapper">
                 <?php 
+                    $usuario = new EnvioDeFormulario();
                     if(isset($_POST['deletar'])){
-                        $usuario = new EnvioDeFormulario();
                         $user = $_POST['userDelete'];
                         $nome = $_POST['nomeDelete'];
                         $img = $_POST['imgDelete'];
@@ -44,7 +44,27 @@
                             Painel::alert('error', 'Ocorreu um erro ou deletar o usuário "'.$nome.'"','Por favor, tente novamente');
                         }
                     }    
-                    ?>
+
+                    if(isset($_POST['editar'])){
+                        $nome = $_POST['nomeEditar'];
+                        $userEditar = strtolower($_POST['userEditar']);
+                        $userAtual = strtolower($_POST['userAtual']);
+                        $passwordEditar = $_POST['passwordEditar'];
+                        $cargoEditar = $_POST['cargoEditar'];
+
+                        if($usuario->userExists($userEditar) == $userAtual || !$usuario->userExists($userEditar)){
+                            if($usuario->updateUserAdmin($userEditar, $passwordEditar, $cargoEditar, $userAtual)){
+                                Painel::alert('sucesso', '"'.$nome.'" foi atualizado com Sucesso!', 'Atualize a Página');
+                            }else{
+                                Painel::alert('error', 'Ocorreu um erro ao Atualizar "'.$nome.'"...', 'Por favor, tente novamente');
+                            }
+                        }else{
+                            Painel::alert('error', 'Login "'.$userEditar.'" já existe no Banco de Dados!','Escolha Outro nome para Login ou mantenha o mesmo');
+                        }
+
+
+                    }
+                ?>
                 <table>
                     <thead>
                         <tr class="table100-head">
@@ -120,12 +140,13 @@
                         <div class="form-group">
                             <label for="login<?php echo $key+1; ?>">Login:</label>
                             <input type="text" id="login<?php echo $key+1; ?>" name="userEditar" required value="<?php echo $value['user'];?>">
+                            <input type="hidden" id="login<?php echo $key+1; ?>" name="userAtual" required value="<?php echo $value['user'];?>">
                         </div><!-- Form-Group-User -->
     
                         <div class="form-group">
                             <label for="password<?php echo $key+1; ?>">Senha:</label>
                             <div class="password">
-                                <input type="password" class="passwordSenha" id="password<?php echo $key+1; ?>" name="password" required value="<?php echo $value['password'];?>">
+                                <input type="password" class="passwordSenha" id="password<?php echo $key+1; ?>" name="passwordEditar" required value="<?php echo $value['password'];?>">
                                 <div class="showPassword">
                                     <i class="mostrarPassword"><?php echo Icon::$mostrar; ?></i>
                                     <i class="ocultarPassword"><?php echo Icon::$ocultar; ?></i>
@@ -136,7 +157,7 @@
                         <?php if($_SESSION['cargo'] == 3){ ?>
                             <div class="form-group">
                                 <label for="cargo<?php echo $key+1; ?>">Cargo:</label>
-                                <select name="cargo" id="cargo<?php echo $key+1; ?>">
+                                <select type="hidden" name="cargoEditar" id="cargo<?php echo $key+1; ?>">
                                     <?php
                                         foreach(Painel::$cargos as $key => $values){
                                             if($key < 3){
@@ -150,6 +171,8 @@
                                     ?>
                                 </select>
                             </div><!-- Form-Group-Cargo -->
+                        <?php }else{ ?>
+                            <input type="hidden" name="cargoEditar" value="<?php echo $value['cargo']; ?>">
                         <?php } ?>
     
                         <div class="form-group">
