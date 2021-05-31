@@ -2,6 +2,7 @@
 
 
     $porAgendar = Agendamentos::porAgendar();
+    $agendados = Agendamentos::agendados();
 
 ?>
 <div class="section-fixed">
@@ -29,15 +30,21 @@
                 </div><!-- Btn-Wraper-Center -->
 
                 <div class="list-nomes anm1">
-                    <?php foreach($porAgendar as $key => $value){ 
-                            if($value['situacao_agendamento'] === strtoupper('n')){
-
-                        ?>
+                    <?php
+                        if(count($porAgendar) > 0){
+                            foreach($porAgendar as $key => $value){ ?>
                             <div class="name-date">
                                 <h4><?php echo $value['nome']; ?></h4>
                                 <p><?php echo date('d/m/Y H:i:s', strtotime($value['momento_registro'])); ?></p>
-                            </div><!-- Nom-data -->
-                    <?php }
+                            </div><!-- Nome-data Por Agendados -->
+                    <?php
+                            }
+                        }else{
+                    ?>
+                        <div class="name-date null">
+                            <p>Não há agendamestos por marcar</p>
+                        </div><!-- Nome-data Null -->
+                    <?php
                         }
                     ?>
                 </div><!-- list-nomes -->
@@ -46,7 +53,7 @@
             <div class="btn-list">
                 <div class="btn-wraper-center agendado">
                     <div class="cont">
-                        <p>5</p>
+                        <p><?php echo count($agendados); ?></p>
                     </div>
                     <div class="btn2 btn-wraper border-radius1">
                         <h4>Agendadas</h4>
@@ -55,10 +62,23 @@
                 </div><!-- Btn-Wraper-Center -->
 
                 <div class="list-nomes anm2">
-                    <div class="name-date">
-                        <h4>Valdean Palmeira de Souza</h4>
-                        <p>07/02/2020 4:53:52</p>
-                    </div>
+                    <?php
+                        if(count($agendados) > 0){
+                            foreach($agendados as $key => $value){ ?>
+                            <div class="name-date">
+                                <h4><?php echo $value['nome']; ?></h4>
+                                <p><?php echo date('d/m/Y H:i:s', strtotime($value['momento_agendamento'])); ?></p>
+                            </div><!-- Nome-data Agendados -->
+                    <?php
+                            }
+                        }else{
+                    ?>
+                        <div class="name-date null">
+                            <p>Não há agendamentos marcados</p>
+                        </div><!-- Nome-data Null -->
+                    <?php
+                        }
+                    ?>
                 </div><!-- list-nomes -->
             </div><!-- Btn-List -->
         </div><!-- Center -->

@@ -185,5 +185,13 @@ section.button-list .btn-list:nth-child(2){
     vertical-align: bottom;
 }
 
-
+.name-date.null{
+    border-bottom: 0;
+    cursor: url(../../img/cursor1.cur),auto;
+    padding: 10px;
+}
+.name-date.null p{
+    font-size: 18px;
+    color: #444;
+}
 /* ** */

@@ -23,7 +23,8 @@
         $tipo_ajuda_opcao5 = '';
         $tipo_ajuda_opcao6 = '';
 
-        $data_agendamento = ''; 
+        $data_agendamento = '';
+        $momento_agendamento = '';
         $nome_profissional = '';
         $resp_agendamento = '';
         
@@ -62,7 +63,7 @@
         $necessidade = $_POST['necessidade'];
         $situacao_agendamento = strtoupper('n');
 
-        $sql = MySql::conectar()->prepare("INSERT INTO `res_form`  VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        $sql = MySql::conectar()->prepare("INSERT INTO `res_form`  VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
         $sql->execute(array(
             $momento_registro,
@@ -81,6 +82,7 @@
             $tipo_ajuda_opcao6,
             $necessidade,
             $data_agendamento,
+            $momento_agendamento,
             $nome_profissional,
             $situacao_agendamento,
             $resp_agendamento
