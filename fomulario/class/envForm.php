@@ -60,7 +60,7 @@
         }
         
         $necessidade = $_POST['necessidade'];
-        $situacao_agendamento = 'Não';
+        $situacao_agendamento = strtoupper('n');
 
         $sql = MySql::conectar()->prepare("INSERT INTO `res_form`  VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 

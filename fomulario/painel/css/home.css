@@ -150,6 +150,16 @@ section.button-list .btn-list:nth-child(2){
     border-radius: 0 0 10px 10px;
     overflow: auto;
 }
+
+.list-nomes::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+    background-color: transparent !important;
+}
+.list-nomes::-webkit-scrollbar-thumb{
+    /* width: 3px; */
+    border-radius: 5px;
+}
 .name-date{
     width: 95%;
     display: flex;

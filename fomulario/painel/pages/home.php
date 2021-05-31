@@ -1,3 +1,9 @@
+<?php
+
+
+    $porAgendar = Agendamentos::porAgendar();
+
+?>
 <div class="section-fixed">
     <section class="banner">
         <div class="center">
@@ -14,7 +20,7 @@
             <div class="btn-list">
                 <div class="btn-wraper-center por_agendar">
                     <div class="cont">
-                        <p>5</p>
+                        <p><?php echo count($porAgendar); ?></p>
                     </div>
                     <div class="btn1 btn-wraper border-radius1">
                         <h4>Por agendar</h4>
@@ -23,10 +29,17 @@
                 </div><!-- Btn-Wraper-Center -->
 
                 <div class="list-nomes anm1">
-                    <div class="name-date">
-                        <h4>Valdean Palmeira de Souza</h4>
-                        <p>07/02/2020 4:53:52</p>
-                    </div>
+                    <?php foreach($porAgendar as $key => $value){ 
+                            if($value['situacao_agendamento'] === strtoupper('n')){
+
+                        ?>
+                            <div class="name-date">
+                                <h4><?php echo $value['nome']; ?></h4>
+                                <p><?php echo date('d/m/Y H:i:s', strtotime($value['momento_registro'])); ?></p>
+                            </div><!-- Nom-data -->
+                    <?php }
+                        }
+                    ?>
                 </div><!-- list-nomes -->
             </div><!-- Btn-List -->
 
