@@ -1,6 +1,5 @@
 <?php
 
-
     $porAgendar = Agendamentos::porAgendar();
     $agendados = Agendamentos::agendados();
 
@@ -83,4 +82,43 @@
             </div><!-- Btn-List -->
         </div><!-- Center -->
     </section><!-- Section - Button-List -->
-</div>
+</div><!-- Home -->
+
+<div class="popup">
+    <div class="form-agend">
+        <a href="" class="sairModal">x</a><!-- Fechar Popup -->
+        <h2>Agendamento de Valdean Souza</h2>
+        <form method="POST">
+            <div class="center-form">
+                <div class="form-50">
+                    <div class="form-group-agend disabled">
+                        <label for="nome<?php echo $key+1; ?>">Nome:</label>
+                        <input type="text" name="" disabled value="Valdean Souza">
+                        <input type="hidden" id="nome<?php echo $key+1; ?>" name="nome" required value="<?php echo $value['nome'];?>">
+                    </div><!-- Form-Group-agend-Nome -->
+
+                    <div class="form-group-agend disabled">
+                        <label for="email<?php echo $key+1; ?>">E-mail:</label>
+                        <input type="email" name="" disabled value="valdeanpds@gmail.com">
+                        <input type="hidden" id="email<?php echo $key+1; ?>" name="email" required value="<?php echo $value['nome'];?>">
+                    </div><!-- Form-Group-agend-Email -->
+
+                    <div class="form-group-agend disabled">
+                        <label for="telefone<?php echo $key+1; ?>">Celular:</label>
+                        <input type="text" name="" disabled value="(92) 9 99296-1661">
+                        <input type="hidden" id="telefone<?php echo $key+1; ?>" name="telefone" required value="<?php echo $value['nome'];?>">
+                    </div><!-- Form-Group-agend-Email -->
+
+                </div><!-- Form-50 -->
+                <div class="form-50">
+                    <div class="form-group-agend">
+                        <label for="nome<?php echo $key+1; ?>">Nome:</label>
+                        <input type="text" name="" value="Valdean Souza">
+                        <input type="hidden" id="nome<?php echo $key+1; ?>" name="nome" required value="<?php echo $value['nome'];?>">
+                    </div><!-- Form-Group-agend-Nome -->
+                </div><!-- Form-50 -->
+            </div>
+            <input type="submit" value="Agendar" name="acao">
+        </form><!-- Form -->
+    </div><!-- Form Agend -->
+</div><!-- Popup -->

@@ -48,7 +48,7 @@ input[disabled]{
 /* PopUp */
 .popup{
     position: fixed;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     top: 0;
