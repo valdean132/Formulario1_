@@ -199,13 +199,17 @@ section.button-list .btn-list:nth-child(2){
 /* Form Agend */
 
 .form-agend{
+    display: none;
     width: 95%;
-    height: 87%;
+    height: 93%;
     padding: 2%;
     border-radius: 10px;
     background-color: #fff;
     position: relative;
     text-align: center;
+}
+.form-agend:nth-of-type(6){
+    display: block;
 }
 .form-agend a{
     position: absolute;
@@ -248,7 +252,6 @@ section.button-list .btn-list:nth-child(2){
 }
 .form-agend form .form-50{
     width: 49%;
-    /* height: 300px; */
     /* background-color: #00CC83; */
 }
 
@@ -263,6 +266,60 @@ form .form-group-agend{
 form .form-group-agend.disabled{
     background-color: #777;
     cursor: not-allowed;
+}
+form .form-group-agend.necessidade{
+    padding: 20px;
+}
+form .form-group-agend h4{
+    color: #fff;
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    padding-bottom: 5px;
+}
+form .form-group-agend.ged{
+    display: flex;
+    padding: 20px;
+}
+form .form-group-agend.ged label{
+    font-size: 18px;
+    margin-right: 5px;
+}
+form .form-group-agend.ged input{
+    font-size: 16px;
+    margin: 0;
+    margin-right: 10px;
+    border: 0;
+    padding: 0;
+}
+form .form-group-agend .tipo-ajuda{
+    margin: 10px 0;
+}
+form .form-group-agend .tipo-ajuda-wrapper{
+    display: flex;
+    /* justify-content: space-around; */
+    width: 100%;
+}
+form .form-group-agend .tipo-ajuda-wrapper label{
+    font-size: 16px;
+}
+form .form-group-agend .tipo-ajuda-wrapper .checkbox{
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    margin-top: 2px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+form .form-group-agend .tipo-ajuda-wrapper .checkbox i svg{
+    width: 18px;
+    height: 18px;
+    fill: #0091ea;
+}
+form .form-group-agend.ged .null-ged, form .form-group-agend .null-necessidade{
+    font-size: 18px;
+    color: #fff;
 }
 form .form-group-agend.disabled label{
     color: #fff;
