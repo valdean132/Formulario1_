@@ -32,7 +32,7 @@
                     <?php
                         if(count($porAgendar) > 0){
                             foreach($porAgendar as $key => $value){ ?>
-                            <div class="name-date">
+                            <div class="name-date btn-por-agendar<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>">
                                 <h4><?php echo $value['nome']; ?></h4>
                                 <p><?php echo date('d/m/Y H:i:s', strtotime($value['momento_registro'])); ?></p>
                             </div><!-- Nome-data Por Agendados -->
@@ -86,7 +86,7 @@
 
 <div class="popup">
     <?php foreach($porAgendar as $key => $value){ ?>
-        <div class="form-agend">
+        <div class="ocultar form-agend por-agendar<?php echo $key+1; ?>">
             <a href="" class="sairModal">x</a><!-- Fechar Popup -->
             <h2>Agendamento de <?php echo $value['nome'];?></h2>
             <form method="POST">
@@ -94,23 +94,23 @@
                     <div class="form-50">
                         <div class="form-group-agend disabled">
                             <label for="nome<?php echo $key+1; ?>">Nome:</label>
-                            <input type="text" name="" disabled value="<?php echo $value['nome'];?>">
+                            <h4><?php echo $value['nome'];?></h4>
                             <input type="hidden" id="nome<?php echo $key+1; ?>" name="nome" required value="<?php echo $value['nome'];?>">
                         </div><!-- Form-Group-agend-Nome -->
         
                         <div class="form-group-agend disabled">
                             <label for="email<?php echo $key+1; ?>">E-mail:</label>
-                            <input type="email" name="" disabled value="<?php echo $value['email'];?>">
+                            <h4><?php echo $value['email'];?></h4>
                         </div><!-- Form-Group-agend-Email -->
         
                         <div class="form-group-agend disabled">
                             <label for="telefone<?php echo $key+1; ?>">Celular:</label>
-                            <input type="text" name="" disabled value="<?php echo $value['telefone'];?>">
+                            <h4><?php echo $value['telefone'];?></h4>
                         </div><!-- Form-Group-agend-Telefone -->
         
                         <div class="form-group-agend disabled">
                             <label for="endereco<?php echo $key+1; ?>">Endereço:</label>
-                            <input type="text" name="" disabled value="<?php echo $value['endereco'];?>">
+                            <h4><?php echo $value['endereco'];?></h4>
                         </div><!-- Form-Group-agend-Telefone -->
                         
                         <div class="form-group-agend ged disabled">
@@ -163,13 +163,19 @@
                         </div><!-- Form-Group-agend-Ged -->
 
                         <div class="form-group-agend necessidade">
-                            <label for="data-agend5">Data de Consulta:</label>
-                            <input type="datetime-local" name="data-agend" id="data-agend5">
+                            <label for="data-agend<?php echo $key+1; ?>">Data de Consulta:</label>
+                            <input type="datetime-local" name="data-agend" id="data-agend<?php echo $key+1; ?>">
+                        </div><!-- Form-Group-data-agend -->
+
+                        <div class="form-group-agend necessidade">
+                            <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
+                            <input type="text" name="data-agend" id="nome-profissional<?php echo $key+1; ?>">
                         </div><!-- Form-Group-data-agend -->
                     </div><!-- Form-50 -->
-                </div>
-                <input type="submit" value="Agendar" name="acao">
+                </div><!-- center-form -->
+                <input type="submit" value="Agendar" name="agendar">
             </form><!-- Form -->
         </div><!-- Form Agend -->
     <?php } ?>
+    <div class="contador" realtime="<?php echo count($porAgendar)+count($agendados);?>"></div>
 </div><!-- Popup -->

@@ -147,6 +147,26 @@ $(function(){
 		}
 	}
 
+	/* Por Agendar */
+	function porAgendar(contador, cont, popup){
+		while(cont <= contador){
+			var btnPorAgendar = $('.btn-por-agendar'+cont);
+				btnPorAgendar.click(function(){
+					var btnPorAgendar = $(this).attr('realtime')
+					var porAgendar = $('.por-agendar'+btnPorAgendar);
+					
+					popup.css('display', 'flex');
+					setTimeout(() =>{
+						popup.css('opacity', 1);
+						porAgendar.addClass('animate-popup');
+					}, 500);
+					
+				});
+			
+			cont++;
+		}
+	}
+
 	/* Fechar popup */
 	function fecharPopup(popup){
 
@@ -177,6 +197,9 @@ $(function(){
 		
 		// Modal Editar
 		editar(contador, cont, popup);
+
+		// Modal Por Agendar
+		porAgendar(contador, cont, popup);
 
 		// Fechar Popup
 		fecharPopup(popup);
