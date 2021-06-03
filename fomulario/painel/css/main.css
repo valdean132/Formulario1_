@@ -281,7 +281,13 @@ nav.menu-single a i{
 /* ** */
 
 /* Box Alert */
-
+.alert-home{
+    position: absolute;
+    width: 50%;
+    top: -10px;
+    left: 50%;
+    transform: translatex(-50%);
+}
 .box-alert{
     width: 100%;
     height: auto;
@@ -319,11 +325,5 @@ nav.menu-single a i{
 .error{
     background-color: #f75353;
     animation: shake 1s;
-}
-.sucesso-agend{
-    background-color: #41a044;
-    width: 50%;
-    /* animation: shakeTop 0s; */
-    animation: right 1s;
 }
 /* ** */

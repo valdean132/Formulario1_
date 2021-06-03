@@ -8,30 +8,32 @@
 
 ?>
 <div class="section-fixed">
-    <?php
-        if(isset($_POST['agendar'])){
-            $anmTextBanner = '';
-            $anmBtnListLeft = '';
-            $anmBtnListRight = '';
-            $dataAgd = explode('T', $_POST['data-agend']);
-            $usuario = new EnvioDeFormulario();
-    
-            $id = $_POST['id'];
-            $nome = $_POST['nome'];
-            $dataAgendamento = $dataAgd[0].' '.$dataAgd[1].':00';
-            $momentoAgendamento = date('Y-m-d H:i:s');
-            $nomeProfissional = $_POST['nome-profissional'];
-            $situacaoAgendamento = strtoupper('s');
-            $responAgendamento = $_SESSION['nome'];
-    
-            if($usuario->agendForm($dataAgendamento, $momentoAgendamento, $nomeProfissional, $situacaoAgendamento, $responAgendamento, $id)){
-                Painel::alert('sucesso-agend', '"'.$nome.'" foi Agendado SUCESSO!!!', 'Atualize a página!');
-            }else{
-                Painel::alert('error-agend', 'Não foi possivel Agendar "'.$nome.'" Por favor tente Novamente', '');
+    <div class="alert-home">
+        <?php
+            if(isset($_POST['agendar'])){
+                $anmTextBanner = '';
+                $anmBtnListLeft = '';
+                $anmBtnListRight = '';
+                $dataAgd = explode('T', $_POST['data-agend']);
+                $usuario = new EnvioDeFormulario();
+        
+                $id = $_POST['id'];
+                $nome = $_POST['nome'];
+                $dataAgendamento = $dataAgd[0].' '.$dataAgd[1].':00';
+                $momentoAgendamento = date('Y-m-d H:i:s');
+                $nomeProfissional = $_POST['nome-profissional'];
+                $situacaoAgendamento = strtoupper('s');
+                $responAgendamento = $_SESSION['nome'];
+        
+                if($usuario->agendForm($dataAgendamento, $momentoAgendamento, $nomeProfissional, $situacaoAgendamento, $responAgendamento, $id)){
+                    Painel::alert('sucesso', '"'.$nome.'" foi Agendado SUCESSO!!!', 'Atualize a página!');
+                }else{
+                    Painel::alert('error', 'Não foi possivel Agendar "'.$nome.'" Por favor tente Novamente', '');
+                }
+        
             }
-    
-        }
-    ?>
+        ?>
+    </div><!-- Alert-home -->
     <section class="banner">
         <div class="center">
             <div class="text-banner <?php echo $anmTextBanner; ?>">
@@ -90,12 +92,20 @@
                 <div class="list-nomes anm2">
                     <?php
                         if(count($agendados) > 0){
-                            foreach($agendados as $key => $value){ ?>
-                            <div class="name-date">
-                                <h4><?php echo $value['nome']; ?></h4>
-                                <p><?php echo date('d/m/Y H:i:s', strtotime($value['momento_agendamento'])); ?></p>
-                            </div><!-- Nome-data Agendados -->
+                            foreach($agendados as $key => $value){ 
+                                if($value['respon_agendamento'] == $_SESSION['nome']){?>
+                                    <div class="name-date">
+                                        <h4><?php echo $value['nome']; ?></h4>
+                                        <p><?php echo date('d/m/Y H:i:s', strtotime($value['data_agendamento'])); ?></p>
+                                    </div><!-- Nome-data Agendados -->
                     <?php
+                                }else{
+                    ?>
+                                    <div class="name-date null">
+                                        <p>Não há agendamentos marcados</p>
+                                    </div><!-- Nome-data Null -->
+                    <?php
+                                }
                             }
                         }else{
                     ?>
