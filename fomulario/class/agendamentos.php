@@ -11,9 +11,9 @@
         }
         
         // Por agendar
-        public static function agendados(){
-            $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE `situacao_agendamento` = ?");
-            $sql->execute(array(strtoupper('s')));
+        public static function agendados($nomeUser){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE `situacao_agendamento` = ? AND respon_agendamento = ?");
+            $sql->execute(array(strtoupper('s'), $nomeUser));
 
             return $sql->fetchAll();
         }

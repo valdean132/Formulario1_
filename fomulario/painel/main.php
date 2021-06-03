@@ -94,6 +94,7 @@
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery-3.5.1.min.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>js/constants.js"></script>
     <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/animacoes.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/modal.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>js/pace.min.js"></script>
 </body>
 </html>
