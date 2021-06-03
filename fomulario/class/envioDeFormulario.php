@@ -55,5 +55,19 @@
                 return false;
             }
         }
+
+        // Formulário de Agendamento
+        public function agendForm($dataAgendamento, $momentoAgendamento, $nomeProfissional, $situacaoAgendamento, $responAgendamento, $id){
+            $sql = MySql::conectar()->prepare("UPDATE `res_form` SET data_agendamento = ?, momento_agendamento = ?, nome_profissional = ?, situacao_agendamento = ?, respon_agendamento = ? WHERE id = ?");
+            if($sql->execute(array($dataAgendamento, $momentoAgendamento, $nomeProfissional, $situacaoAgendamento, $responAgendamento, $id))){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 ?>
+
+
+
+

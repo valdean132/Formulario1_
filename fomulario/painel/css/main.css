@@ -320,5 +320,10 @@ nav.menu-single a i{
     background-color: #f75353;
     animation: shake 1s;
 }
-
+.sucesso-agend{
+    background-color: #41a044;
+    width: 50%;
+    /* animation: shakeTop 0s; */
+    animation: right 1s;
+}
 /* ** */

@@ -2,12 +2,39 @@
 
     $porAgendar = Agendamentos::porAgendar();
     $agendados = Agendamentos::agendados();
+    $anmTextBanner = 'anm-text-banner';
+    $anmBtnListLeft = 'anm-btn-list-left';
+    $anmBtnListRight = 'anm-btn-list-right';
 
 ?>
 <div class="section-fixed">
+    <?php
+        if(isset($_POST['agendar'])){
+            $anmTextBanner = '';
+            $anmBtnListLeft = '';
+            $anmBtnListRight = '';
+            $dataAgd = explode('T', $_POST['data-agend']);
+            $usuario = new EnvioDeFormulario();
+    
+            $id = $_POST['id'];
+            $nome = $_POST['nome'];
+            $dataAgendamento = $dataAgd[0].' '.$dataAgd[1].':00';
+            $momentoAgendamento = date('Y-m-d H:i:s');
+            $nomeProfissional = $_POST['nome-profissional'];
+            $situacaoAgendamento = strtoupper('s');
+            $responAgendamento = $_SESSION['nome'];
+    
+            if($usuario->agendForm($dataAgendamento, $momentoAgendamento, $nomeProfissional, $situacaoAgendamento, $responAgendamento, $id)){
+                Painel::alert('sucesso-agend', '"'.$nome.'" foi Agendado SUCESSO!!!', 'Atualize a página!');
+            }else{
+                Painel::alert('error-agend', 'Não foi possivel Agendar "'.$nome.'" Por favor tente Novamente', '');
+            }
+    
+        }
+    ?>
     <section class="banner">
         <div class="center">
-            <div class="text-banner">
+            <div class="text-banner <?php echo $anmTextBanner; ?>">
                 <h3>
                     Essa é uma área para fazer o agendamento das pessoas que se cadastraram no Projeto de Acolhimento IBN Nova Canaã, Por favor preste atenção nos campos de cadastro...
                 </h3>
@@ -17,7 +44,7 @@
     </section><!-- Section - Banner -->
     <section class="button-list">
         <div class="center">
-            <div class="btn-list">
+            <div class="btn-list <?php echo $anmBtnListLeft; ?>">
                 <div class="btn-wraper-center por_agendar">
                     <div class="cont">
                         <p><?php echo count($porAgendar); ?></p>
@@ -49,7 +76,7 @@
                 </div><!-- list-nomes -->
             </div><!-- Btn-List -->
 
-            <div class="btn-list">
+            <div class="btn-list <?php echo $anmBtnListRight; ?>">
                 <div class="btn-wraper-center agendado">
                     <div class="cont">
                         <p><?php echo count($agendados); ?></p>
@@ -164,15 +191,16 @@
 
                         <div class="form-group-agend necessidade">
                             <label for="data-agend<?php echo $key+1; ?>">Data de Consulta:</label>
-                            <input type="datetime-local" name="data-agend" id="data-agend<?php echo $key+1; ?>">
+                            <input type="datetime-local" name="data-agend" required id="data-agend<?php echo $key+1; ?>">
                         </div><!-- Form-Group-data-agend -->
 
                         <div class="form-group-agend necessidade">
                             <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
-                            <input type="text" name="data-agend" id="nome-profissional<?php echo $key+1; ?>">
+                            <input type="text" name="nome-profissional" id="nome-profissional<?php echo $key+1; ?>">
                         </div><!-- Form-Group-data-agend -->
                     </div><!-- Form-50 -->
                 </div><!-- center-form -->
+                <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
                 <input type="submit" value="Agendar" name="agendar">
             </form><!-- Form -->
         </div><!-- Form Agend -->

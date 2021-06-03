@@ -15,6 +15,8 @@ section.banner .text-banner{
     display: inline-block;
     color: #888888;
     text-align: center;
+}
+section.banner .text-banner.anm-text-banner{
     animation: top 1s;
 }
 section.banner .text-banner h3{
@@ -52,10 +54,10 @@ section.button-list .btn-list{
     width: 80%;
     max-width: 380px;
 }
-section.button-list .btn-list:nth-child(1){
+section.button-list .btn-list.anm-btn-list-left{
     animation: left 1s;
 }
-section.button-list .btn-list:nth-child(2){
+section.button-list .btn-list.anm-btn-list-right{
     animation: right 1s;
 }
 
@@ -163,7 +165,8 @@ section.button-list .btn-list:nth-child(2){
 .name-date{
     width: 95%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     margin: 10px auto;
     padding: 0 2% 2px;
     border-bottom: 1px solid #53E0DB;
@@ -189,6 +192,7 @@ section.button-list .btn-list:nth-child(2){
     border-bottom: 0;
     cursor: url(../../img/cursor1.cur),auto;
     padding: 10px;
+    justify-content: center;
 }
 .name-date.null p{
     font-size: 18px;

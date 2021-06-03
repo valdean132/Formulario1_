@@ -4,7 +4,7 @@
     }
     $classAnimateHeader = 'animate-header';
     $classAnimateInicial = 'animate-inicial';
-    if(isset($_POST['acao']) || isset($_POST['deletar']) || isset($_POST['editar'])){
+    if(isset($_POST['acao']) || isset($_POST['deletar']) || isset($_POST['editar']) || isset($_POST['agendar'])){
         $classAnimateHeader = '';
         $classAnimateInicial = '';
     }

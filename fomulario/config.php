@@ -1,5 +1,6 @@
 <?php
 
+    date_default_timezone_set('America/Manaus');
     session_start();
     
     $autoload = function($class){
