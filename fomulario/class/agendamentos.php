@@ -10,10 +10,18 @@
             return $sql->fetchAll();
         }
         
-        // Por agendar
+        // Agendados
         public static function agendados($nomeUser){
             $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE `situacao_agendamento` = ? AND respon_agendamento = ?");
             $sql->execute(array(strtoupper('s'), $nomeUser));
+
+            return $sql->fetchAll();
+        }
+
+        // Total de Agendamentos
+        public static function totalAgendamentos(){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE `situacao_agendamento` = ?");
+            $sql->execute(array(strtoupper('s')));
 
             return $sql->fetchAll();
         }

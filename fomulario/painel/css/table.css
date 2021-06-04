@@ -197,6 +197,19 @@ tbody tr:nth-child(2n + 2) td{
   table tbody tr td:nth-child(6):before {
     content: "Total";
   }
+  
+  .form-table-center table tbody tr td:nth-child(3):before {
+    content: "Telefone";
+  }
+  .form-table-center table tbody tr td:nth-child(4):before {
+    content: "Dia da Visita";
+  }
+  .form-table-center table tbody tr td:nth-child(5):before {
+    content: "Responsável por Agend.";
+  }
+  .form-table-center table tbody tr td:nth-child(6):before {
+    content: "Ver Mais detalhes";
+  }
 
   thead tr th:last-of-type, tbody tr td:last-of-type{
     /* padding-right: 20px; */

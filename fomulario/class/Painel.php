@@ -96,6 +96,7 @@
 
             return $sql->fetchAll();
         }
+
         // Total de Usuários
         public static function totalUsers(){
             $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios`");
