@@ -1,22 +1,24 @@
 <?php
-
     $porAgendar = Agendamentos::porAgendar();
     $agendados = Agendamentos::agendados($_SESSION['nome']);
 
     $anmTextBanner = 'anm-text-banner';
     $anmBtnListLeft = 'anm-btn-list-left';
     $anmBtnListRight = 'anm-btn-list-right';
+    if(isset($_POST['agendar']) || isset($_POST['reagendar'])){
+        $anmTextBanner = '';
+        $anmBtnListLeft = '';
+        $anmBtnListRight = '';
+    }
 
 ?>
 <div class="section-fixed">
     <div class="alert-home">
         <?php
+            $usuario = new EnvioDeFormulario();
+
             if(isset($_POST['agendar'])){
-                $anmTextBanner = '';
-                $anmBtnListLeft = '';
-                $anmBtnListRight = '';
                 $dataAgd = explode('T', $_POST['data-agend']);
-                $usuario = new EnvioDeFormulario();
         
                 $id = $_POST['id'];
                 $nome = $_POST['nome'];
@@ -30,6 +32,23 @@
                     Painel::alert('sucesso', '"'.$nome.'" foi Agendado SUCESSO!!!', 'Atualize a página!');
                 }else{
                     Painel::alert('error', 'Não foi possivel Agendar "'.$nome.'" Por favor tente Novamente', '');
+                }
+            }
+            if(isset($_POST['reagendar'])){
+                $dataAgd = explode('T', $_POST['data-agend']);
+        
+                $id = $_POST['id'];
+                $nome = $_POST['nome'];
+                $dataAgendamento = $dataAgd[0].' '.$dataAgd[1].':00';
+                $momentoAgendamento = date('Y-m-d H:i:s');
+                $nomeProfissional = $_POST['nome-profissional'];
+                $situacaoAgendamento = strtoupper('s');
+                $responAgendamento = $_SESSION['nome'];
+        
+                if($usuario->agendForm($dataAgendamento, $momentoAgendamento, $nomeProfissional, $situacaoAgendamento, $responAgendamento, $id)){
+                    Painel::alert('sucesso', '"'.$nome.'" foi reagendado SUCESSO!!!', 'Atualize a página!');
+                }else{
+                    Painel::alert('error', 'Não foi possivel reagendar "'.$nome.'" Por favor tente Novamente', '');
                 }
             }
         ?>
