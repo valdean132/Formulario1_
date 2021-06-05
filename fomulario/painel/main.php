@@ -71,11 +71,8 @@
                                 </li>
                             </ul>
                         </nav><!-- Menu Sigle -->
-                        
                     </div><!-- Menu Wraper -->
                 </div><!-- user-wecome -->
-
-                
             </div><!-- User -->
         </div><!-- Center -->
     </header><!-- Header -->

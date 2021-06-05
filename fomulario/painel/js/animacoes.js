@@ -106,8 +106,42 @@ $(function(){
 		});
 	}
 
+	/* Opções de Importação */
+	function showOpcoes(){
+		const btnOpcoesRelatorio = $('.opcoes-relatorio-wrapper');
+		let engrenagem = $('.engrenagem');
+		let closeX = $('.closeX');
+		let opcoesRelatorio = $('.opcaoes-relatorio-single');
+
+		btnOpcoesRelatorio.click(function(){
+			if(opcoesRelatorio.is(':hidden')){
+
+				engrenagem.css('transform', 'rotate(180deg)').css('opacity', '0');
+
+				closeX.show();
+				closeX.css('opacity', '0');
+				setTimeout(()=>{
+					engrenagem.hide();
+					closeX.css('transform', 'rotate(180deg)').css('opacity', '1').css('fill', '#3493eb');
+				}, 100);
+				opcoesRelatorio.show(200);
+
+			}else{
+				closeX.css('transform', 'rotate(-180deg)').css('opacity', '0');
+				setTimeout(()=>{
+					engrenagem.show();
+					closeX.hide();
+					engrenagem.css('transform', 'rotate(-180deg)').css('opacity', '1');
+			
+				}, 100);
+				opcoesRelatorio.hide(200)
+			}
+		});
+	}
+
 	/* Chamando Funções */
 	// carregamentoDimanico();
+	showOpcoes();
 	showPassword();
 	agendamentos();
     Menu();

@@ -22,11 +22,11 @@
                         <i class="engrenagem"><?php echo Icon::$engrenagem; ?></i>
                         <i class="closeX"><?php echo Icon::$closeX; ?></i>
                         <div class="opcaoes-relatorio-single">
-                            <a href="">Gerar EXCEL</a>
+                            <a href="<?php echo INCLUDE_PATH_PANEL; ?>export/gerar-relatorio-excel">Gerar EXCEL</a>
                             <a href="">Gerar PDF</a>
                         </div><!-- opcaoes-relatorio-single -->
                     </div><!-- opcoes-relatorio-wrapper -->
-                    <a href="" class="gerar">Gerar Relatório</a>
+                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>export/gerar-relatorio-excel" class="gerar">Gerar Relatório</a>
                 </div><!-- opção Relatório -->
                 <div class="form-table-center">
                     <table>

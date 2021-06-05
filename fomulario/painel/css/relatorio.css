@@ -207,11 +207,9 @@
     height: 40px;
     fill: #909090;
     transition: .5s;
-    /* transform: rotate(0deg); */
 }
 .opcoes-relatorio-wrapper:hover i{
     fill: #3493eb;
-    transform: rotate(180deg);
 }
 .opcoes-relatorio-wrapper .closeX{
     display: none;
