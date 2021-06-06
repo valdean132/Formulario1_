@@ -9,8 +9,11 @@
 <section class="editar-Perfil section-fixed">
     <div class="center">
         <div class="container-central <?php echo $classAnimate; ?>">
-            <div class="title">
+            <div class="title border-title">
                 <h2><i><?php echo Icon::$editarPerfil; ?></i> Editar Usuário</h2>
+                <div class="seta-title" style="transform: rotate(0deg)">
+                    <i><?php echo Icon::$seta; ?></i>
+                </div>
             </div><!-- Title -->
             <div class="form-center">
                 <form method="POST" enctype="multipart/form-data">

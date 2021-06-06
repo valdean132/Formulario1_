@@ -50,10 +50,12 @@ $(function(){
 			}
 		});
 	
+		/*
 		$(".list-nomes").bind("mousewheel",function(ev, delta) {
 			var scrollTop = $(this).scrollTop();
 			$(this).scrollTop(scrollTop-Math.round(delta));
 		});
+		*/
 	}
 
 	/* Menu */
@@ -63,6 +65,14 @@ $(function(){
 
 		logoImg.click(()=>{
 			menuSigle.slideToggle(500);
+
+			var borderLogoUsuario = $('.border-logo-usuario');
+			if(borderLogoUsuario.hasClass('border-usuario-active')){
+				borderLogoUsuario.removeClass('border-usuario-active');
+			}else{
+				borderLogoUsuario.addClass('border-usuario-active');
+
+			}
 		});
 	}
 
@@ -139,8 +149,29 @@ $(function(){
 		});
 	}
 
+	/* Show Wraper Relatório */
+	function showDivWrapper(){
+		var title = $('.title');
+		
+		title.click(function(){
+			var divWrapper = $(this).next();
+			var titleSeta = $(this).find('.seta-title');
+			
+			divWrapper.slideToggle(500);
+			
+			if($(this).hasClass('border-title')){
+				titleSeta.css('transform', 'rotate(-90deg)');
+				$(this).removeClass('border-title');
+			}else{
+				titleSeta.css('transform', 'rotate(0deg)');
+				$(this).addClass('border-title');
+			}
+		});
+	}
+
 	/* Chamando Funções */
 	// carregamentoDimanico();
+	showDivWrapper()
 	showOpcoes();
 	showPassword();
 	agendamentos();

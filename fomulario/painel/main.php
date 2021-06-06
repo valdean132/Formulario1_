@@ -4,7 +4,13 @@
     }
     $classAnimateHeader = 'animate-header';
     $classAnimateInicial = 'animate-inicial';
-    if(isset($_POST['acao']) || isset($_POST['deletar']) || isset($_POST['editar']) || isset($_POST['agendar'])){
+    if(isset($_POST['acao']) || 
+        isset($_POST['deletar']) || 
+        isset($_POST['editar']) || 
+        isset($_POST['agendar']) || 
+        isset($_POST['reagendar']) ||
+        isset($_GET['pagina']) ||
+        isset($_GET['relatorio'])){
         $classAnimateHeader = '';
         $classAnimateInicial = '';
     }
@@ -44,11 +50,11 @@
                     <div class="menu-wraper">
                         <div class="img_logo">
                             <?php if($_SESSION['img'] == ''){ ?>
-                                <div class="imagem-user">
+                                <div class="imagem-user border-logo-usuario">
                                     <i alt="User_Img" title="Avatar"><?php echo Icon::$user1; ?></i>
                                 </div>
                             <?php }else{ ?>
-                                <div class="imagem-usuario">
+                                <div class="imagem-usuario border-logo-usuario">
                                     <img src="<?php echo INCLUDE_PATH_PANEL ?>uploads/<?php echo $_SESSION['img']; ?>" alt="User_Img" title="<?php echo $_SESSION['nome'];?>">
                                 </div>
                             <?php } ?>    

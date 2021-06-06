@@ -26,6 +26,15 @@
             return $sql->fetchAll();
         }
 
+        // Paginação limitada Agendados
+        public static function paginacaoLimitAgendados($inicio, $qnt_result_pg){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` LIMIT $inicio, $qnt_result_pg");
+            $sql->execute();
+
+            return $sql->fetchAll();
+        }
+
+
     }
 
 ?>

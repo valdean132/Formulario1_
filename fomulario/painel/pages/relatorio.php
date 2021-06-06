@@ -1,22 +1,62 @@
 <?php
     $classAnimate = 'animate-form';
-    if(isset($_POST['acao']) || isset($_POST['deletar']) || isset($_POST['editar'])){
+    $styleRotate = '';
+    $borderTitle = '';
+    $divWrapperActive = '';
+    if(isset($_POST['acao']) || 
+        isset($_POST['deletar']) || 
+        isset($_POST['editar']) || 
+        isset($_GET['pagina']) ||
+        isset($_GET['relatorio'])){
         $classAnimate = '';
+        $styleRotate = 'style="transform: rotate(0deg)"';
+        $borderTitle = 'border-title';
+        $divWrapperActive = 'style="display: block;"';
     }
 
     $registeredUsers = Painel::registeredUsers();
     $totalUser = Painel::totalUsers();
     $totalAgendamentos = Agendamentos::totalAgendamentos();
+    
+    /* Paginação */
+    
+    // Receber o número da página
+    $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
+    $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+    
+    // Setar a quantidade de itens por página
+    $qnt_result_pg = 5;
+    
+    // Calcular o inicio da visualização
+    $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
+    
+    // Buscando no banco de dados
+    $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg);
+
+    // Somando quantidade de cadastro
+    $result_pg = count($totalAgendamentos);
+
+    // Quantidadades de Páginas
+    $quantidade_pg = ceil($result_pg / $qnt_result_pg);
+
+    // Limitar A quantidade de Links
+    $max_links = 3;
+
+
+    /* ** */
 
     verificaPermicaoPagina(2);
 ?>
 <section class="relatorio section-fixed">
     <div class="center">
         <div class="container-central <?php echo $classAnimate; ?>">
-            <div class="title">
+            <div class="title <?php echo $borderTitle; ?>">
                 <h2><i><?php echo Icon::$relatorio; ?></i> Relatório</h2>
+                <div class="seta-title" <?php echo $styleRotate ?>>
+                    <i><?php echo Icon::$seta; ?></i>
+                </div>
             </div><!-- Title -->
-            <div class="div-wrapper">
+            <div class="div-wrapper" <?php echo $divWrapperActive; ?>>
                 <div class="opcao-relatorio">
                     <div class="opcoes-relatorio-wrapper">
                         <i class="engrenagem"><?php echo Icon::$engrenagem; ?></i>
@@ -36,29 +76,68 @@
                                 <th class="column2">Nome</th>
                                 <th class="column3">Telefone</th>
                                 <th class="column4">Dia da Visita</th>
-                                <th class="column5">Responsável por Agend.</th>
+                                <th class="column5">Resp. por Agend.</th>
                                 <th class="column6">Ver Mais detalhes</th>
                             </tr>
                         </thead><!-- Cabeçalho da Tabela -->
-                        <tbody>
-                            <?php foreach($totalAgendamentos as $key => $value){ ?>
-                                <tr>
-                                    <td class="column1"><?php echo $key+1; ?></td>
-                                    <td class="column2"><?php echo $value['nome']; ?></td>
-                                    <td class="column3"><?php echo $value['telefone']; ?></td>
-                                    <td class="column4"><?php echo date('d/m/Y H:i', strtotime($value['data_agendamento'])) ?></td>
-                                    <td class="column5"><?php echo $value['respon_agendamento']; ?></td>
-                                    <td class="column6">
-                                        <div class="opcoes-wrapper">
-                                            <div class="mostrar-single btn-agendados<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Editar">
-                                                <i><?php echo Icon::$mostrar; ?></i>
-                                            </div><!-- Editar Single -->
-                                        </div><!-- opcoes-wrapper -->
-                                    </td>
-                                </tr>
-                            <?php }?>
+                        <tbody class="tbody-agendados">
+                            <?php foreach($paginacaoLimitAgendados as $key => $value){ 
+                                if($value['situacao_agendamento'] == strtoupper('s')){
+                            ?>
+                                    <tr>
+                                        <td class="column1"><?php echo $key+1; ?></td>
+                                        <td class="column2"><?php echo $value['nome']; ?></td>
+                                        <td class="column3"><?php echo $value['telefone']; ?></td>
+                                        <td class="column4"><?php echo date('d/m/Y H:i', strtotime($value['data_agendamento'])) ?></td>
+                                        <td class="column5"><?php echo $value['respon_agendamento']; ?></td>
+                                        <td class="column6">
+                                            <div class="opcoes-wrapper">
+                                                <div class="mostrar-single btn-agendados<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Editar">
+                                                    <i><?php echo Icon::$mostrar; ?></i>
+                                                </div><!-- Editar Single -->
+                                            </div><!-- opcoes-wrapper -->
+                                        </td>
+                                    </tr>
+                            <?php }
+                                }
+                            ?>
                         </tbody><!-- Corpo da Tabela -->
                     </table><!-- Tabela -->
+                    <div class="lista-paginacao">
+                        <div class="lista-paginacao-wrapper">
+                            
+                            <?php
+                                if($pagina == 1){
+                                    echo '<a>Primeira</a>';
+                                }else{
+                                    echo '<a href="relatorio?pagina=1">Primeira</a>';
+                                }
+                                for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
+                                    if($pag_ant >= 1){
+                                        if($pag_ant == 1){
+                                            echo "<a href='relatorio?pagina=1'>$pag_ant</a>";
+                                        }else{
+                                            echo "<a href='relatorio?pagina=$pag_ant'>$pag_ant</a>";
+                                        }
+                                    }
+                                    
+                                }
+                                echo "<a>$pagina</a>"; 
+                                for($pag_post = $pagina + 1; $pag_post <= $pagina + $max_links; $pag_post++){
+                                    if($pag_post <= $quantidade_pg){
+                                        echo "<a href='relatorio?pagina=$pag_post'>$pag_post</a>";
+                                    }
+                                    
+                                }
+
+                                if($pagina == $quantidade_pg){
+                                    echo '<a>Ultima</a>';
+                                }else{
+                                    echo "<a href='relatorio?pagina=$quantidade_pg'>Ultima</a>";
+                                }
+                            ?>
+                        </div>
+                    </div>
                 </div><!-- Form-table-Center -->
             </div><!-- Div Wraper -->
         </div><!-- Conteiner Central -->
@@ -68,6 +147,9 @@
         <div class="container-central <?php echo $classAnimate; ?>">
             <div class="title">
                 <h2><i><?php echo Icon::$userGroup; ?></i> Usuários Cadastrados</h2>
+                <div class="seta-title">
+                    <i><?php echo Icon::$seta; ?></i>
+                </div>
             </div><!-- Title -->
             <div class="div-wrapper">
                 <?php 
@@ -225,7 +307,7 @@
                 </form>
             </div><!-- Button -->
         </div><!-- Editar -->
-    <?php } foreach($totalAgendamentos as $key => $value){ ?>
+    <?php } foreach($paginacaoLimitAgendados as $key => $value){ ?>
         <div class="ocultar form-agend agendados<?php echo $key+1; ?>">
             <a href="" class="sairModal">x</a><!-- Fechar Popup -->
             <h2>Agendamento de <?php echo $value['nome'];?></h2>
@@ -322,5 +404,5 @@
             </form><!-- Form -->
         </div><!-- Form Agend -->
     <?php } ?>
-    <div class="contador" realtime="<?php echo $totalUser + count($totalAgendamentos); ?>"></div>
+    <div class="contador" realtime="<?php echo $totalUser + count($paginacaoLimitAgendados); ?>"></div>
 </div><!-- popup -->
