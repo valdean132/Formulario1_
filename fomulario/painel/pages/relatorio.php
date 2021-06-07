@@ -4,15 +4,27 @@
     $borderTitle = '';
     $divWrapperActive = '';
     $activeButtonPaginacao = '';
+
+    $styleRotateEditar = '';
+    $borderTitleEditar = '';
+    $divWrapperActiveEditar = '';
+    $activeButtonPaginacao = '';
+    
     if(isset($_POST['acao']) || 
-        isset($_POST['deletar']) || 
-        isset($_POST['editar']) || 
+        isset($_POST['deletar']) ||  
         isset($_GET['pagina']) ||
         isset($_GET['relatorio'])){
         $classAnimate = '';
         $styleRotate = 'style="transform: rotate(0deg)"';
         $borderTitle = 'border-title';
         $divWrapperActive = 'style="display: block;"';
+        $activeButtonPaginacao = 'active-button-paginacao';
+    }
+    if(isset($_POST['editar'])){
+        $classAnimate = '';
+        $styleRotateEditar = 'style="transform: rotate(0deg)"';
+        $borderTitleEditar = 'border-title';
+        $divWrapperActiveEditar = 'style="display: block;"';
         $activeButtonPaginacao = 'active-button-paginacao';
     }
 
@@ -87,7 +99,7 @@
                                 if($value['situacao_agendamento'] == strtoupper('s')){
                             ?>
                                     <tr>
-                                        <td class="column1"><?php echo $key+1; ?></td>
+                                        <td class="column1"><?php echo $value['id']; ?></td>
                                         <td class="column2"><?php echo $value['nome']; ?></td>
                                         <td class="column3"><?php echo $value['telefone']; ?></td>
                                         <td class="column4"><?php echo date('d/m/Y H:i', strtotime($value['data_agendamento'])) ?></td>
@@ -155,13 +167,13 @@
 
     <div class="center">
         <div class="container-central <?php echo $classAnimate; ?>">
-            <div class="title">
+            <div class="title <?php echo $borderTitleEditar; ?>">
                 <h2><i><?php echo Icon::$userGroup; ?></i> Usuários Cadastrados</h2>
-                <div class="seta-title">
+                <div class="seta-title" <?php echo $styleRotateEditar ?>>
                     <i><?php echo Icon::$seta; ?></i>
                 </div>
             </div><!-- Title -->
-            <div class="div-wrapper">
+            <div class="div-wrapper" <?php echo $divWrapperActiveEditar; ?>>
                 <?php 
                     $usuario = new EnvioDeFormulario();
                     if(isset($_POST['deletar'])){

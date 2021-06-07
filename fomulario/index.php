@@ -1,5 +1,5 @@
 <?php include('config.php'); ?>
-<?php include('class/envForm.php'); ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,10 +11,13 @@
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/main.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/index.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/animate.css">
 </head>
 <body>
     <div class="banner">
-    <?php echo $confirmado; ?>
+        <div class="alert-home-form">
+            <?php echo EnvForm::envForm(); ?>
+        </div>
         <div class="center">
             <img src="<?php echo INCLUDE_PATH; ?>img/banner.png" alt="Banner">
         </div><!-- Center -->
