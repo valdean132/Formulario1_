@@ -3,6 +3,7 @@
     $styleRotate = '';
     $borderTitle = '';
     $divWrapperActive = '';
+    $activeButtonPaginacao = '';
     if(isset($_POST['acao']) || 
         isset($_POST['deletar']) || 
         isset($_POST['editar']) || 
@@ -12,6 +13,7 @@
         $styleRotate = 'style="transform: rotate(0deg)"';
         $borderTitle = 'border-title';
         $divWrapperActive = 'style="display: block;"';
+        $activeButtonPaginacao = 'active-button-paginacao';
     }
 
     $registeredUsers = Painel::registeredUsers();
@@ -20,27 +22,27 @@
     
     /* Paginação */
     
-    // Receber o número da página
-    $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-    $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-    
-    // Setar a quantidade de itens por página
-    $qnt_result_pg = 5;
-    
-    // Calcular o inicio da visualização
-    $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
-    
-    // Buscando no banco de dados
-    $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg);
+        // Receber o número da página
+        $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
+        $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+        
+        // Setar a quantidade de itens por página
+        $qnt_result_pg = 5;
+        
+        // Calcular o inicio da visualização
+        $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
+        
+        // Buscando no banco de dados
+        $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg);
 
-    // Somando quantidade de cadastro
-    $result_pg = count($totalAgendamentos);
+        // Somando quantidade de cadastro
+        $result_pg = count($totalAgendamentos);
 
-    // Quantidadades de Páginas
-    $quantidade_pg = ceil($result_pg / $qnt_result_pg);
+        // Quantidadades de Páginas
+        $quantidade_pg = ceil($result_pg / $qnt_result_pg);
 
-    // Limitar A quantidade de Links
-    $max_links = 3;
+        // Limitar A quantidade de Links
+        $max_links = 1;
 
 
     /* ** */
@@ -103,41 +105,49 @@
                             ?>
                         </tbody><!-- Corpo da Tabela -->
                     </table><!-- Tabela -->
-                    <div class="lista-paginacao">
-                        <div class="lista-paginacao-wrapper">
-                            
-                            <?php
-                                if($pagina == 1){
-                                    echo '<a>Primeira</a>';
-                                }else{
-                                    echo '<a href="relatorio?pagina=1">Primeira</a>';
-                                }
-                                for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
-                                    if($pag_ant >= 1){
-                                        if($pag_ant == 1){
-                                            echo "<a href='relatorio?pagina=1'>$pag_ant</a>";
-                                        }else{
-                                            echo "<a href='relatorio?pagina=$pag_ant'>$pag_ant</a>";
+                    
+                    <?php if(count($paginacaoLimitAgendados) == $result_pg){
+                        echo "<div style='display: none;'>/div>"; 
+                    }else{?>
+                        <div class="lista-paginacao">
+                            <div class="lista-paginacao-wrapper">
+                                <?php
+                                    if($pagina == 1){
+                                        echo "<a class='active-button-paginacao disabled'>Primeira</a>";
+                                        echo "<a class='active-button-paginacao disabled'><i>".Icon::$arowSeta."</i> Prev</a>";
+                                    }else{
+                                        echo "<a href='relatorio?pagina=1'>Primeira</a>";
+                                        echo "<a href='relatorio?pagina=".($pagina - 1)."'><i>".Icon::$arowSeta."</i> Prev</a>";
+                                    }
+                                    for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
+                                        if($pag_ant >= 1){
+                                            if($pag_ant == 1){
+                                                echo "<a href='relatorio?pagina=1'>$pag_ant</a>";
+                                            }else{
+                                                echo "<a href='relatorio?pagina=$pag_ant'>$pag_ant</a>";
+                                            }
                                         }
+                                        
                                     }
-                                    
-                                }
-                                echo "<a>$pagina</a>"; 
-                                for($pag_post = $pagina + 1; $pag_post <= $pagina + $max_links; $pag_post++){
-                                    if($pag_post <= $quantidade_pg){
-                                        echo "<a href='relatorio?pagina=$pag_post'>$pag_post</a>";
+                                    echo "<a class='active-button-paginacao disabled'>$pagina</a>"; 
+                                    for($pag_post = $pagina + 1; $pag_post <= $pagina + $max_links; $pag_post++){
+                                        if($pag_post <= $quantidade_pg){
+                                            echo "<a href='relatorio?pagina=$pag_post'>$pag_post</a>";
+                                        }
+                                        
                                     }
-                                    
-                                }
 
-                                if($pagina == $quantidade_pg){
-                                    echo '<a>Ultima</a>';
-                                }else{
-                                    echo "<a href='relatorio?pagina=$quantidade_pg'>Ultima</a>";
-                                }
-                            ?>
-                        </div>
-                    </div>
+                                    if($pagina == $quantidade_pg){
+                                        echo "<a class='active-button-paginacao disabled'>Next <i>".Icon::$arowSeta."</i></a>";
+                                        echo "<a class='active-button-paginacao disabled'>Ultima</a>";
+                                    }else{
+                                        echo "<a href='relatorio?pagina=".($pagina + 1)."'>Next <i>".Icon::$arowSeta."</i></a>";
+                                        echo "<a href='relatorio?pagina=$quantidade_pg'>Ultima</a>";
+                                    }
+                                ?>
+                            </div><!-- lista-paginacao-wrapper -->
+                        </div><!-- lista-paginacao -->
+                    <?php } ?>
                 </div><!-- Form-table-Center -->
             </div><!-- Div Wraper -->
         </div><!-- Conteiner Central -->
