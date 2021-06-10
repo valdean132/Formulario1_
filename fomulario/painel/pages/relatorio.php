@@ -10,8 +10,7 @@
     $divWrapperActiveEditar = '';
     $activeButtonPaginacao = '';
     
-    if(isset($_POST['acao']) || 
-        isset($_POST['deletar']) ||  
+    if(isset($_POST['acao']) ||  
         isset($_GET['pagina']) ||
         isset($_GET['relatorio'])){
         $classAnimate = '';
@@ -20,7 +19,8 @@
         $divWrapperActive = 'style="display: block;"';
         $activeButtonPaginacao = 'active-button-paginacao';
     }
-    if(isset($_POST['editar'])){
+    if(isset($_POST['editar'])|| 
+        isset($_POST['deletar'])){
         $classAnimate = '';
         $styleRotateEditar = 'style="transform: rotate(0deg)"';
         $borderTitleEditar = 'border-title';
@@ -90,8 +90,8 @@
                                 <th class="column2">Nome</th>
                                 <th class="column3">Telefone</th>
                                 <th class="column4">Dia da Visita</th>
-                                <th class="column5">Resp. por Agend.</th>
-                                <th class="column6">Ver Mais detalhes</th>
+                                <th class="column5">Agendado Por</th>
+                                <th class="column6">Mais Detalhes</th>
                             </tr>
                         </thead><!-- Cabeçalho da Tabela -->
                         <tbody class="tbody-agendados">

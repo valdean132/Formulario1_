@@ -67,10 +67,10 @@
         }
 
         // Formulário geral
-        public function formGeral($momento_registro, $nome, $email, $telefone, $endereco, $resp_ged, $nome_ged, $nome_supervisor, $tipo_ajuda_opcao1, $tipo_ajuda_opcao2, $tipo_ajuda_opcao3, $tipo_ajuda_opcao4, $tipo_ajuda_opcao5, $tipo_ajuda_opcao6, $necessidade, $data_agendamento, $momento_agendamento, $nome_profissional, $situacao_agendamento, $resp_agendamento){
-            $sql = MySql::conectar()->prepare("INSERT INTO `res_form`  VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        public function formGeral($momento_registro, $nome, $email, $telefone, $endereco, $resp_ged, $nome_ged, $nome_supervisor, $tipo_ajuda_opcao1, $tipo_ajuda_opcao2, $tipo_ajuda_opcao3, $tipo_ajuda_opcao4, $tipo_ajuda_opcao5, $tipo_ajuda_opcao6, $necessidade, $situacao_agendamento){
+            $sql = MySql::conectar()->prepare("INSERT INTO `res_form`  VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         
-            if($sql->execute(array($momento_registro, $nome, $email, $telefone, $endereco, $resp_ged, $nome_ged, $nome_supervisor, $tipo_ajuda_opcao1, $tipo_ajuda_opcao2, $tipo_ajuda_opcao3, $tipo_ajuda_opcao4, $tipo_ajuda_opcao5, $tipo_ajuda_opcao6, $necessidade, $data_agendamento, $momento_agendamento, $nome_profissional, $situacao_agendamento, $resp_agendamento))){
+            if($sql->execute(array($momento_registro, $nome, $email, $telefone, $endereco, $resp_ged, $nome_ged, $nome_supervisor, $tipo_ajuda_opcao1, $tipo_ajuda_opcao2, $tipo_ajuda_opcao3, $tipo_ajuda_opcao4, $tipo_ajuda_opcao5, $tipo_ajuda_opcao6, $necessidade, '', '', '', $situacao_agendamento, '', ''))){
                 return true;
             }else{
                 return false;

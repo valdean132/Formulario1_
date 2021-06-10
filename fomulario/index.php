@@ -1,4 +1,10 @@
-<?php include('config.php'); ?>
+<?php 
+
+    include('config.php'); 
+
+    $tipo_ajuda_opcao = Painel::$tipo_ajuda_opcao;
+    $contador = count($tipo_ajuda_opcao);
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -97,36 +103,22 @@
                         <h3>Que tipo de ajuda você está presisando neste momento? <span>*</span></h3>
                         <p>Você pode marcar mais de uma opção.</p>
                         <div class="box-selecao">
-                            <div>
-                                <input type="checkbox" name="tipo_ajuda_opcao[]" value="1" id="op1">
-                                <label for="op1">Apoio Espiritual (Pedido de oração, palavra do pastor, leitura da palavra de Deus)</label>
-                            </div>
-
-                            <div>
-                                <input type="checkbox" name="tipo_ajuda_opcao[]" value="2" id="op2">
-                                <label for="op2">Apoio Psicológico (Estou de luto, depressão, ansiedade)</label>
-                            </div>
-
-                            <div>
-                                <input type="checkbox" name="tipo_ajuda_opcao[]" value="3" id="op3">
-                                <label for="op3">Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)</label>
-                            </div>
-
-                            <div>
-                                <input type="checkbox" name="tipo_ajuda_opcao[]" value="4" id="op4">
-                                <label for="op4">Atendimento de Fisioterapia</label>
-                            </div>
-
-                            <div>
-                                <input type="checkbox" name="tipo_ajuda_opcao[]" value="5" id="op5">
-                                <label for="op5">Atendimento de enfermagem (suspeita de Covid, dúvidas e suporte)</label>
-                            </div>
-
-                            <div>
-                                <input type="checkbox" name="tipo_ajuda_opcao[]" value="6" id="op6">
-                                <label for="op6">Outro:</label>
-                                <input id="outros" type="text" name="outros" placeholder="Digite aqui" maxlength="255">
-                            </div>
+                            <?php foreach($tipo_ajuda_opcao as $key => $value){
+                                if($key != 6){
+                            ?>
+                                <div>
+                                    <input type="checkbox" name="tipo_ajuda_opcao[]" value="<?php echo $key?>" id="op<?php echo $key?>">
+                                    <label for="op<?php echo $key?>"><?php echo $value ?></label>
+                                </div>
+                            <?php }else{ ?>
+                                <div>
+                                    <input type="checkbox" name="tipo_ajuda_opcao[]" value="<?php echo $key?>" id="op<?php echo $key?>">
+                                    <label for="op<?php echo $key?>"><?php echo $value ?></label>
+                                    <input id="outros" type="text" name="outros" placeholder="Digite aqui" maxlength="255">
+                                </div>
+                            <?php }
+                                }
+                            ?>
                         </div>
                     </div><!-- Box-Form -->
 

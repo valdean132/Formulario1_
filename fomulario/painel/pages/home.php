@@ -209,16 +209,27 @@
                                 <h4><?php echo $value['necessidade']; ?></h4>
                             <?php } ?>
                         </div><!-- Form-Group-agend-Ged -->
+                        <?php if($_SESSION['cargo'] != 0){ ?>
+                            <div class="form-group-agend">
+                                <label for="data-agend<?php echo $key+1; ?>">Data de Consulta:</label>
+                                <input type="datetime-local" name="data-agend" required id="data-agend<?php echo $key+1; ?>">
+                            </div><!-- Form-Group-data-agend -->
 
-                        <div class="form-group-agend necessidade">
-                            <label for="data-agend<?php echo $key+1; ?>">Data de Consulta:</label>
-                            <input type="datetime-local" name="data-agend" required id="data-agend<?php echo $key+1; ?>">
-                        </div><!-- Form-Group-data-agend -->
+                            <div class="form-group-agend">
+                                <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
+                                <input type="text" name="nome-profissional" id="nome-profissional<?php echo $key+1; ?>">
+                            </div><!-- Form-Group-data-agend -->
+                        <?php }else{ ?>
+                            <div class="form-group-agend disabled">
+                                <label for="data-agend<?php echo $key+1; ?>">Data de Consulta:</label>
+                                <input type="datetime-local" name="data-agend" required id="data-agend<?php echo $key+1; ?>">
+                            </div><!-- Form-Group-data-agend -->
 
-                        <div class="form-group-agend necessidade">
-                            <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
-                            <input type="text" name="nome-profissional" id="nome-profissional<?php echo $key+1; ?>">
-                        </div><!-- Form-Group-data-agend -->
+                            <div class="form-group-agend disabled">
+                                <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
+                                <input type="text" name="nome-profissional" id="nome-profissional<?php echo $key+1; ?>">
+                            </div><!-- Form-Group-data-agend -->
+                        <?php } ?>
                     </div><!-- Form-50 -->
                 </div><!-- center-form -->
                 <input type="hidden" name="id" value="<?php echo $value['id']; ?>">

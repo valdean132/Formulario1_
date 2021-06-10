@@ -76,8 +76,8 @@
 
         // Variaveis de Cargo
         public static $cargos = [
-            '0' => 'Normal',
-            '1' => 'Sub Administrador',
+            '0' => 'Responsavel Pelas Visitas',
+            '1' => 'Agendador',
             '2' => 'Administrador',
             '3' => 'Administrador Geral'
         ];
@@ -87,6 +87,16 @@
             '0' => 'editar-usuario',
             '1' => 'cadastrar-usuario',
             '2' => 'relatorio'
+        ];
+
+        // Variaveis de Tipo de opção ajuda
+        public static $tipo_ajuda_opcao = [
+            '1' => 'Apoio Espiritual (Pedido de oração, palavra do pastor, leitura da palavra de Deus)',
+            '2' => 'Apoio Psicológico (Estou de luto, depressão, ansiedade)',
+            '3' => 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)',
+            '4' => 'Atendimento de Fisioterapia',
+            '5' => 'Atendimento de enfermagem (suspeita de Covid, dúvidas e suporte)',
+            '6' => 'Outro:'
         ];
 
         // Puxar Usuários Cadastrados

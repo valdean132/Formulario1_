@@ -17,17 +17,13 @@
                 $nome_ged = '';
                 $nome_supervisor = '';
         
+                
                 $tipo_ajuda_opcao1 = '';
                 $tipo_ajuda_opcao2 = '';
                 $tipo_ajuda_opcao3 = '';
                 $tipo_ajuda_opcao4 = '';
                 $tipo_ajuda_opcao5 = '';
                 $tipo_ajuda_opcao6 = '';
-        
-                $data_agendamento = '';
-                $momento_agendamento = '';
-                $nome_profissional = '';
-                $resp_agendamento = '';
                 
         
                 if($_POST['resp_ged'] == 1){
@@ -38,7 +34,7 @@
                     $resp_ged = 'Não';
                 }
         
-                foreach($_POST['tipo_ajuda_opcao'] as $key => $value){
+                foreach($_POST['tipo_ajuda_opcao'] as $value){
                     switch ($value) {
                         case 1:
                             $tipo_ajuda_opcao1 = 'Apoio Espiritual (Pedido de oração, palavra do pastor, leitura da palavra de Deus)';
@@ -65,7 +61,7 @@
                 $situacao_agendamento = strtoupper('n');
         
         
-                if($usuario->formGeral($momento_registro, $nome, $email, $telefone, $endereco, $resp_ged, $nome_ged, $nome_supervisor, $tipo_ajuda_opcao1, $tipo_ajuda_opcao2, $tipo_ajuda_opcao3, $tipo_ajuda_opcao4, $tipo_ajuda_opcao5, $tipo_ajuda_opcao6, $necessidade, $data_agendamento, $momento_agendamento, $nome_profissional, $situacao_agendamento, $resp_agendamento)){
+                if($usuario->formGeral($momento_registro, $nome, $email, $telefone, $endereco, $resp_ged, $nome_ged, $nome_supervisor, $tipo_ajuda_opcao1, $tipo_ajuda_opcao2, $tipo_ajuda_opcao3, $tipo_ajuda_opcao4, $tipo_ajuda_opcao5, $tipo_ajuda_opcao6, $necessidade, $situacao_agendamento)){
                     Painel::alert('sucesso', 'Seu formulário foi enviado com sucesso!!!', 'Iremos analizar sua situação e entraremos em contato o mais rápido possível. Aguarde!');
                 }else{
                     Painel::alert('error', 'Ocorreu um erro ao enviar seu formulário...','Por favor tente novamente.');
