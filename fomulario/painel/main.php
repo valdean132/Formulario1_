@@ -7,7 +7,8 @@
     if(isset($_POST['acao']) || 
         isset($_POST['deletar']) || 
         isset($_POST['editar']) || 
-        isset($_POST['agendar']) || 
+        isset($_POST['agendar']) ||
+        isset($_POST['visita_concluida']) ||
         isset($_POST['reagendar']) ||
         isset($_GET['pagina']) ||
         isset($_GET['relatorio'])){
@@ -83,7 +84,7 @@
         </div><!-- Center -->
     </header><!-- Header -->
     <div class="container-central">
-        <?php echo Painel::loadPage(); ?>
+        <?php echo Painel::loadPage($_SESSION['cargo']); ?>
     </div><!-- Container Central -->
     
     <div class="homeInicial <?php echo $classAnimateInicial; ?>" <?php display() ?>>

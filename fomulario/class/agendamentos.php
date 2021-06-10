@@ -17,11 +17,24 @@
 
             return $sql->fetchAll();
         }
+        
+        // Agendados
+        public static function visitados($nomeUser){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE nome_profissional = ? AND visita_concluida = ?");
+            $sql->execute(array($nomeUser, strtoupper('s')));
+
+            return $sql->fetchAll();
+        }
 
         // Total de Agendamentos
-        public static function totalAgendamentos(){
-            $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE `situacao_agendamento` = ?");
-            $sql->execute(array(strtoupper('s')));
+        public static function totalAgendamentos($resp = null){
+            if($resp == null){
+                $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE `situacao_agendamento` = ?");
+                $sql->execute(array(strtoupper('s')));
+            }else{
+                $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE `situacao_agendamento` = ? AND `nome_profissional` = ? AND visita_concluida = ?");
+                $sql->execute(array(strtoupper('s'), $resp, strtoupper('n')));
+            }
 
             return $sql->fetchAll();
         }

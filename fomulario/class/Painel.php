@@ -16,7 +16,7 @@
         }
 
         // Redirecionamento
-        public static function loadPage(){
+        public static function loadPage($cargo){
             
             if(isset($_GET['url'])){
                 $url = explode('/', $_GET['url']);
@@ -27,7 +27,11 @@
                     include('pages/404.php');
                 }
             }else{
-                include('pages/home.php');
+                if($cargo == 0){
+                    include('pages/home-visita.php');
+                }else{
+                    include('pages/home.php');
+                }
             }
         }
 
