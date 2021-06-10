@@ -19,17 +19,17 @@
         $divWrapperActive = 'style="display: block;"';
         $activeButtonPaginacao = 'active-button-paginacao';
     }
-    if(isset($_POST['editar'])|| 
-        isset($_POST['deletar'])){
-        $classAnimate = '';
-        $styleRotateEditar = 'style="transform: rotate(0deg)"';
-        $borderTitleEditar = 'border-title';
-        $divWrapperActiveEditar = 'style="display: block;"';
-        $activeButtonPaginacao = 'active-button-paginacao';
-    }
+    // if(isset($_POST['editar'])|| 
+    //     isset($_POST['deletar'])){
+    //     $classAnimate = '';
+    //     $styleRotateEditar = 'style="transform: rotate(0deg)"';
+    //     $borderTitleEditar = 'border-title';
+    //     $divWrapperActiveEditar = 'style="display: block;"';
+    //     $activeButtonPaginacao = 'active-button-paginacao';
+    // }
 
     $registeredUsers = Painel::registeredUsers();
-    $totalUser = Painel::totalUsers();
+    $totalUser = count($registeredUsers);
     $totalAgendamentos = Agendamentos::totalAgendamentos();
     
     /* Paginação */
@@ -96,7 +96,7 @@
                         </thead><!-- Cabeçalho da Tabela -->
                         <tbody class="tbody-agendados">
                             <?php foreach($paginacaoLimitAgendados as $key => $value){ 
-                                if($value['situacao_agendamento'] == strtoupper('s')){
+                                // if($value['situacao_agendamento'] == strtoupper('s')){
                             ?>
                                     <tr>
                                         <td class="column1"><?php echo $value['id']; ?></td>
@@ -113,7 +113,7 @@
                                         </td>
                                     </tr>
                             <?php }
-                                }
+                                // }
                             ?>
                         </tbody><!-- Corpo da Tabela -->
                     </table><!-- Tabela -->
@@ -128,15 +128,15 @@
                                         echo "<a class='active-button-paginacao disabled'>Primeira</a>";
                                         echo "<a class='active-button-paginacao disabled'><i>".Icon::$arowSeta."</i> Prev</a>";
                                     }else{
-                                        echo "<a href='relatorio?pagina=1'>Primeira</a>";
-                                        echo "<a href='relatorio?pagina=".($pagina - 1)."'><i>".Icon::$arowSeta."</i> Prev</a>";
+                                        echo "<a realtime='?pagina=1' href='relatorio?pagina=1'>Primeira</a>";
+                                        echo "<a realtime='?pagina=".($pagina - 1)."' href='relatorio?pagina=".($pagina - 1)."'><i>".Icon::$arowSeta."</i> Prev</a>";
                                     }
                                     for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
                                         if($pag_ant >= 1){
                                             if($pag_ant == 1){
-                                                echo "<a href='relatorio?pagina=1'>$pag_ant</a>";
+                                                echo "<a realtime='?pagina=1' href='relatorio?pagina=1'>$pag_ant</a>";
                                             }else{
-                                                echo "<a href='relatorio?pagina=$pag_ant'>$pag_ant</a>";
+                                                echo "<a realtime='?pagina=$pag_ant' href='relatorio?pagina=$pag_ant'>$pag_ant</a>";
                                             }
                                         }
                                         
@@ -144,7 +144,7 @@
                                     echo "<a class='active-button-paginacao disabled'>$pagina</a>"; 
                                     for($pag_post = $pagina + 1; $pag_post <= $pagina + $max_links; $pag_post++){
                                         if($pag_post <= $quantidade_pg){
-                                            echo "<a href='relatorio?pagina=$pag_post'>$pag_post</a>";
+                                            echo "<a realtime='?pagina=$pag_post' href='relatorio?pagina=$pag_post'>$pag_post</a>";
                                         }
                                         
                                     }
@@ -153,8 +153,8 @@
                                         echo "<a class='active-button-paginacao disabled'>Next <i>".Icon::$arowSeta."</i></a>";
                                         echo "<a class='active-button-paginacao disabled'>Ultima</a>";
                                     }else{
-                                        echo "<a href='relatorio?pagina=".($pagina + 1)."'>Next <i>".Icon::$arowSeta."</i></a>";
-                                        echo "<a href='relatorio?pagina=$quantidade_pg'>Ultima</a>";
+                                        echo "<a realtime='?pagina=".($pagina + 1)."' href='relatorio?pagina=".($pagina + 1)."'>Next <i>".Icon::$arowSeta."</i></a>";
+                                        echo "<a realtime='?pagina=$quantidade_pg' href='relatorio?pagina=$quantidade_pg'>Ultima</a>";
                                     }
                                 ?>
                             </div><!-- lista-paginacao-wrapper -->

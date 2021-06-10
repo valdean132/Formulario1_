@@ -65,16 +65,16 @@
                             <div class="after"></div>
                             <ul>
                                 <li <?php verificaPermicaoMenu(0); selectMenu('editar-usuario'); ?>>
-                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario"><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
+                                    <a realtime="editar-usuario" href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario"><i><?php echo Icon::$editarPerfil; ?></i>Editar Usuário</a>
                                 </li>
                                 <li <?php verificaPermicaoMenu(2); selectMenu('cadastrar-usuario'); ?>>
-                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>cadastrar-usuario"><i><?php echo Icon::$cadastrar; ?></i>Cadastrar Usuário</a>
+                                    <a realtime="cadastrar-usuario" href="<?php echo INCLUDE_PATH_PANEL; ?>cadastrar-usuario"><i><?php echo Icon::$cadastrar; ?></i>Cadastrar Usuário</a>
                                 </li>
                                 <li <?php verificaPermicaoMenu(2); selectMenu('relatorio'); ?>>
-                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>relatorio"><i><?php echo Icon::$relatorio; ?></i>Relatório</a>
+                                    <a realtime="relatorio" href="<?php echo INCLUDE_PATH_PANEL; ?>relatorio"><i><?php echo Icon::$relatorio; ?></i>Relatório</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo INCLUDE_PATH_PANEL; ?>?loggout"><i><?php echo Icon::$loggout; ?></i>Sair</a>
+                                    <a realtime="" href="<?php echo INCLUDE_PATH_PANEL; ?>?loggout"><i><?php echo Icon::$loggout; ?></i>Sair</a>
                                 </li>
                             </ul>
                         </nav><!-- Menu Sigle -->

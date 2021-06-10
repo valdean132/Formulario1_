@@ -79,7 +79,7 @@ $(function(){
 	
 	/* Carregamentos Animados */
 	function carregamentoDimanico(){
-		$('[realtime]').click(()=>{
+		$('.menu-single [realtime]').click(function(){
 			var container = $('.container-central')
 			var pagina = $(this).attr('realtime');
 
@@ -90,8 +90,29 @@ $(function(){
 			container.load(url);
 
 			container.fadeIn(1000);
+			window.history.pushState('', '', pagina);
 
 			return false;
+		});
+	}
+
+	/* Carregamento de paginção dinâmico */
+	function carregamentoPaginacao(){
+		$('.lista-paginacao-wrapper [realtime]').click(function(){
+			var container = $('.tbody-agendados');
+			var pagina = $(this).attr('realtime');
+			
+			console.log(pagina);
+			
+			container.hide();
+			
+			var url = include_path_painel+'pages/relatorio.php'+pagina;
+			
+			container.load(url);
+			container.fadeIn(1000);
+			window.history.pushState('', '', pagina);
+			return false;
+
 		});
 	}
 
@@ -171,7 +192,8 @@ $(function(){
 
 	/* Chamando Funções */
 	// carregamentoDimanico();
-	showDivWrapper()
+	// carregamentoPaginacao();
+	showDivWrapper();
 	showOpcoes();
 	showPassword();
 	agendamentos();
