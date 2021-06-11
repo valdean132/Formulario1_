@@ -312,3 +312,49 @@
 }
 
 /* ** */
+
+/* BTN FILTER TABELA */
+.opcoes-relatorio-filter{
+    display: flex;
+    padding: 0 2%;
+}
+.opcoes-relatorio-filter .btn-filter-tabela{
+    width: auto;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    color: #f5f5f5;
+    font-weight: normal;
+    filter: drop-shadow(0 2px 3px #444);
+    background-color: #4158d0;
+    transition: background-color .5s;
+}
+.opcoes-relatorio-filter .btn-filter-tabela i{
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    transform: rotate(-90deg);
+    margin-right: 10px;
+    display: none;
+}
+.opcoes-relatorio-filter .btn-filter-tabela.select i{
+    display: block;
+}
+
+.opcoes-relatorio-filter .btn-filter-tabela.btn-filter1{background-color: #c0ca33;}
+.opcoes-relatorio-filter .btn-filter-tabela.btn-filter2{background-color: #00897b;}
+.opcoes-relatorio-filter .btn-filter-tabela.btn-filter3{background-color: #1e88e5;}
+.opcoes-relatorio-filter .btn-filter-tabela.btn-filter4{background-color: #8e24aa;}
+
+.opcoes-relatorio-filter .btn-filter-tabela.btn-filter1:hover{background-color: #c0b600;}
+.opcoes-relatorio-filter .btn-filter-tabela.btn-filter2:hover{background-color: #006649;}
+.opcoes-relatorio-filter .btn-filter-tabela.btn-filter3:hover{background-color: #1e65c2;}
+.opcoes-relatorio-filter .btn-filter-tabela.btn-filter4:hover{background-color: #8e0188;}
+
+/* ** */

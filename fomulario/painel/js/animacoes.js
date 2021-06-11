@@ -149,11 +149,11 @@ $(function(){
 
 				engrenagem.css('transform', 'rotate(180deg)').css('opacity', '0');
 
+				closeX.css('opacity', '0').css('position', 'absolute');
 				closeX.show();
-				closeX.css('opacity', '0');
 				setTimeout(()=>{
 					engrenagem.hide();
-					closeX.css('transform', 'rotate(180deg)').css('opacity', '1').css('fill', '#3493eb');
+					closeX.css('transform', 'rotate(180deg)').css('opacity', '1').css('fill', '#3493eb').css('position', 'static');
 				}, 100);
 				opcoesRelatorio.show(200);
 
@@ -165,7 +165,7 @@ $(function(){
 					engrenagem.css('transform', 'rotate(-180deg)').css('opacity', '1');
 			
 				}, 100);
-				opcoesRelatorio.hide(200)
+				opcoesRelatorio.hide(200);
 			}
 		});
 	}

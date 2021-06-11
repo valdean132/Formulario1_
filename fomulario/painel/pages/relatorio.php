@@ -80,6 +80,12 @@
                             <a href="">Gerar PDF</a>
                         </div><!-- opcaoes-relatorio-single -->
                     </div><!-- opcoes-relatorio-wrapper -->
+                    <div class="opcoes-relatorio-filter">
+                        <div class="btn-filter-tabela btn-filter1 select"><i><?php echo Icon::$seta ?></i>Todos</div>
+                        <div class="btn-filter-tabela btn-filter2"><i><?php echo Icon::$seta ?></i>Por Agendar</div>
+                        <div class="btn-filter-tabela btn-filter3"><i><?php echo Icon::$seta ?></i>Agendado</div>
+                        <div class="btn-filter-tabela btn-filter4"><i><?php echo Icon::$seta ?></i>Visita Concluída</div>
+                    </div><!-- opcoes-relatorio-filter -->
                     <a href="<?php echo INCLUDE_PATH_PANEL; ?>export/gerar-relatorio-excel" class="gerar">Gerar Relatório</a>
                 </div><!-- opção Relatório -->
                 <div class="form-table-center">
@@ -102,8 +108,13 @@
                                         <td class="column1"><?php echo $value['id']; ?></td>
                                         <td class="column2"><?php echo $value['nome']; ?></td>
                                         <td class="column3"><?php echo $value['telefone']; ?></td>
-                                        <td class="column4"><?php echo date('d/m/Y H:i', strtotime($value['data_agendamento'])) ?></td>
-                                        <td class="column5"><?php echo $value['respon_agendamento']; ?></td>
+                                        <?php if($value['situacao_agendamento'] == strtoupper('s')){?>
+                                            <td class="column4"><?php echo date('d/m/Y H:i', strtotime($value['data_agendamento'])) ?></td>
+                                            <td class="column5"><?php echo $value['respon_agendamento']; ?></td>
+                                            <?php }else{?>
+                                                <td class="column4">00/00/0000 00:00</td>
+                                                <td class="column5">Não foi agendado</td>
+                                        <?php }?>
                                         <td class="column6">
                                             <div class="opcoes-wrapper">
                                                 <div class="mostrar-single btn-agendados<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Editar">
@@ -405,20 +416,29 @@
                                 <h4><?php echo $value['necessidade']; ?></h4>
                             <?php } ?>
                         </div><!-- Form-Group-agend-Ged -->
+                        <?php if($value['situacao_agendamento'] == strtoupper('s')){ ?>
+                            <div class="form-group-agend disabled">
+                                <label for="data-agend<?php echo $key+1; ?>">Data de Consulta:</label>
+                                <?php
+                                    $datetimeLocal = explode(' ', date('Y-m-d H:i:s', strtotime($value['data_agendamento'])));
+                                    $datetimeLocalAgendado = $datetimeLocal[0].'T'.$datetimeLocal[1];
+                                ?>
+                                <input type="datetime-local" disabled value="<?php echo $datetimeLocalAgendado; ?>" name="data-agend" required id="data-agend<?php echo $key+1; ?>">
+                            </div><!-- Form-Group-data-agend -->
 
-                        <div class="form-group-agend disabled">
-                            <label for="data-agend<?php echo $key+1; ?>">Data de Consulta:</label>
-                            <?php
-                                $datetimeLocal = explode(' ', date('Y-m-d H:i:s', strtotime($value['data_agendamento'])));
-                                $datetimeLocalAgendado = $datetimeLocal[0].'T'.$datetimeLocal[1];
-                            ?>
-                            <input type="datetime-local" disabled value="<?php echo $datetimeLocalAgendado; ?>" name="data-agend" required id="data-agend<?php echo $key+1; ?>">
-                        </div><!-- Form-Group-data-agend -->
-
-                        <div class="form-group-agend disabled">
-                            <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
-                            <input type="text" name="nome-profissional" disabled value="<?php echo $value['nome_profissional']; ?>" id="nome-profissional<?php echo $key+1; ?>">
-                        </div><!-- Form-Group-data-agend -->
+                            <div class="form-group-agend disabled">
+                                <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
+                                <input type="text" name="nome-profissional" disabled value="<?php echo $value['nome_profissional']; ?>" id="nome-profissional<?php echo $key+1; ?>">
+                            </div><!-- Form-Group-data-agend -->
+                        <?php } if($value['visita_concluida'] == strtoupper('s')){ ?>
+                            <div class="form-group-agend disabled">
+                                <label for="Visitado<?php echo $key+1; ?>">Visitou?</label>
+                                <div class="box-form-resp">
+                                    <input id="s<?php echo $key+1; ?>" type="radio" name="resp_visita" value="2" checked>
+                                    <label for="s<?php echo $key+1; ?>">Sim</label>
+                                </div>
+                            </div><!-- Form-Group-data-agend -->
+                        <?php }?>
                     </div><!-- Form-50 -->
                 </div><!-- center-form -->
                 <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
