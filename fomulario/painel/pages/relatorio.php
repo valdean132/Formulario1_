@@ -129,7 +129,7 @@
                         </tbody><!-- Corpo da Tabela -->
                     </table><!-- Tabela -->
                     
-                    <?php if(count($paginacaoLimitAgendados) == $result_pg){
+                    <?php if(count($paginacaoLimitAgendados)  == $result_pg){
                         echo "<div style='display: none;'>/div>"; 
                     }else{?>
                         <div class="lista-paginacao">

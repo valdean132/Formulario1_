@@ -29,8 +29,8 @@
         // Total de Agendamentos
         public static function totalAgendamentos($resp = null){
             if($resp == null){
-                $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE `situacao_agendamento` = ?");
-                $sql->execute(array(strtoupper('s')));
+                $sql = MySql::conectar()->prepare("SELECT * FROM `res_form`");
+                $sql->execute();
             }else{
                 $sql = MySql::conectar()->prepare("SELECT * FROM `res_form` WHERE `situacao_agendamento` = ? AND `nome_profissional` = ? AND visita_concluida = ?");
                 $sql->execute(array(strtoupper('s'), $resp, strtoupper('n')));
