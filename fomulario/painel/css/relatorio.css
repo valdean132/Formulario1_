@@ -171,6 +171,7 @@
 /* ** */
 
 /* Opções de relatorio */
+
 .opcao-relatorio{
     width: 100%;
     display: flex;
@@ -249,8 +250,17 @@
 .opcaoes-relatorio-single a:hover{
     background-color: #909090;
 }
-/* ** */
 
+/* ** */
+/* Table Relatório */
+.tbody-agendados{
+    display: none;
+}
+.tbody-agendados.table-select-agendados{
+    display: contents;
+}
+
+/* ** */
 /* lista-paginacao */
 
 .lista-paginacao{

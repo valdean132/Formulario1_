@@ -205,7 +205,7 @@ tbody tr:nth-child(2n + 2) td{
     content: "Dia da Visita";
   }
   .form-table-center table tbody tr td:nth-child(5):before {
-    content: "Responsável por Agend.";
+    content: "Agendado Por";
   }
   .form-table-center table tbody tr td:nth-child(6):before {
     content: "Ver Mais detalhes";
