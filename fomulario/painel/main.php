@@ -41,7 +41,7 @@
         <div class="center">
             <div class="logo">
                 <a href="<?php echo INCLUDE_PATH_PANEL; ?>">
-                    <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/logo.svg" alt="Logo">
+                    <img src="<?php echo INCLUDE_PATH_PANEL; ?>img/logo-ibn-nova-canaa-letra-preta21.png" alt="Logo">
                 </a>
             </div><!-- Logo -->
             <div class="user">

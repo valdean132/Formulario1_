@@ -430,7 +430,7 @@
                                 <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
                                 <input type="text" name="nome-profissional" disabled value="<?php echo $value['nome_profissional']; ?>" id="nome-profissional<?php echo $key+1; ?>">
                             </div><!-- Form-Group-data-agend -->
-                        <?php } if($value['visita_concluida'] == strtoupper('s')){ ?>
+                        <?php if($value['visita_concluida'] == strtoupper('s')){ ?>
                             <div class="form-group-agend disabled">
                                 <label for="Visitado<?php echo $key+1; ?>">Visitou?</label>
                                 <div class="box-form-resp">
@@ -438,7 +438,17 @@
                                     <label for="s<?php echo $key+1; ?>">Sim</label>
                                 </div>
                             </div><!-- Form-Group-data-agend -->
-                        <?php }?>
+                        <?php }else{ ?>
+                            <div class="form-group-agend disabled">
+                                <label for="Visitado<?php echo $key+1; ?>">Visitou?</label>
+                                <div class="box-form-resp">
+                                    <input id="s<?php echo $key+1; ?>" type="radio" name="resp_visita" value="2" checked>
+                                    <label for="s<?php echo $key+1; ?>">Não</label>
+                                </div>
+                            </div><!-- Form-Group-data-agend -->
+                        <?php }
+                            }
+                        ?>
                     </div><!-- Form-50 -->
                 </div><!-- center-form -->
                 <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
