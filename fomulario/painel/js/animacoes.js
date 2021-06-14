@@ -101,18 +101,17 @@ $(function(){
 		$('.lista-paginacao-wrapper [realtime]').click(function(){
 			var container = $('.tbody-agendados');
 			var pagina = $(this).attr('realtime');
-			
+
 			console.log(pagina);
 			
-			container.hide();
+			$.ajax({
+				url: include_path_painel+'pages/relatorio'+pagina,
+				success: function(result){
+					container.html(result);
+				}
+			});
 			
-			var url = include_path_painel+'pages/relatorio.php'+pagina;
-			
-			container.load(url);
-			container.fadeIn(1000);
-			window.history.pushState('', '', pagina);
 			return false;
-
 		});
 	}
 
@@ -190,9 +189,23 @@ $(function(){
 		});
 	}
 
+	function filterTable(){
+		var btnFilterAll = $('.btn-filter-tabela');
+
+		btnFilterAll.click(function(){
+			btnFilterAll.removeClass('select');
+			$(this).addClass('select');
+			
+
+
+			return false;
+		});
+	}
+
 	/* Chamando Funções */
 	// carregamentoDimanico();
 	// carregamentoPaginacao();
+	filterTable();
 	showDivWrapper();
 	showOpcoes();
 	showPassword();

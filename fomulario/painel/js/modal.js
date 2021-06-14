@@ -96,7 +96,6 @@ $(function(){
 						popup.css('opacity', 1);
 						agendados.addClass('animate-popup');
 					}, 500);
-					
 				});
 			
 			cont++;

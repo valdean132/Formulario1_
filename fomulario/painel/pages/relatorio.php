@@ -12,28 +12,29 @@
     
     if(isset($_POST['acao']) ||  
         isset($_GET['pagina']) ||
-        isset($_GET['relatorio'])){
+        isset($_GET['relatorio']) ||
+        isset($_GET['todos']) ||
+        isset($_GET['porAgendar']) ||
+        isset($_GET['agendados']) ||
+        isset($_GET['visitaConcluida'])){
         $classAnimate = '';
         $styleRotate = 'style="transform: rotate(0deg)"';
         $borderTitle = 'border-title';
         $divWrapperActive = 'style="display: block;"';
         $activeButtonPaginacao = 'active-button-paginacao';
     }
-    // if(isset($_POST['editar'])|| 
-    //     isset($_POST['deletar'])){
-    //     $classAnimate = '';
-    //     $styleRotateEditar = 'style="transform: rotate(0deg)"';
-    //     $borderTitleEditar = 'border-title';
-    //     $divWrapperActiveEditar = 'style="display: block;"';
-    //     $activeButtonPaginacao = 'active-button-paginacao';
-    // }
+    if(isset($_POST['editar'])|| 
+        isset($_POST['deletar'])){
+        $classAnimate = '';
+        $styleRotateEditar = 'style="transform: rotate(0deg)"';
+        $borderTitleEditar = 'border-title';
+        $divWrapperActiveEditar = 'style="display: block;"';
+        $activeButtonPaginacao = 'active-button-paginacao';
+    }
 
     $registeredUsers = Painel::registeredUsers();
     $totalUser = count($registeredUsers);
     $totalAgendamentos = Agendamentos::totalAgendamentos();
-    $totalAgendamentosNA = Agendamentos::totalAgendamentos('', strtoupper('n'));
-    $totalAgendamentosA = Agendamentos::totalAgendamentos('', strtoupper('s'), strtoupper('n'));
-    $totalAgendamentosV = Agendamentos::totalAgendamentos('', strtoupper('s'), strtoupper('s'));
     
     /* Paginação */
     
@@ -49,9 +50,15 @@
         
         // Buscando no banco de dados
         $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg);
-        $paginacaoLimitAgendadosNA = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg, strtoupper('n'));
-        $paginacaoLimitAgendadosA = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg, strtoupper('s'), strtoupper('n'));
-        $paginacaoLimitAgendadosV = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg, strtoupper('s'), strtoupper('s'));
+        if(isset($_GET['todos'])){
+            $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg);
+        }else if(isset($_GET['porAgendar'])){
+            $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg, strtoupper('n'));
+        }else if(isset($_GET['agendados'])){
+            $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg, strtoupper('s'), strtoupper('n'));
+        }else if(isset($_GET['visitaConcluida'])){
+            $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg, strtoupper('s'), strtoupper('s'));
+        }
 
         $paginacaoLimitAgendadosCont = count($paginacaoLimitAgendados);
 
@@ -90,10 +97,10 @@
                         </div><!-- opcaoes-relatorio-single -->
                     </div><!-- opcoes-relatorio-wrapper -->
                     <div class="opcoes-relatorio-filter">
-                        <div class="btn-filter-tabela btn-filter1 select"><i><?php echo Icon::$seta ?></i>Todos</div>
-                        <div class="btn-filter-tabela btn-filter2"><i><?php echo Icon::$seta ?></i>Por Agendar</div>
-                        <div class="btn-filter-tabela btn-filter3"><i><?php echo Icon::$seta ?></i>Agendado</div>
-                        <div class="btn-filter-tabela btn-filter4"><i><?php echo Icon::$seta ?></i>Visita Concluída</div>
+                        <div class="btn-filter-tabela btn-filter1 select"><a href="?todos"><i><?php echo Icon::$seta ?></i>Todos</a></div>                        <!-- <?php echo $selecionado; ?> -->
+                        <div class="btn-filter-tabela btn-filter2"><a href="?porAgendar"><i><?php echo Icon::$seta ?></i>Por Agendar</a></div>
+                        <div class="btn-filter-tabela btn-filter3"><a href="?agendados"><i><?php echo Icon::$seta ?></i>Agendado</a></div>
+                        <div class="btn-filter-tabela btn-filter4"><a href="?visitaConcluida"><i><?php echo Icon::$seta ?></i>Visita Concluída</a></div>
                     </div><!-- opcoes-relatorio-filter -->
                     <a href="<?php echo INCLUDE_PATH_PANEL; ?>export/gerar-relatorio-excel" class="gerar">Gerar Relatório</a>
                 </div><!-- opção Relatório -->
@@ -109,7 +116,7 @@
                                 <th class="column6">Mais Detalhes</th>
                             </tr>
                         </thead><!-- Cabeçalho da Tabela -->
-                        <tbody class="tbody-agendados ">
+                        <tbody class="tbody-agendados table-select-agendados    ">
                             <?php foreach($paginacaoLimitAgendados as $key => $value){ ?>
                                 <tr>
                                     <td class="column1"><?php echo $value['id']; ?></td>
@@ -132,64 +139,12 @@
                                 </tr>
                             <?php } ?>
                         </tbody><!-- Corpo da Tabela -->
-                        <tbody class="tbody-agendados ">
-                            <?php foreach($paginacaoLimitAgendadosNA as $key => $value){ ?>
-                                    <tr>
-                                        <td class="column1"><?php echo $value['id']; ?></td>
-                                        <td class="column2"><?php echo $value['nome']; ?></td>
-                                        <td class="column3"><?php echo $value['telefone']; ?></td>
-                                        <td class="column4">00/00/0000 00:00</td>
-                                        <td class="column5">Não foi agendado</td>
-                                        <td class="column6">
-                                            <div class="opcoes-wrapper">
-                                                <div class="mostrar-single btn-agendados<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Editar">
-                                                <i><?php echo Icon::$mostrar; ?></i>
-                                                </div><!-- Editar Single -->
-                                            </div><!-- opcoes-wrapper -->
-                                        </td>
-                                    </tr>
-                            <?php }?>
-                        </tbody><!-- Corpo da Tabela -->
-                        <tbody class="tbody-agendados">
-                            <?php foreach($paginacaoLimitAgendadosA as $key => $value){ ?>
-                                    <tr>
-                                        <td class="column1"><?php echo $value['id']; ?></td>
-                                        <td class="column2"><?php echo $value['nome']; ?></td>
-                                        <td class="column3"><?php echo $value['telefone']; ?></td>
-                                        <td class="column4"><?php echo date('d/m/Y H:i', strtotime($value['data_agendamento'])) ?></td>
-                                        <td class="column5"><?php echo $value['respon_agendamento']; ?></td>
-                                        <td class="column6">
-                                            <div class="opcoes-wrapper">
-                                                <div class="mostrar-single btn-agendados<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Editar">
-                                                <i><?php echo Icon::$mostrar; ?></i>
-                                                </div><!-- Editar Single -->
-                                            </div><!-- opcoes-wrapper -->
-                                        </td>
-                                    </tr>
-                            <?php } ?>
-                        </tbody><!-- Corpo da Tabela -->
-                        <tbody class="tbody-agendados table-select-agendados">
-                            <?php foreach($paginacaoLimitAgendadosV as $key => $value){?>
-                                    <tr>
-                                        <td class="column1"><?php echo $value['id']; ?></td>
-                                        <td class="column2"><?php echo $value['nome']; ?></td>
-                                        <td class="column3"><?php echo $value['telefone']; ?></td>
-                                        <td class="column4"><?php echo date('d/m/Y H:i', strtotime($value['data_agendamento'])) ?></td>
-                                        <td class="column5"><?php echo $value['respon_agendamento']; ?></td>
-                                        <td class="column6">
-                                            <div class="opcoes-wrapper">
-                                                <div class="mostrar-single btn-agendados<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Editar">
-                                                <i><?php echo Icon::$mostrar; ?></i>
-                                                </div><!-- Editar Single -->
-                                            </div><!-- opcoes-wrapper -->
-                                        </td>
-                                    </tr>
-                            <?php } ?>
-                        </tbody><!-- Corpo da Tabela -->
+                        
+                        
                     </table><!-- Tabela -->
                     
                     <?php if($paginacaoLimitAgendadosCont == $result_pg){
-                        echo "<div style='display: none;'>/div>"; 
+                        echo "<div style='display: none;'></div>"; 
                     }else{ ?>
                     
                         <div class="lista-paginacao">
@@ -401,7 +356,7 @@
             </div><!-- Button -->
         </div><!-- Editar -->
     <?php } foreach($paginacaoLimitAgendados as $key => $value){ ?>
-        <div class="ocultar form-agend agendados<?php echo $value['id']; ?>">
+        <div class="ocultar form-agend agendados<?php echo $key+1; ?>">
             <a href="" class="sairModal">x</a><!-- Fechar Popup -->
             <h2>Agendamento de <?php echo $value['nome'];?></h2>
             <form method="POST">
