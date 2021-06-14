@@ -13,10 +13,10 @@
     if(isset($_POST['acao']) ||  
         isset($_GET['pagina']) ||
         isset($_GET['relatorio']) ||
-        isset($_GET['todos']) ||
-        isset($_GET['porAgendar']) ||
-        isset($_GET['agendados']) ||
-        isset($_GET['visitaConcluida'])){
+        isset($_POST['todos']) ||
+        isset($_POST['porAgendar']) ||
+        isset($_POST['agendados']) ||
+        isset($_POST['visitaConcluida'])){
         $classAnimate = '';
         $styleRotate = 'style="transform: rotate(0deg)"';
         $borderTitle = 'border-title';
@@ -34,7 +34,7 @@
 
     $registeredUsers = Painel::registeredUsers();
     $totalUser = count($registeredUsers);
-    $totalAgendamentos = Agendamentos::totalAgendamentos();
+    
     
     /* Paginação */
     
@@ -50,14 +50,40 @@
         
         // Buscando no banco de dados
         $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg);
-        if(isset($_GET['todos'])){
+        $totalAgendamentos = Agendamentos::totalAgendamentos();
+        $select1 = 'select';
+        $select2 = '';
+        $select3 = '';
+        $select4 = '';
+        
+        if(isset($_POST['todos'])){
             $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg);
-        }else if(isset($_GET['porAgendar'])){
+            $totalAgendamentos = Agendamentos::totalAgendamentos();
+            $select1 = 'select';
+            $select2 = '';
+            $select3 = '';
+            $select4 = '';
+        }else if(isset($_POST['porAgendar'])){
             $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg, strtoupper('n'));
-        }else if(isset($_GET['agendados'])){
+            $totalAgendamentos = Agendamentos::totalAgendamentos('', strtoupper('n'));
+            $select2 = 'select';
+            $select3 = '';
+            $select4 = '';
+            $select1 = '';
+        }else if(isset($_POST['agendados'])){
             $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg, strtoupper('s'), strtoupper('n'));
-        }else if(isset($_GET['visitaConcluida'])){
+            $totalAgendamentos = Agendamentos::totalAgendamentos('', strtoupper('s'), strtoupper('n'));
+            $select3 = 'select';
+            $select4 = '';
+            $select1 = '';
+            $select2 = '';
+        }else if(isset($_POST['visitaConcluida'])){
             $paginacaoLimitAgendados = Agendamentos::paginacaoLimitAgendados($inicio, $qnt_result_pg, strtoupper('s'), strtoupper('s'));
+            $totalAgendamentos = Agendamentos::totalAgendamentos('', strtoupper('s'), strtoupper('s'));
+            $select4 = 'select';
+            $select1 = '';
+            $select2 = '';
+            $select3 = '';
         }
 
         $paginacaoLimitAgendadosCont = count($paginacaoLimitAgendados);
@@ -97,10 +123,25 @@
                         </div><!-- opcaoes-relatorio-single -->
                     </div><!-- opcoes-relatorio-wrapper -->
                     <div class="opcoes-relatorio-filter">
-                        <div class="btn-filter-tabela btn-filter1 select"><a href="?todos"><i><?php echo Icon::$seta ?></i>Todos</a></div>                        <!-- <?php echo $selecionado; ?> -->
-                        <div class="btn-filter-tabela btn-filter2"><a href="?porAgendar"><i><?php echo Icon::$seta ?></i>Por Agendar</a></div>
-                        <div class="btn-filter-tabela btn-filter3"><a href="?agendados"><i><?php echo Icon::$seta ?></i>Agendado</a></div>
-                        <div class="btn-filter-tabela btn-filter4"><a href="?visitaConcluida"><i><?php echo Icon::$seta ?></i>Visita Concluída</a></div>
+                        <form method="post">
+                            <div class="btn-filter-tabela btn-filter1 <?php echo $select1; ?>">
+                                <i><?php echo Icon::$seta ?></i>
+                                <input type="submit" name="todos" value="Todos">
+                            </div>
+                            <div class="btn-filter-tabela btn-filter2 <?php echo $select2; ?>">
+                                <i><?php echo Icon::$seta ?></i>
+                                <input type="submit" name="porAgendar" value="por Agendar">
+                            </div>
+                            <div class="btn-filter-tabela btn-filter3 <?php echo $select3; ?>">
+                                <i><?php echo Icon::$seta ?></i>
+                                <input type="submit" name="agendados" value="Agendados">
+                            </div>
+                            <div class="btn-filter-tabela btn-filter4 <?php echo $select4; ?>">
+                                <i><?php echo Icon::$seta ?></i>
+                                <input type="submit" name="visitaConcluida" value="Visita Concluída">
+                            </div>
+                            
+                        </form>
                     </div><!-- opcoes-relatorio-filter -->
                     <a href="<?php echo INCLUDE_PATH_PANEL; ?>export/gerar-relatorio-excel" class="gerar">Gerar Relatório</a>
                 </div><!-- opção Relatório -->

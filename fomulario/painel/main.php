@@ -11,7 +11,10 @@
         isset($_POST['visita_concluida']) ||
         isset($_POST['reagendar']) ||
         isset($_GET['pagina']) ||
-        isset($_GET['relatorio'])){
+        isset($_POST['todos']) ||
+        isset($_POST['porAgendar']) ||
+        isset($_POST['agendados']) ||
+        isset($_POST['visitaConcluida'])){
         $classAnimateHeader = '';
         $classAnimateInicial = '';
     }
