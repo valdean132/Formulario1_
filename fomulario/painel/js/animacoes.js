@@ -98,18 +98,16 @@ $(function(){
 
 	/* Carregamento de paginção dinâmico */
 	function carregamentoPaginacao(){
-		$('.lista-paginacao-wrapper [realtime]').click(function(){
+		$('.lista-paginacao-wrapper a').click(function(){
 			var container = $('.tbody-agendados');
 			var pagina = $(this).attr('realtime');
 
-			console.log(pagina);
 			
-			$.ajax({
-				url: include_path_painel+'pages/relatorio'+pagina,
-				success: function(result){
-					container.html(result);
-				}
+			$.post(include_path_painel+'filter/paginacao.php', {pagina: pagina}, function(data){
+				// container.html(data);
+				alert(data)
 			});
+			
 			
 			return false;
 		});
@@ -205,7 +203,7 @@ $(function(){
 
 	/* Chamando Funções */
 	// carregamentoDimanico();
-	// carregamentoPaginacao();
+	carregamentoPaginacao();
 	filterTable();
 	showDivWrapper();
 	showOpcoes();

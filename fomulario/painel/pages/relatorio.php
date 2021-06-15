@@ -190,6 +190,7 @@
                     
                         <div class="lista-paginacao">
                             <div class="lista-paginacao-wrapper">
+                                <!--
                                 <?php
                                     if($pagina == 1){
                                         echo "<a class='active-button-paginacao disabled'>Primeira</a>";
@@ -201,7 +202,7 @@
                                     for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
                                         if($pag_ant >= 1){
                                             if($pag_ant == 1){
-                                                echo "<a realtime='?pagina=1' href='relatorio?pagina=1'>$pag_ant</a>";
+                                                echo "<a realtime='?pagina=1' href='?pagina=1'>$pag_ant</a>";
                                             }else{
                                                 echo "<a realtime='?pagina=$pag_ant' href='relatorio?pagina=$pag_ant'>$pag_ant</a>";
                                             }
@@ -222,6 +223,41 @@
                                     }else{
                                         echo "<a realtime='?pagina=".($pagina + 1)."' href='relatorio?pagina=".($pagina + 1)."'>Next <i>".Icon::$arowSeta."</i></a>";
                                         echo "<a realtime='?pagina=$quantidade_pg' href='relatorio?pagina=$quantidade_pg'>Ultima</a>";
+                                    }
+                                ?>
+                                -->
+                                <?php
+                                    if($pagina == 1){
+                                        echo "<a class='active-button-paginacao disabled'>Primeira</a>";
+                                        echo "<a class='active-button-paginacao disabled'><i>".Icon::$arowSeta."</i> Prev</a>";
+                                    }else{
+                                        echo "<a realtime='1' href='relatorio?pagina=1'>Primeira</a>";
+                                        echo "<a realtime='".($pagina - 1)."' href='relatorio?pagina=".($pagina - 1)."'><i>".Icon::$arowSeta."</i> Prev</a>";
+                                    }
+                                    for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
+                                        if($pag_ant >= 1){
+                                            if($pag_ant == 1){
+                                                echo "<a realtime='1' href='?pagina=1'>$pag_ant</a>";
+                                            }else{
+                                                echo "<a realtime='$pag_ant' href='relatorio?pagina=$pag_ant'>$pag_ant</a>";
+                                            }
+                                        }
+                                        
+                                    }
+                                    echo "<a class='active-button-paginacao disabled'>$pagina</a>"; 
+                                    for($pag_post = $pagina + 1; $pag_post <= $pagina + $max_links; $pag_post++){
+                                        if($pag_post <= $quantidade_pg){
+                                            echo "<a realtime='$pag_post' href='relatorio?pagina=$pag_post'>$pag_post</a>";
+                                        }
+                                        
+                                    }
+
+                                    if($pagina == $quantidade_pg){
+                                        echo "<a class='active-button-paginacao disabled'>Next <i>".Icon::$arowSeta."</i></a>";
+                                        echo "<a class='active-button-paginacao disabled'>Ultima</a>";
+                                    }else{
+                                        echo "<a realtime='".($pagina + 1)."' href='relatorio?pagina=".($pagina + 1)."'>Next <i>".Icon::$arowSeta."</i></a>";
+                                        echo "<a realtime='$quantidade_pg' href='relatorio?pagina=$quantidade_pg'>Ultima</a>";
                                     }
                                 ?>
                             </div><!-- lista-paginacao-wrapper -->
@@ -461,7 +497,7 @@
                                 } 
                             ?>
                         </div><!-- Form-Group-agend-Tipo-Ajuda -->
-
+                        <!-- Retomar daqui -->
                         <div class="form-group-agend necessidade disabled">
                             <?php if($value['necessidade'] == ''){?>
                                 <div class="null-necessidade">
