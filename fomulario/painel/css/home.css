@@ -201,7 +201,14 @@ section.button-list .btn-list.anm-btn-list-right{
 /* ** */
 
 /* Form Agend */
-
+.filter-popup{
+    width: 95%;
+    height: 93%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
 .form-agend{
     display: none;
     width: 95%;
@@ -212,8 +219,16 @@ section.button-list .btn-list.anm-btn-list-right{
     position: relative;
     text-align: center;
 }
+.filter-popup .form-agend{
+    width: 100%;
+    height: 100%;
+}
 .form-agend.animate-popup{
     display: block;
+    animation: bottom .5s;
+}
+.filter-popup.animate-popup{
+    display: flex;
     animation: bottom .5s;
 }
 .form-agend > a{

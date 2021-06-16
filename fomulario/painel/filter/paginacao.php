@@ -50,7 +50,7 @@
             $prev .= "
             <td class='column6'>
                 <div class='opcoes-wrapper'>
-                    <div class='mostrar-single btn-agendados$key' realtime='$key' title='Editar'>
+                    <div class='mostrar-single btn-agendados$key' realtime='$key' title='Visualizar ".$value['nome']."'>
                         <i>".Icon::$mostrar."</i>
                     </div><!-- Editar Single -->
                 </div><!-- opcoes-wrapper -->

@@ -157,7 +157,7 @@
                                 <th class="column6">Mais Detalhes</th>
                             </tr>
                         </thead><!-- Cabeçalho da Tabela -->
-                        <tbody class="tbody-agendados table-select-agendados    ">
+                        <tbody class="tbody-agendados table-select-agendados">
                             <?php foreach($paginacaoLimitAgendados as $key => $value){ ?>
                                 <tr>
                                     <td class="column1"><?php echo $value['id']; ?></td>
@@ -172,7 +172,7 @@
                                     <?php }?>
                                     <td class="column6">
                                         <div class="opcoes-wrapper">
-                                            <div class="mostrar-single btn-agendados<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Editar">
+                                            <div class="mostrar-single btn-agendados<?php echo $key+1;?>" realtime="<?php echo $key+1; ?>" title="Visualizar <?php echo $value['nome']; ?>">
                                                 <i><?php echo Icon::$mostrar; ?></i>
                                             </div><!-- Editar Single -->
                                         </div><!-- opcoes-wrapper -->
@@ -432,121 +432,123 @@
                 </form>
             </div><!-- Button -->
         </div><!-- Editar -->
-    <?php } foreach($paginacaoLimitAgendados as $key => $value){ ?>
-        <div class="ocultar form-agend agendados<?php echo $key+1; ?>">
-            <a href="" class="sairModal">x</a><!-- Fechar Popup -->
-            <h2>Agendamento de <?php echo $value['nome'];?></h2>
-            <form method="POST">
-                <div class="center-form">
-                    <div class="form-50">
-                        <div class="form-group-agend disabled">
-                            <label for="nome<?php echo $key+1; ?>">Nome:</label>
-                            <h4><?php echo $value['nome'];?></h4>
-                            <input type="hidden" id="nome<?php echo $key+1; ?>" name="nome" required value="<?php echo $value['nome'];?>">
-                        </div><!-- Form-Group-agend-Nome -->
-        
-                        <div class="form-group-agend disabled">
-                            <label for="email<?php echo $key+1; ?>">E-mail:</label>
-                            <h4><?php echo $value['email'];?></h4>
-                        </div><!-- Form-Group-agend-Email -->
-        
-                        <div class="form-group-agend disabled">
-                            <label for="telefone<?php echo $key+1; ?>">Celular:</label>
-                            <h4><?php echo $value['telefone'];?></h4>
-                        </div><!-- Form-Group-agend-Telefone -->
-        
-                        <div class="form-group-agend disabled">
-                            <label for="endereco<?php echo $key+1; ?>">Endereço:</label>
-                            <h4><?php echo $value['endereco'];?></h4>
-                        </div><!-- Form-Group-agend-Telefone -->
-                        
-                        <div class="form-group-agend ged disabled">
-                            <?php if($value['resp_ged'] == 'Sim'){?>
-                                <label for="">Ged:</label>
-                                <input type="text" name="" disabled value="<?php echo $value['nome_ged']; ?>">
-            
-                                <label for="endereco<?php echo $key+1; ?>">Supervisor:</label>
-                                <input type="text" name="" disabled value="<?php echo $value['nome_supervisor']; ?>">
-                            <?php }else{?>
-                                <div class="null-ged">
-                                    <p>Não Possue Ged</p>
-                                </div>
-                            <?php } ?>
-                        </div><!-- Form-Group-agend-Ged -->
-                    </div><!-- Form-50 -->
-
-                    <div class="form-50">
-                        <div class="form-group-agend disabled">
-                            <label for="">Tipos de Ajuda</label>
-                            <?php 
-                                for($i = 1; $i <= 6; $i++){
-                                    if($value["tipo_ajuda_opcao{$i}"] == ''){ 
-                            ?>
-                                        <div class="tipo-ajuda"></div><!-- Tipo Ajuda -->
-                            <?php }else{ ?>
-                                        <div class="tipo-ajuda">
-                                            <div class="tipo-ajuda-wrapper">
-                                                <div class="checkbox">
-                                                    <i><?php echo Icon::$vistos2; ?></i>
-                                                </div>
-                                                <label for=""><?php echo $value["tipo_ajuda_opcao{$i}"] ?></label>
-                                            </div><!-- Tipo Ajuda Wrapper -->
-                                        </div><!-- Tipo Ajuda -->
-                            <?php
-                                    }
-                                } 
-                            ?>
-                        </div><!-- Form-Group-agend-Tipo-Ajuda -->
-                        <!-- Retomar daqui -->
-                        <div class="form-group-agend necessidade disabled">
-                            <?php if($value['necessidade'] == ''){?>
-                                <div class="null-necessidade">
-                                    <p>Não Possue necessidade</p>
-                                </div>
-                            <?php }else{?>
-                                <label for="">Necessidade:</label>
-                                <h4><?php echo $value['necessidade']; ?></h4>
-                            <?php } ?>
-                        </div><!-- Form-Group-agend-Ged -->
-                        <?php if($value['situacao_agendamento'] == strtoupper('s')){ ?>
-                            <div class="form-group-agend disabled">
-                                <label for="data-agend<?php echo $key+1; ?>">Data de Consulta:</label>
-                                <?php
-                                    $datetimeLocal = explode(' ', date('Y-m-d H:i:s', strtotime($value['data_agendamento'])));
-                                    $datetimeLocalAgendado = $datetimeLocal[0].'T'.$datetimeLocal[1];
-                                ?>
-                                <input type="datetime-local" disabled value="<?php echo $datetimeLocalAgendado; ?>" name="data-agend" required id="data-agend<?php echo $key+1; ?>">
-                            </div><!-- Form-Group-data-agend -->
-
-                            <div class="form-group-agend disabled">
-                                <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
-                                <input type="text" name="nome-profissional" disabled value="<?php echo $value['nome_profissional']; ?>" id="nome-profissional<?php echo $key+1; ?>">
-                            </div><!-- Form-Group-data-agend -->
-                        <?php if($value['visita_concluida'] == strtoupper('s')){ ?>
-                            <div class="form-group-agend disabled">
-                                <label for="Visitado<?php echo $key+1; ?>">Visitou?</label>
-                                <div class="box-form-resp">
-                                    <input id="s<?php echo $key+1; ?>" type="radio" name="resp_visita" value="2" checked>
-                                    <label for="s<?php echo $key+1; ?>">Sim</label>
-                                </div>
-                            </div><!-- Form-Group-data-agend -->
-                        <?php }else{ ?>
-                            <div class="form-group-agend disabled">
-                                <label for="Visitado<?php echo $key+1; ?>">Visitou?</label>
-                                <div class="box-form-resp">
-                                    <input id="s<?php echo $key+1; ?>" type="radio" name="resp_visita" value="2" checked>
-                                    <label for="s<?php echo $key+1; ?>">Não</label>
-                                </div>
-                            </div><!-- Form-Group-data-agend -->
-                        <?php }
-                            }
-                        ?>
-                    </div><!-- Form-50 -->
-                </div><!-- center-form -->
-                <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
-                <!-- <input type="submit" value="Reagendar" name="reagendar"> -->
-            </form><!-- Form -->
-        </div><!-- Form Agend -->
     <?php } ?>
+    <div class="ocultar filter-popup">
+        <?php foreach($paginacaoLimitAgendados as $key => $value){ ?>
+            <div class="ocultar form-agend agendados<?php echo $key+1; ?>">
+                <a href="" class="sairModal">x</a><!-- Fechar Popup -->
+                <h2>Agendamento de <?php echo $value['nome'];?></h2>
+                <form method="POST">
+                    <div class="center-form">
+                        <div class="form-50">
+                            <div class="form-group-agend disabled">
+                                <label for="nome<?php echo $key+1; ?>">Nome:</label>
+                                <h4><?php echo $value['nome'];?></h4>
+                                <input type="hidden" id="nome<?php echo $key+1; ?>" name="nome" required value="<?php echo $value['nome'];?>">
+                            </div><!-- Form-Group-agend-Nome -->
+            
+                            <div class="form-group-agend disabled">
+                                <label for="email<?php echo $key+1; ?>">E-mail:</label>
+                                <h4><?php echo $value['email'];?></h4>
+                            </div><!-- Form-Group-agend-Email -->
+            
+                            <div class="form-group-agend disabled">
+                                <label for="telefone<?php echo $key+1; ?>">Celular:</label>
+                                <h4><?php echo $value['telefone'];?></h4>
+                            </div><!-- Form-Group-agend-Telefone -->
+            
+                            <div class="form-group-agend disabled">
+                                <label for="endereco<?php echo $key+1; ?>">Endereço:</label>
+                                <h4><?php echo $value['endereco'];?></h4>
+                            </div><!-- Form-Group-agend-Telefone -->
+                            
+                            <div class="form-group-agend ged disabled">
+                                <?php if($value['resp_ged'] == 'Sim'){?>
+                                    <label for="">Ged:</label>
+                                    <input type="text" name="" disabled value="<?php echo $value['nome_ged']; ?>">
+                
+                                    <label for="endereco<?php echo $key+1; ?>">Supervisor:</label>
+                                    <input type="text" name="" disabled value="<?php echo $value['nome_supervisor']; ?>">
+                                <?php }else{?>
+                                    <div class="null-ged">
+                                        <p>Não Possue Ged</p>
+                                    </div>
+                                <?php } ?>
+                            </div><!-- Form-Group-agend-Ged -->
+                        </div><!-- Form-50 -->
+
+                        <div class="form-50">
+                            <div class="form-group-agend disabled">
+                                <label for="">Tipos de Ajuda</label>
+                                <?php 
+                                    for($i = 1; $i <= 6; $i++){
+                                        if($value["tipo_ajuda_opcao{$i}"] == ''){ 
+                                ?>
+                                            <div class="tipo-ajuda"></div><!-- Tipo Ajuda -->
+                                <?php }else{ ?>
+                                            <div class="tipo-ajuda">
+                                                <div class="tipo-ajuda-wrapper">
+                                                    <div class="checkbox">
+                                                        <i><?php echo Icon::$vistos2; ?></i>
+                                                    </div>
+                                                    <label for=""><?php echo $value["tipo_ajuda_opcao{$i}"] ?></label>
+                                                </div><!-- Tipo Ajuda Wrapper -->
+                                            </div><!-- Tipo Ajuda -->
+                                <?php
+                                        }
+                                    } 
+                                ?>
+                            </div><!-- Form-Group-agend-Tipo-Ajuda -->
+                            <!-- Retomar daqui -->
+                            <div class="form-group-agend necessidade disabled">
+                                <?php if($value['necessidade'] == ''){?>
+                                    <div class="null-necessidade">
+                                        <p>Não Possue necessidade</p>
+                                    </div>
+                                <?php }else{?>
+                                    <label for="">Necessidade:</label>
+                                    <h4><?php echo $value['necessidade']; ?></h4>
+                                <?php } ?>
+                            </div><!-- Form-Group-agend-Ged -->
+                            <?php if($value['situacao_agendamento'] == strtoupper('s')){ ?>
+                                <div class="form-group-agend disabled">
+                                    <label for="data-agend<?php echo $key+1; ?>">Data de Consulta:</label>
+                                    <?php
+                                        $datetimeLocal = explode(' ', date('Y-m-d H:i:s', strtotime($value['data_agendamento'])));
+                                        $datetimeLocalAgendado = $datetimeLocal[0].'T'.$datetimeLocal[1];
+                                    ?>
+                                    <input type="datetime-local" disabled value="<?php echo $datetimeLocalAgendado; ?>" name="data-agend" required id="data-agend<?php echo $key+1; ?>">
+                                </div><!-- Form-Group-data-agend -->
+
+                                <div class="form-group-agend disabled">
+                                    <label for="nome-profissional<?php echo $key+1; ?>">Profissional Qualificado:</label>
+                                    <input type="text" name="nome-profissional" disabled value="<?php echo $value['nome_profissional']; ?>" id="nome-profissional<?php echo $key+1; ?>">
+                                </div><!-- Form-Group-data-agend -->
+                            <?php if($value['visita_concluida'] == strtoupper('s')){ ?>
+                                <div class="form-group-agend disabled">
+                                    <label for="Visitado<?php echo $key+1; ?>">Visitou?</label>
+                                    <div class="box-form-resp">
+                                        <input id="s<?php echo $key+1; ?>" type="radio" name="resp_visita" value="2" checked>
+                                        <label for="s<?php echo $key+1; ?>">Sim</label>
+                                    </div>
+                                </div><!-- Form-Group-data-agend -->
+                            <?php }else{ ?>
+                                <div class="form-group-agend disabled">
+                                    <label for="Visitado<?php echo $key+1; ?>">Visitou?</label>
+                                    <div class="box-form-resp">
+                                        <input id="n<?php echo $key+1; ?>" type="radio" name="resp_visita" value="2" checked>
+                                        <label for="n<?php echo $key+1; ?>">Não</label>
+                                    </div>
+                                </div><!-- Form-Group-data-agend -->
+                            <?php }
+                                }
+                            ?>
+                        </div><!-- Form-50 -->
+                    </div><!-- center-form -->
+                    <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                </form><!-- Form -->
+            </div><!-- Form Agend -->
+        <?php } ?>
+    </div>
     <div class="contador" realtime="<?php echo $totalUser + $paginacaoLimitAgendadosCont; ?>"></div>
 </div><!-- popup -->

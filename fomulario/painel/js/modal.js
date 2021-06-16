@@ -88,13 +88,16 @@ $(function(){
 			var btnAgendados = $('.btn-agendados'+cont);
 			
 			btnAgendados.click(function(){
+				alert('deu certo');
 				var btnAgendadosRealtime = $(this).attr('realtime')
 				var agendados = $('.agendados'+btnAgendadosRealtime);
+				var agendadoFilter = $('.filter-popup');
 				
 					popup.css('display', 'flex');
 					setTimeout(() =>{
 						popup.css('opacity', 1);
 						agendados.addClass('animate-popup');
+						agendadoFilter.addClass('animate-popup');
 					}, 500);
 				});
 			

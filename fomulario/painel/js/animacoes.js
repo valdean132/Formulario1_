@@ -100,12 +100,18 @@ $(function(){
 	function carregamentoPaginacao(){
 		$('.lista-paginacao-wrapper a').click(function(){
 			var container = $('.tbody-agendados');
+			var popupFilter = $('.filter-popup');
 			var pagina = $(this).attr('realtime');
 
 			
 			$.post(include_path_painel+'filter/paginacao.php', {pagina: pagina}, function(data){
-				// container.html(data);
-				alert(data)
+				container.html(data);
+				// alert(data)
+			});
+
+			$.post(include_path_painel+'filter/pup-limit.php', {pagina: pagina}, function(data){
+				popupFilter.html(data);
+				// alert(data)
 			});
 			
 			
