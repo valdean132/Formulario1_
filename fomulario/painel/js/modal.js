@@ -88,7 +88,7 @@ $(function(){
 			var btnAgendados = $('.btn-agendados'+cont);
 			
 			btnAgendados.click(function(){
-				alert('deu certo');
+				// alert('deu certo');
 				var btnAgendadosRealtime = $(this).attr('realtime')
 				var agendados = $('.agendados'+btnAgendadosRealtime);
 				var agendadoFilter = $('.filter-popup');

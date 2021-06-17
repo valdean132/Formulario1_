@@ -200,13 +200,16 @@ $(function(){
 			btnFilterAll.removeClass('select');
 			$(this).addClass('select');
 			
-
-
-
 			// return false;
 		});
 	}
 
+	$('.reload').submit(function(){
+		setTimeout(function(){
+			location.reload(true);
+		}, 2000);
+	})
+	
 	/* Chamando Funções */
 	// carregamentoDimanico();
 	carregamentoPaginacao();

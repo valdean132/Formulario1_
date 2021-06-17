@@ -32,27 +32,10 @@
                 }else{
                     $resp_visita = strtoupper('n');
                     if($usuario->visitaForm($resp_visita, $id)){
-                        Painel::alert('error', '"'.$nome.'" não obteve visita!!!', 'Atualize a página!');
+                        Painel::alert('sucesso', '"'.$nome.'" não obteve visita!!!', 'Atualize a página!');
                     }
                 }
         
-            }
-            if(isset($_POST['reagendar'])){
-                $dataAgd = explode('T', $_POST['data-agend']);
-        
-                $id = $_POST['id'];
-                $nome = $_POST['nome'];
-                $dataAgendamento = $dataAgd[0].' '.$dataAgd[1].':00';
-                $momentoAgendamento = date('Y-m-d H:i:s');
-                $nomeProfissional = $_POST['nome-profissional'];
-                $situacaoAgendamento = strtoupper('s');
-                $responAgendamento = $_SESSION['nome'];
-        
-                if($usuario->agendForm($dataAgendamento, $momentoAgendamento, $nomeProfissional, $situacaoAgendamento, $responAgendamento, $id)){
-                    Painel::alert('sucesso', '"'.$nome.'" foi reagendado SUCESSO!!!', 'Atualize a página!');
-                }else{
-                    Painel::alert('error', 'Não foi possivel reagendar "'.$nome.'" Por favor tente Novamente', '');
-                }
             }
         ?>
     </div><!-- Alert-home -->
@@ -235,7 +218,7 @@
                     </div><!-- Form-50 -->
                 </div><!-- center-form -->
                 <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
-                <input type="submit" value="Visita concluida" name="visita_concluida">
+                <input type="submit" class="reload" value="Visita concluida" name="visita_concluida">
             </form><!-- Form -->
         </div><!-- Form Agend -->
     <?php } foreach($visitados as $key => $value){ ?>
@@ -341,9 +324,13 @@
                     </div><!-- Form-50 -->
                 </div><!-- center-form -->
                 <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
-                <input type="submit" value="Visita concluida" name="visita_concluida">
+                <input type="submit" class="reload" value="Visita concluida" name="visita_concluida">
             </form><!-- Form -->
         </div><!-- Form Agend -->
     <?php } ?>
     <div class="contador" realtime="<?php echo count($visitas_pendentes)+count($visitados);?>"></div>
 </div><!-- Popup -->
+
+<script>
+    document.querySelector('.reload')
+</script>

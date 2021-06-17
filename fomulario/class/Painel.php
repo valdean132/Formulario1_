@@ -39,6 +39,14 @@
         public static function alert($type, $men, $span){
             if($type == 'sucesso'){
                 echo '<div class="box-alert '.$type.'"><i>'.Icon::$checked.'</i><p>'.$men.'<span>'.$span.'</span></p></div>';
+                echo "<script>
+                        setTimeout(()=>{
+                            // location.reload(true);
+                            window.location.href = '';
+                            
+                        }, 2000);
+                    </script>";
+                // echo "<meta HTTP-EQUIV='refresh' CONTENT='2'>";
             }else if($type == 'error'){
                 echo '<div class="box-alert '.$type.'"><i>'.Icon::$closeError.'</i><p>'.$men.'<span>'.$span.'</span></p></div>';
             }
