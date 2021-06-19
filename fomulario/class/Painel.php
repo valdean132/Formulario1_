@@ -36,20 +36,26 @@
         }
 
         // Verificando se foi Enviado Com sucesso
-        public static function alert($type, $men, $span){
+        public static function alert($type, $men = null, $span = null){
             if($type == 'sucesso'){
                 echo '<div class="box-alert '.$type.'"><i>'.Icon::$checked.'</i><p>'.$men.'<span>'.$span.'</span></p></div>';
-                echo "<script>
-                        setTimeout(()=>{
-                            // location.reload(true);
-                            window.location.href = '';
-                            
-                        }, 2000);
-                    </script>";
                 // echo "<meta HTTP-EQUIV='refresh' CONTENT='2'>";
+                return $type;
             }else if($type == 'error'){
                 echo '<div class="box-alert '.$type.'"><i>'.Icon::$closeError.'</i><p>'.$men.'<span>'.$span.'</span></p></div>';
             }
+        }
+        public static function carragar(){
+            // echo "<script>
+            
+
+                    
+            //         // window.location.href = ".file_get_contents('php://input')."
+            //         console.log(".file_get_contents('php://input').");
+            //     </script>";
+            // echo "<meta HTTP-EQUIV='Refresh' CONTENT='3;URL=".INCLUDE_PATH_PANEL.htmlentities(urlencode(file_get_contents('php://input')));
+            
+            echo INCLUDE_PATH_PANEL.htmlentities(urlencode(file_get_contents('php://input')));
         }
         
         // Validação de Imagens

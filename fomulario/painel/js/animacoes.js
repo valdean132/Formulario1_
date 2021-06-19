@@ -204,11 +204,17 @@ $(function(){
 		});
 	}
 
-	$('.reload').submit(function(){
-		setTimeout(function(){
-			location.reload(true);
-		}, 2000);
-	})
+	// if (window.performance) {
+	// 	console.info("window.performance works fine on this browser");
+	// }else{
+	// 	console.info("nada");
+
+	// }
+		// if (performance.navigation.type == 0) {
+		//   console.info( "This page is reloaded" );
+		// } else {
+		//   console.info( "This page is not reloaded");
+		// }
 	
 	/* Chamando Funções */
 	// carregamentoDimanico();
