@@ -5,7 +5,7 @@
     $anmTextBanner = 'anm-text-banner';
     $anmBtnListLeft = 'anm-btn-list-left';
     $anmBtnListRight = 'anm-btn-list-right';
-    if(isset($_POST['agendar']) || isset($_POST['reagendar'])){
+    if(isset($_POST['agendar']) || isset($_POST['reagendar']) || isset($_GET['sucesso'])){
         $anmTextBanner = '';
         $anmBtnListLeft = '';
         $anmBtnListRight = '';
@@ -30,6 +30,7 @@
         
                 if($usuario->agendForm($dataAgendamento, $momentoAgendamento, $nomeProfissional, $situacaoAgendamento, $responAgendamento, $id)){
                     Painel::alert('sucesso', '"'.$nome.'" foi Agendado SUCESSO!!!', 'Atualize a página!');
+                    Painel::carragar();
                 }else{
                     Painel::alert('error', 'Não foi possivel Agendar "'.$nome.'" Por favor tente Novamente', '');
                 }

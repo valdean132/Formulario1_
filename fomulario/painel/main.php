@@ -11,6 +11,7 @@
         isset($_POST['visita_concluida']) ||
         isset($_POST['reagendar']) ||
         isset($_GET['pagina']) ||
+        isset($_GET['sucesso']) ||
         isset($_POST['todos']) ||
         isset($_POST['porAgendar']) ||
         isset($_POST['agendados']) ||

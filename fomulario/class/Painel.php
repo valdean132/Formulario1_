@@ -46,16 +46,14 @@
             }
         }
         public static function carragar(){
-            // echo "<script>
+            echo "<script>
+                    setTimeout(()=>{
+                        window.location.href = '?sucesso';
+                    },2000);
+                </script>";
+            // echo "<meta HTTP-EQUIV='Refresh' CONTENT='3;URL=".$url."')";
             
-
-                    
-            //         // window.location.href = ".file_get_contents('php://input')."
-            //         console.log(".file_get_contents('php://input').");
-            //     </script>";
-            // echo "<meta HTTP-EQUIV='Refresh' CONTENT='3;URL=".INCLUDE_PATH_PANEL.htmlentities(urlencode(file_get_contents('php://input')));
-            
-            echo INCLUDE_PATH_PANEL.htmlentities(urlencode(file_get_contents('php://input')));
+            // include
         }
         
         // Validação de Imagens

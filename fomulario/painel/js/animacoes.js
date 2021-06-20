@@ -204,17 +204,17 @@ $(function(){
 		});
 	}
 
-	// if (window.performance) {
-	// 	console.info("window.performance works fine on this browser");
-	// }else{
-	// 	console.info("nada");
+	// if(window.performance.getEntriesByType("navigation")){
+	// 	p = window.performance.getEntriesByType("navigation")[0].type;
 
+	// 	if(p == 'navigate'){
+	// 		console.log('teste');
+	// 		setTimeout(()=>{
+	// 			window.location.reload();
+	// 			window.location.href = include_path_painel
+	// 		},2000);
+	// 	}
 	// }
-		// if (performance.navigation.type == 0) {
-		//   console.info( "This page is reloaded" );
-		// } else {
-		//   console.info( "This page is not reloaded");
-		// }
 	
 	/* Chamando Funções */
 	// carregamentoDimanico();

@@ -55,7 +55,7 @@ table thead{
 table thead tr {
   height: 40px;
   background: #36304a;
-  animation: right 1s;
+  /* animation: right 1s; */
   border-radius: 10px !important;
 }
 table tbody tr {
@@ -89,7 +89,7 @@ table td.r, table th.r {
 tbody tr:nth-child(even) {
   color: white;
   background-color: #50c886;
-  animation: right 1s;
+  /* animation: right 1s; */
 }
 tbody tr {
   /* font-family: OpenSans-Regular; */
@@ -98,7 +98,7 @@ tbody tr {
   line-height: 1.2;
   font-weight: unset;
   transition: .2s;
-  animation: left 1s;
+  /* animation: left 1s; */
 }
 
 tbody tr:hover {

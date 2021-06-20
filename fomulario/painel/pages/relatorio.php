@@ -10,21 +10,9 @@
     $divWrapperActiveEditar = '';
     $activeButtonPaginacao = '';
     
-    if(isset($_POST['acao']) ||  
-        isset($_GET['pagina']) ||
-        isset($_GET['relatorio']) ||
-        isset($_POST['todos']) ||
-        isset($_POST['porAgendar']) ||
-        isset($_POST['agendados']) ||
-        isset($_POST['visitaConcluida'])){
-        $classAnimate = '';
-        $styleRotate = 'style="transform: rotate(0deg)"';
-        $borderTitle = 'border-title';
-        $divWrapperActive = 'style="display: block;"';
-        $activeButtonPaginacao = 'active-button-paginacao';
-    }
-    if(isset($_POST['editar'])|| 
-        isset($_POST['deletar'])){
+    if(isset($_POST['editar']) || 
+        isset($_POST['deletar']) ||
+        isset($_GET['sucesso'])){
         $classAnimate = '';
         $styleRotateEditar = 'style="transform: rotate(0deg)"';
         $borderTitleEditar = 'border-title';
@@ -32,6 +20,27 @@
         $activeButtonPaginacao = 'active-button-paginacao';
     }
 
+    if(isset($_POST['acao']) && isset($_GET['sucesso']) || isset($_POST['acao']) ||
+        isset($_GET['pagina']) && isset($_GET['sucesso']) || isset($_GET['pagina']) ||
+        isset($_GET['relatorio']) && isset($_GET['sucesso']) || isset($_GET['relatorio']) ||
+        isset($_POST['todos']) && isset($_GET['sucesso']) || isset($_POST['todos']) ||
+        isset($_POST['porAgendar']) && isset($_GET['sucesso']) || isset($_POST['porAgendar']) ||
+        isset($_POST['agendados']) && isset($_GET['sucesso']) || isset($_POST['agendados']) ||
+        isset($_POST['visitaConcluida']) && isset($_GET['sucesso']) || isset($_POST['visitaConcluida'])){
+        $classAnimate = '';
+        $styleRotate = 'style="transform: rotate(0deg)"';
+        $borderTitle = 'border-title';
+        $divWrapperActive = 'style="display: block;"';
+        $activeButtonPaginacao = 'active-button-paginacao';
+
+        $styleRotateEditar = '';
+        $borderTitleEditar = '';
+        $divWrapperActiveEditar = '';
+        $activeButtonPaginacao = '';
+        
+        
+    }
+    
     $registeredUsers = Painel::registeredUsers();
     $totalUser = count($registeredUsers);
     
@@ -290,6 +299,7 @@
                         if($usuario->deleteUser($user)){
                             Painel::deleteFile($img);
                             Painel::alert('sucesso', 'Usuário "'.$nome.'" foi removido SUCESSO!!!', 'Atualize a página');
+                            Painel::carragar();
                         }else{
                             Painel::alert('error', 'Ocorreu um erro ou deletar o usuário "'.$nome.'"','Por favor, tente novamente');
                         }
@@ -305,6 +315,7 @@
                         if($usuario->userExists($userEditar) == $userAtual || !$usuario->userExists($userEditar)){
                             if($usuario->updateUserAdmin($userEditar, $passwordEditar, $cargoEditar, $userAtual)){
                                 Painel::alert('sucesso', '"'.$nome.'" foi atualizado com Sucesso!', 'Atualize a Página');
+                                Painel::carragar();
                             }else{
                                 Painel::alert('error', 'Ocorreu um erro ao Atualizar "'.$nome.'"...', 'Por favor, tente novamente');
                             }

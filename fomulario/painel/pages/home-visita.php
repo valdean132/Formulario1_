@@ -5,7 +5,7 @@
     $anmTextBanner = 'anm-text-banner';
     $anmBtnListLeft = 'anm-btn-list-left';
     $anmBtnListRight = 'anm-btn-list-right';
-    if(isset($_POST['visita_concluida'])){
+    if(isset($_POST['visita_concluida']) || isset($_GET['sucesso'])){
         $anmTextBanner = '';
         $anmBtnListLeft = '';
         $anmBtnListRight = '';
@@ -25,7 +25,7 @@
                 if($_POST['resp_visita'] == 2){
                     $resp_visita = strtoupper('s');
                     if($usuario->visitaForm($resp_visita, $id)){
-                        Painel::alert('sucesso', 'Processo de visita de "'.$nome.'" foi concluída com SUCESSO!!!', 'Atualize a página!');
+                        Painel::alert('sucesso', 'Processo de visita de "'.$nome.'" foi concluída com SUCESSO!!!', '');
                         Painel::carragar();
                     }else{
                         Painel::alert('error', 'Erro ao concluir visita de "'.$nome.'" Por favor tente Novamente', '');
@@ -33,7 +33,7 @@
                 }else{
                     $resp_visita = strtoupper('n');
                     if($usuario->visitaForm($resp_visita, $id)){
-                        Painel::alert('sucesso', '"'.$nome.'" não obteve visita!!!', 'Atualize a página!');
+                        Painel::alert('sucesso', '"'.$nome.'" não obteve visita!!!', '');
                         Painel::carragar();
                     }
                 }
