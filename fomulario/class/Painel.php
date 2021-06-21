@@ -45,16 +45,6 @@
                 echo '<div class="box-alert '.$type.'"><i>'.Icon::$closeError.'</i><p>'.$men.'<span>'.$span.'</span></p></div>';
             }
         }
-        public static function carragar(){
-            echo "<script>
-                    setTimeout(()=>{
-                        window.location.href = '?sucesso';
-                    },2000);
-                </script>";
-            // echo "<meta HTTP-EQUIV='Refresh' CONTENT='3;URL=".$url."')";
-            
-            // include
-        }
         
         // Validação de Imagens
         public static function imgValid($imagem){

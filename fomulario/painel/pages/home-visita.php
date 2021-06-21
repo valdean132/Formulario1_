@@ -26,7 +26,8 @@
                     $resp_visita = strtoupper('s');
                     if($usuario->visitaForm($resp_visita, $id)){
                         Painel::alert('sucesso', 'Processo de visita de "'.$nome.'" foi concluída com SUCESSO!!!', '');
-                        Painel::carragar();
+                        $visitas_pendentes = Agendamentos::totalAgendamentos($_SESSION['nome']);
+                        $visitados = Agendamentos::visitados($_SESSION['nome']);
                     }else{
                         Painel::alert('error', 'Erro ao concluir visita de "'.$nome.'" Por favor tente Novamente', '');
                     }
@@ -34,7 +35,8 @@
                     $resp_visita = strtoupper('n');
                     if($usuario->visitaForm($resp_visita, $id)){
                         Painel::alert('sucesso', '"'.$nome.'" não obteve visita!!!', '');
-                        Painel::carragar();
+                        $visitas_pendentes = Agendamentos::totalAgendamentos($_SESSION['nome']);
+                        $visitados = Agendamentos::visitados($_SESSION['nome']);
                     }
                 }
         
