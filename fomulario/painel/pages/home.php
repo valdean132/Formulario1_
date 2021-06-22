@@ -49,6 +49,8 @@
         
                 if($usuario->agendForm($dataAgendamento, $momentoAgendamento, $nomeProfissional, $situacaoAgendamento, $responAgendamento, $id)){
                     Painel::alert('sucesso', '"'.$nome.'" foi reagendado SUCESSO!!!', 'Atualize a página!');
+                    $porAgendar = Agendamentos::porAgendar();
+                    $agendados = Agendamentos::agendados($_SESSION['nome']);
                 }else{
                     Painel::alert('error', 'Não foi possivel reagendar "'.$nome.'" Por favor tente Novamente', '');
                 }
