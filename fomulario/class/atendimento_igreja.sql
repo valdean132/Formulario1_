@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `res_form` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `momento_registro` datetime NOT NULL,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -55,10 +55,10 @@ CREATE TABLE `res_form` (
 --
 
 INSERT INTO `res_form` (`id`, `momento_registro`, `nome`, `email`, `telefone`, `endereco`, `resp_ged`, `nome_ged`, `nome_supervisor`, `tipo_ajuda_opcao1`, `tipo_ajuda_opcao2`, `tipo_ajuda_opcao3`, `tipo_ajuda_opcao4`, `tipo_ajuda_opcao5`, `tipo_ajuda_opcao6`, `necessidade`, `data_agendamento`, `nome_profissional`, `situacao_agendamento`, `respon_agendamento`) VALUES
-(2, '2021-05-05 13:33:00', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', '46, 46 - 46', 'Sim', 'nome', 'nome', '', '', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'aaaaaa', '', '', 'Não', ''),
-(3, '2021-05-05 13:36:25', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', '46, 46 - 46', 'Sim', 'nome', 'nome', '', '', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'aaaaaa', '', '', 'Não', ''),
-(4, '2021-05-05 13:37:50', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', 'aa, aa - aaa', 'Não', '', '', '', 'Apoio Psicológico (Estou de luto, depressão, ansiedade)', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', 'aaaaa', 'aaaaa', '', '', 'Não', ''),
-(5, '2021-05-06 16:29:15', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', 'Beco Benayon, 162 - Compensa 2', 'Sim', 'Getsamane', 'Postor Marcos', 'Apoio Espiritual (Pedido de oração, palavra do pastor, leitura da palavra de Deus)', 'Apoio Psicológico (Estou de luto, depressão, ansiedade)', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'Sem nada a declarar', '', '', 'Não', '');
+(null, '2021-05-05 13:33:00', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', '46, 46 - 46', 'Sim', 'nome', 'nome', '', '', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'aaaaaa', '', '', 'Não', ''),
+(null, '2021-05-05 13:36:25', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', '46, 46 - 46', 'Sim', 'nome', 'nome', '', '', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'aaaaaa', '', '', 'Não', ''),
+(null, '2021-05-05 13:37:50', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', 'aa, aa - aaa', 'Não', '', '', '', 'Apoio Psicológico (Estou de luto, depressão, ansiedade)', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', 'aaaaa', 'aaaaa', '', '', 'Não', ''),
+(null, '2021-05-06 16:29:15', 'Valdean Souza', 'valdeanpds@gmail.com', '92992961661', 'Beco Benayon, 162 - Compensa 2', 'Sim', 'Getsamane', 'Postor Marcos', 'Apoio Espiritual (Pedido de oração, palavra do pastor, leitura da palavra de Deus)', 'Apoio Psicológico (Estou de luto, depressão, ansiedade)', 'Ajuda Social (alimentícias, medicações, transporte para uma unidade de saúde, etc)', '', '', '', 'Sem nada a declarar', '', '', 'Não', '');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ INSERT INTO `res_form` (`id`, `momento_registro`, `nome`, `email`, `telefone`, `
 --
 
 CREATE TABLE `tb_admin.usuarios` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `user` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `cargo` int(11) NOT NULL,
@@ -80,8 +80,8 @@ CREATE TABLE `tb_admin.usuarios` (
 --
 
 INSERT INTO `tb_admin.usuarios` (`id`, `user`, `password`, `cargo`, `nome`, `img`) VALUES
-(25, 'valdean', '1598753', 3, 'Valdean Souza', '60b02ffb5478f.jpeg'),
-(35, 'luh', '123456', 2, 'Luciane P. Barreto', '60b03054949f2.jpg');
+(NULL, 'valdean', '1598753', 3, 'Valdean Souza', ''),
+(NULL, 'luh', '123456', 2, 'Luciane P. Barreto', '');
 
 --
 -- Índices para tabelas despejadas
